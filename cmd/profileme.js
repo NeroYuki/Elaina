@@ -77,16 +77,16 @@ module.exports.run = (client, message, args) => {
   						"description": "**Username: **"+name+"\n**Rank**: "+rank,
  		 				"color": 8102199,
   						"footer": {
-    					"icon_url": "https://s9.postimg.org/xxwhjp7qn/JPEG_20171205_001507.jpg",
-    					"text": "Elaina owo"
+    						"icon_url": "https://img.frl/n3gib",
+    						"text": "Elaina owo"
   						},
   							"thumbnail": {
-    						"url": avalink
+    							"url": avalink
   						},
   						"author": {
-    						"name": "osu!droid profile (click icon to view profile)",
+    						"name": "osu!droid profile (click here to view profile)",
 							"url": "http://ops.dgsrz.com/profile.php?uid="+uid,
-    						"icon_url": "https://s9.postimg.org/3t80y9acf/720428b519cd53d9579d5a67a26392d5_400x400.png"
+    							"icon_url": "https://img.frl/8hquk"
   						},
   						"fields": [
     						{
