@@ -1,0 +1,22 @@
+{
+  "name": "testBot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "mybot.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node mybot.js"
+  },
+  "keywords": [
+    "discord.js"
+  ],
+  "author": "NeroYuki",
+  "license": "MIT",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.2",
+    "discord.js": "^11.1.0",
+    "http": "0.0.0",
+    "request": "^2.81.0",
+    "wajs": "0.0.17"
+  }
+}
