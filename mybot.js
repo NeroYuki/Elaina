@@ -4,9 +4,6 @@ const config = require("./config.json");
 const fs = require("fs");
 var http = require("http");
 var util = require("util");
-var wajs = require('wajs');
-var waAppId = process.env.WA_APP_ID || "WA_APPID HERE"
-var waClient = new wajs(waAppId);
 
 client.commands = new Discord.Collection();
 fs.readdir("./cmd/" , (err, files) => {
@@ -25,7 +22,6 @@ fs.readdir("./cmd/" , (err, files) => {
 	});
 });
 
-client.login(config.token);
 
 client.on("ready", () => {
     console.log("Elaina is up and running");
@@ -47,3 +43,5 @@ client.on("message", (message) => {
 		cmd.run(client, message, args);
 	}
 });
+
+client.login(process.env.BOT_TOKEN);
