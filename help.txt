@@ -1,0 +1,29 @@
+Elaina's Guide
+
+1. General
+
+&﻿help
+&ping
+&setgame (Bot Owner only)
+&setstatus (Bot Owner only)
+&say
+&sayd
+&emote <subset> <number>
+&emotelist
+&invite
+
+2. osu!droid
+
+&profilesearch <player's name - CaSe Sensitive>
+&profileid <uid>
+&recent <uid>
+&recent5 <uid>
+&userbind <uid> (use to bind user to specific uid)
+&profileme (only binded user)
+&recentme (only binded user)
+&recent5me (only binded user)
+
+3. Malody
+
+&malodyprofile <player> <mode:all|key|step|dj|catch|pad|taiko|ring>
+&malodyrecent <player> <mode> <recent limit:1-10>
