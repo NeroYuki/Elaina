@@ -77,7 +77,7 @@ module.exports.run = (client, message, args) => {
   						"description": "**Username: **"+name+"\n**Rank**: "+rank,
  		 				"color": 8102199,
   						"footer": {
-    						"icon_url": "https://img.frl/n3gib",
+    						"icon_url": "https://image.frl/p/yaa1nf94dho5f962.jpg",
     						"text": "Elaina owo"
   						},
   							"thumbnail": {
