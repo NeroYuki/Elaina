@@ -1,6 +1,6 @@
 var fs = require("fs");
 var s3fs = require('s3fs');
-s3fskey = process.env.AWS_KEY || 'X6b6M2QtVQMOJwO5l9QCpmlQ9OALv9Ei+Ma+Z7LW' 
+s3fskey = process.env.AWS_KEY
 var s3Impl = new s3fs('elaina.neroyuki', {
 	region: 'us-east-2',
 	accessKeyId: 'AKIAISUFXAETCXNWV4NA',
