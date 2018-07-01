@@ -4,6 +4,7 @@ const config = require("./config.json");
 const fs = require("fs");
 var http = require("http");
 var util = require("util");
+var s3fs = require("s3fs");
 s3fskey = process.env.AWS_KEY 
 var s3Impl = new s3fs('elaina.neroyuki', {
 	region: 'us-east-2',
