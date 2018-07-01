@@ -4,6 +4,12 @@ const config = require("./config.json");
 const fs = require("fs");
 var http = require("http");
 var util = require("util");
+s3fskey = process.env.AWS_KEY 
+var s3Impl = new s3fs('elaina.neroyuki', {
+	region: 'us-east-2',
+	accessKeyId: 'AKIAJQOLLTS3ZN6GH7OA',
+	secretAccessKey: s3fskey
+});
 
 client.commands = new Discord.Collection();
 fs.readdir("./cmd/" , (err, files) => {
@@ -25,6 +31,16 @@ fs.readdir("./cmd/" , (err, files) => {
 
 client.on("ready", () => {
     console.log("Elaina is up and running");
+	var updatedata = '';
+    	s3Impl.readFile("userbind.txt", 'utf8', function(err, data) {
+        if (err) throw err;
+        updatedata = data;
+        console.log('Downloaded, making change to file system...');
+        fs.writeFile("userbind.txt", updatedata, function(err) {
+            if (err) throw err;
+            console.log('userbind restored')
+        });
+    });
 });
 
 client.on("message", (message) => {
