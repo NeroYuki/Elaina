@@ -21,7 +21,7 @@ function convertTimeDiff(playTime) {
   year = parseInt(playTime.split(" ")[0].split("-")[0]);
   month = parseInt(playTime.split(" ")[0].split("-")[1])-1;
   day = parseInt(playTime.split(" ")[0].split("-")[2]);
-  hour = parseInt(playTime.split(" ")[1].split(":")[0]);
+  hour = parseInt(playTime.split(" ")[1].split(":")[0])+7;
   minute = parseInt(playTime.split(" ")[1].split(":")[1]);
   second = parseInt(playTime.split(" ")[1].split(":")[2]);
   var convertedTime = new Date(year, month, day, hour, minute, second);
