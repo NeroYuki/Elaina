@@ -52,7 +52,6 @@ client.on("ready", () => {
       });
   });
 });
-});
 
 client.on("message", (message) => {
     let msgArray = message.content.split(/\s+/g);
