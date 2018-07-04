@@ -12,12 +12,21 @@ module.exports.run = (client, message, args) => {
     fs.readFile("userbind.txt", 'utf8', function(err, data) {
         if (err) throw err;
         updatedata = data;
-        console.log('Loaded, uploading to cloud...');
+        console.log('userbind loaded, uploading to cloud...');
         s3Impl.writeFile("userbind.txt", updatedata, function(err) {
             if (err) throw err;
-            message.channel.send('```Backup successful!```')
+            message.channel.send('```Userbind Backup successful!```')
         });
     });
+	fs.readFile("tracking.txt", 'utf8', function(err, data) {
+      if (err) throw err;
+      updatedata = data;
+      console.log('tracking loaded, uploading to cloud...');
+      s3Impl.writeFile("tracking.txt", updatedata, function(err) {
+          if (err) throw err;
+          message.channel.send('```Tracking Backup successful!```')
+      });
+  });
 }
 
 module.exports.help = {
