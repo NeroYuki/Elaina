@@ -10,7 +10,7 @@ module.exports.run = (client, message, args) => {
 			var updatedata="";
 			let b = data.split('\n');
 			for (i=0;i<b.length;i++) {
-				if (b[i].includes(uid)) {
+				if (b[i] == uid)) {
 					b[i]=b[i].replace(uid);
                     dup=true;
                     message.channel.send("this uid has been already added");
