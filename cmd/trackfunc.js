@@ -70,7 +70,7 @@ module.exports.run = (client, message, args) => {
           if (timeDiff>600000) newplay=false
           else {
             console.log(c[playIndex]);
-            client.channels.get("461446313956081695").send("```Recent play for "+name+"\n\n"+c[playIndex]+"```");
+            client.channels.get("464102207113920524").send("```Recent play for "+name+"\n\n"+c[playIndex]+"```");
           }
         }
         playIndex++;
