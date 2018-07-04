@@ -36,12 +36,22 @@ client.on("ready", () => {
     	s3Impl.readFile("userbind.txt", 'utf8', function(err, data) {
         if (err) throw err;
         updatedata = data;
-        console.log('Downloaded, making change to file system...');
+        console.log('userbind downloaded, making change to file system...');
         fs.writeFile("userbind.txt", updatedata, function(err) {
             if (err) throw err;
             console.log('userbind restored')
         });
     });
+	s3Impl.readFile("tracking.txt", 'utf8', function(err, data) {
+      if (err) throw err;
+      updatedata = data;
+      console.log('tracking downloaded, making change to file system...');
+      fs.writeFile("tracking.txt", updatedata, function(err) {
+          if (err) throw err;
+          console.log('tracking restored')
+      });
+  });
+});
 });
 
 client.on("message", (message) => {
@@ -59,6 +69,13 @@ client.on("message", (message) => {
 	if (cmd) {
 		cmd.run(client, message, args);
 	}
+	
+	var trackingCountdown = setInterval(trackfunc,600000);
+
+  	function trackfunc () {
+    		let cmd = client.commands.get("trackfunc")
+		cmd.run(client, message, args);
+  	}
 });
 
 client.login(process.env.BOT_TOKEN);
