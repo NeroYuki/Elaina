@@ -65,16 +65,15 @@ module.exports.run = (client, message, args) => {
         b[x]=b[x].replace("<small>","\n");
         playTime = b[x].split("/")[0].replace("\n","");
         let timeDiff = convertTimeDiff(playTime);
-        console.log(timeDiff);
         c.push(b[x-5]+" - "+b[x-1]+b[x]);
         if (newplay) {
           if (timeDiff>600000) newplay=false
           else {
             console.log(c[playIndex]);
-            client.channels.get("461446313956081695").send("```Recent play for "+name+"\n\n"+c[x]+"```");
+            client.channels.get("461446313956081695").send("```Recent play for "+name+"\n\n"+c[playIndex]+"```");
           }
-          playIndex++;
         }
+        playIndex++;
       }
       if (b[x].includes('h3 m-t-xs m-b-xs')) {
         b[x]=b[x].replace('<div class="h3 m-t-xs m-b-xs">',"");
