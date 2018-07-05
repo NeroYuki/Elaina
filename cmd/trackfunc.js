@@ -30,8 +30,8 @@ function convertTimeDiff(playTime) {
   return timeDiff;
 }
 
-module.exports.run = (client, message, args) => {
-	fs.readFile("tracking.txt", 'utf8', function(err, data) {
+module.exports.run = (client) => {
+    fs.readFile("tracking.txt", 'utf8', function(err, data) {
     if (err) throw err;
     var playerlist = data.split('\n');
     console.log(playerlist);
