@@ -51,11 +51,11 @@ client.on("ready", () => {
           console.log('tracking restored')
       });
   });
-  	var trackingCountdown = setInterval(trackfunc,600000);
+  	setInterval(trackfunc,600000);
 
   	function trackfunc () {
-    		let cmd = client.commands.get("trackfunc")
-		cmd.run(client, message, args);
+    		let cmd = client.commands.get("trackfunc");
+		cmd.run(client);
   	}
 });
 
