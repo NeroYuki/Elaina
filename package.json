@@ -14,10 +14,10 @@
   "license": "MIT",
   "dependencies": {
     "cheerio": "^1.0.0-rc.2",
-    "discord.js": "^11.1.0",
+    "discord.js": "^11.3.2",
     "http": "0.0.0",
     "request": "^2.81.0",
-    "wajs": "0.0.17",
-    "s3fs": "2.5.0"
+    "s3fs": "2.5.0",
+    "wajs": "0.0.17"
   }
 }
