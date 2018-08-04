@@ -1,17 +1,17 @@
-nm1|(NM) Koronba - Iwashi ga Tsuchi kara Haete Kurunda [Sardine]|10882659
-nm2|(NM) Mami Kawada - Contrail ~Kiseki~ (Epsilon Remix) [Taeyang's Miracle]|63108212
-nm3|(NM) Brown Eyed Girls - Brave New World [-kevincela-'s Extra]|17372394
-nm4|(NM) PLight - YELLOW SPLASH!! [DSE Summertime 2016]|10625409
-hr1|(HR) kamome sano - citrus [EXTREME]|8407441
-hr2|(HR) 44teru-k - F.I [Extra445]|11006445
-hr3|(HR) Nardis - Cosmo Memory [Entelecheia]|8091894
-hd1|(HD) Memme - Barrier [Artificial]|9849442
-hd2|(HD) NICODE - The Way we Were [EXTREME]|11030446
-hd3|(HD) daniwellP - Nyanyanyanyanyanyanya! [Insane]|3147075
-dt1|(DT) Dreamcatcher - Lullaby [Dreams]|5660408
-dt2|(DT) VY1 - Cyber Thunder Cider [Cyber]|8107111
-dt3|(DT) Nelly ft. Fergie - Party People [KIRBY'S BIRTHDAY PARTY!]|7034059
-fm1|(FM) Aitsuki Nakuru - Monochrome Butterfly [Mysterious]|11353203
-fm2|(FM) Nekomata Master - Byakuya Gentou [EX]|7656914
-fm3|(FM) a_hisa - Butterfly [Cherry Blossom]|5666311
-tb|(TB) Shimotsuki Haruka - ReCall [ReCollab]|27423088
+nm1|(NM) F9 - Kagaribito [Ex]|44767416
+nm2|(NM) Panda Eyes & Teminite - Immortal Flame (ft. Anna Yvette) [Reborn from the Ashes]|16619001
+nm3|(NM) Blur - Intermission [a]|7658081
+nm4|(NM) Project Grimoire - Excalibur ~Revived resolution~ [LEGENDARY SWORD]|13301186
+hr1|(HR) YUC'e - Magical Mixer [Magic]|25024012
+hr2|(HR) Lily - Scarlet Rose [0108 style]|22300402
+hr3|(HR) sakuzyo - AXION (Star's 2016 Remix Short Ver.) [Game World]|10067229
+hd1|(HD) xi - Ascension to Heaven [Death]|16271785
+hd2|(HD) Camellia feat. Nanahira - Amor De Verao [1112's Extra]|9771135
+hd3|(HD) M2U - Nightmare [Lesjuh]|6704641
+dt1|(DT) Rain - Hip Song [Insane]|5288601
+dt2|(DT) Frederic - oddloop [collab insane feat. dailycare]|16392906
+dt3|(DT) Hatsune Miku - Hatsune Miku no Shuuen [Demise]|10211519
+fm1|(FM) Halozy - Sentimental Skyscrape [Myouren Hijiri]|51185480
+fm2|(FM) jioyi - Platinum [Special]|11854007
+fm3|(FM) ayaponzu & ayo - Itazura Sensation [Athy's Extra]|35710748
+tb|(TB) Camellia - GHOST [AFTERLIFE]|64782028
