@@ -1,17 +1,17 @@
-nm1|(NM) F9 - Kagaribito [Ex]|44767416
-nm2|(NM) Panda Eyes & Teminite - Immortal Flame (ft. Anna Yvette) [Reborn from the Ashes]|16619001
-nm3|(NM) Blur - Intermission [a]|7658081
-nm4|(NM) Project Grimoire - Excalibur ~Revived resolution~ [LEGENDARY SWORD]|13301186
-hr1|(HR) YUC'e - Magical Mixer [Magic]|25024012
-hr2|(HR) Lily - Scarlet Rose [0108 style]|22300402
-hr3|(HR) sakuzyo - AXION (Star's 2016 Remix Short Ver.) [Game World]|10067229
-hd1|(HD) xi - Ascension to Heaven [Death]|16271785
-hd2|(HD) Camellia feat. Nanahira - Amor De Verao [1112's Extra]|9771135
-hd3|(HD) M2U - Nightmare [Lesjuh]|6704641
-dt1|(DT) Rain - Hip Song [Insane]|5288601
-dt2|(DT) Frederic - oddloop [collab insane feat. dailycare]|16392906
-dt3|(DT) Hatsune Miku - Hatsune Miku no Shuuen [Demise]|10211519
-fm1|(FM) Halozy - Sentimental Skyscrape [Myouren Hijiri]|51185480
-fm2|(FM) jioyi - Platinum [Special]|11854007
-fm3|(FM) ayaponzu & ayo - Itazura Sensation [Athy's Extra]|35710748
-tb|(TB) Camellia - GHOST [AFTERLIFE]|64782028
+nm1|(NM) DJ TOTTO - Crystalia [Luminosity]|10349248
+nm2|(NM) nao - Towa naru Kizuna to Omoi no Kiseki [Souhaits]|27706278
+nm3|(NM) ayaponzu - Yakubyougami [B(]|45256016
+nm4|(NM) Camellia - Speedrun [any%]|46433116
+hr1|(HR) MAX COVERI - RUNNING IN THE 90'S [FINAL STAGE]|34614104
+hr2|(HR) Camellia - Towards The Horizon [White Extra]|7841288
+hr3|(HR) U1 overground - Dopamine [C6H3(OH)2-CH2-CH2-NH2]|14134352
+hd1|(HD) Memme - Pandemonium [how2miss' Extra #2]|7456627
+hd2|(HD) Noisia - Groundhog (Beat Juggle) [SPIN'S TAG!!]|12280982
+hd3|(HD) Basshunter - Ievan Polkka Trance Remix [BeuKirby]|16276450
+dt1|(DT) Porter Robinson - Flicker [fufufu]|19609728
+dt2|(DT) Susumu Hirasawa - Pacific Rim Imitation Network [KIRBY Mix]|7220807
+dt3|(DT) CLIFF EDGE feat. Nakamura Maiko - The Distance [Master]|19063130
+fm1|(FM) Sota Fujimori - polygon [heptagon]|16311332
+fm2|(FM) xi - Aragami [Heaven]|18157520
+fm3|(FM) Kuroneko Dungeon - Ryuu to Shoujo to Decoherence [Overdrive]|11599276
+tb|(TB) AAAA - Hoshi o Kakeru Adventure ~ we are forever friends! ~ [Long ver.] [Imagined Voyage]|76994632
