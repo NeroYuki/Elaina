@@ -1,17 +1,17 @@
-nm1|(NM) DJ TOTTO - Crystalia [Luminosity]|10349248
-nm2|(NM) nao - Towa naru Kizuna to Omoi no Kiseki [Souhaits]|27706278
-nm3|(NM) ayaponzu - Yakubyougami [B(]|45256016
-nm4|(NM) Camellia - Speedrun [any%]|46433116
-hr1|(HR) MAX COVERI - RUNNING IN THE 90'S [FINAL STAGE]|34614104
-hr2|(HR) Camellia - Towards The Horizon [White Extra]|7841288
-hr3|(HR) U1 overground - Dopamine [C6H3(OH)2-CH2-CH2-NH2]|14134352
-hd1|(HD) Memme - Pandemonium [how2miss' Extra #2]|7456627
-hd2|(HD) Noisia - Groundhog (Beat Juggle) [SPIN'S TAG!!]|12280982
-hd3|(HD) Basshunter - Ievan Polkka Trance Remix [BeuKirby]|16276450
-dt1|(DT) Porter Robinson - Flicker [fufufu]|19609728
-dt2|(DT) Susumu Hirasawa - Pacific Rim Imitation Network [KIRBY Mix]|7220807
-dt3|(DT) CLIFF EDGE feat. Nakamura Maiko - The Distance [Master]|19063130
-fm1|(FM) Sota Fujimori - polygon [heptagon]|16311332
-fm2|(FM) xi - Aragami [Heaven]|18157520
-fm3|(FM) Kuroneko Dungeon - Ryuu to Shoujo to Decoherence [Overdrive]|11599276
-tb|(TB) AAAA - Hoshi o Kakeru Adventure ~ we are forever friends! ~ [Long ver.] [Imagined Voyage]|76994632
+nm1|(NM) gmtn vs. kozato - squartatrice [Calamity]|56464248
+nm2|(NM) Camellia - gigadelic (Camellia's The TERA RMX) [YOTTADELIC]|12716430
+nm3|(NM) Kuroneko Dungeon - Ryoushi no Umi no Lindwurm [Death of the Quantum Sea]|9115385
+nm4|(NM) hino isuika - Dreamin' attraction!!(Extended) [extreme!!]|67423072
+hr1|(HR) Demetori - Hartmann no Youkai Shoujo ~ Todestrieb und Lebenstrieb [Thanatos kai Eros]|57006076
+hr2|(HR) EGOIST - Eiyuu Unmei no Uta [Septuaginta]|38819788
+hr3|(HR) Culprate & Au5 - Impulse [Master]|39235200
+hd1|(HD) Hatsune Miku - Atama no Taisou [Nogard]|11370471
+hd2|(HD) Kucchi - Yakumo JOINT STRUGGLE [Phantasm]|119142520
+hd3|(HD) Akiyama Uni - Kokorokirou Hayashi(Short Version) [Phantasm]|4426609
+dt1|(DT) SHK - Identity Part 4 [Insane]|8884079
+dt2|(DT) cYsmix - Moonlight Sonata [Expert]|21177610
+dt3|(DT) colate feat. Nanahira - Good Night [Sweet Dreams]|42557840
+fm1|(FM) Aitsuki Nakuru - Presenter [Gift]|19155986
+fm2|(FM) L.E.D.-G - BITTER CHOCOLATE STRIKER [CHALLENGE]|8222088
+fm3|(FM) Camellia - Dance on the Mars [Weightless]|68363480
+tb|(TB) Kobaryo feat. kyou1110 - Attention Whore Magic [Solitude]|37845780
