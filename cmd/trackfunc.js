@@ -4,14 +4,14 @@ var fs = require('fs');
 function rankread(imgsrc) {
 	let rank="";
 	switch(imgsrc) {
-		case '<img src="assets/images/ranking-S-small.png"/>':rank="S Rank";break;
-		case '<img src="assets/images/ranking-A-small.png"/>':rank="A Rank";break;
-		case '<img src="assets/images/ranking-B-small.png"/>':rank="B Rank";break;
-		case '<img src="assets/images/ranking-C-small.png"/>':rank="C Rank";break;
-		case '<img src="assets/images/ranking-D-small.png"/>':rank="D Rank";break;
-		case '<img src="assets/images/ranking-SH-small.png"/>':rank="SH Rank";break;
-		case '<img src="assets/images/ranking-X-small.png"/>':rank="SS Rank";break;
-		case '<img src="assets/images/ranking-XH-small.png"/>':rank="SSH Rank";break;
+		case '<img src="assets/images/ranking-S-small.png"/>':rank="http://ops.dgsrz.com/assets/images/ranking-S-small.png";break;
+		case '<img src="assets/images/ranking-A-small.png"/>':rank="http://ops.dgsrz.com/assets/images/ranking-A-small.png";break;
+		case '<img src="assets/images/ranking-B-small.png"/>':rank="http://ops.dgsrz.com/assets/images/ranking-B-small.png";break;
+		case '<img src="assets/images/ranking-C-small.png"/>':rank="http://ops.dgsrz.com/assets/images/ranking-C-small.png";break;
+		case '<img src="assets/images/ranking-D-small.png"/>':rank="http://ops.dgsrz.com/assets/images/ranking-D-small.png";break;
+		case '<img src="assets/images/ranking-SH-small.png"/>':rank="http://ops.dgsrz.com/assets/images/ranking-SH-small.png";break;
+		case '<img src="assets/images/ranking-X-small.png"/>':rank="http://ops.dgsrz.com/assets/images/ranking-X-small.png";break;
+		case '<img src="assets/images/ranking-XH-small.png"/>':rank="http://ops.dgsrz.com/assets/images/ranking-XH-small.png";break;
 		default: rank="unknown";
 	}
 	return rank;
@@ -25,8 +25,7 @@ function convertTimeDiff(playTime) {
   minute = parseInt(playTime.split(" ")[1].split(":")[1]);
   second = parseInt(playTime.split(" ")[1].split(":")[2]);
   var convertedTime = new Date(year, month, day, hour, minute, second);
-  var currentTime = new Date();
-  var timeDiff = currentTime.getTime()-convertedTime;
+  var timeDiff = Date.now()-convertedTime;
   return timeDiff;
 }
 
@@ -52,26 +51,39 @@ module.exports.run = (client) => {
 
       res.on("end", function () {
       const a = content;
-      let b = a.split('\n'), c = []; let name=""; let time=""; let newplay = true; let playIndex=0;
+      let b = a.split('\n'); let name=""; let newplay = true; let playIndex=0; let title =""; let score=""; let ptime =""; let acc=""; let miss=""; let rank ="";let combo=""; let mod="";
       for (x = 0; x < b.length; x++) {
         if (b[x].includes('<small>') && b[x - 1].includes('class="block"')) {
-        b[x-1]=b[x-1].replace("<strong class=\"block\">","");
-        b[x-1]=b[x-1].replace("<\/strong>","");
-        b[x]=b[x].replace("<\/small>","");
-        b[x-1]=b[x-1].trim();
-        b[x]=b[x].trim();
-        b[x-5]=b[x-5].trim();
-        b[x-5]=rankread(b[x-5]);
-        b[x]=b[x].replace("<small>","\n");
-        playTime = b[x].split("/")[0].replace("\n","");
-        let timeDiff = convertTimeDiff(playTime);
-        c.push(b[x-5]+" - "+b[x-1]+b[x]);
-        if (newplay) {
-          if (timeDiff>600000) newplay=false
-          else {
-            console.log(c[playIndex]);
-            client.channels.get("464102207113920524").send("```Recent play for "+name+"\n\n"+c[playIndex]+"```");
-          }
+			b[x-1]=b[x-1].replace("<strong class=\"block\">","");
+			b[x-1]=b[x-1].replace("<\/strong>","");
+			b[x]=b[x].replace("<\/small>","");
+			b[x]=b[x].replace("<small>","");
+			b[x+1]=b[x+1].replace('<span id="statics" class="hidden">{"miss":','');
+			b[x+1]=b[x+1].replace('}</span>','')
+			title=b[x-1].trim();
+			b[x]=b[x].trim();
+			miss=b[x+1].trim();
+			var d = b[x].split("/"); ptime = d[0]; score = d[1]; mod = d[2]; combo = d[3]; acc = d[4];
+			ptime=ptime.trim();
+			b[x-5]=b[x-5].trim();
+			rank=rankread(b[x-5]);
+			let timeDiff = convertTimeDiff(ptime);
+			console.log(timeDiff);
+			if (newplay) {
+				if (timeDiff>600000) newplay = false;
+				else {
+					console.log(timeDiff)
+					const embed = {
+						"title": title,
+						"description": "**Score**: `" + score + "` - Combo: `" + combo + "` - Accuracy: `" + acc + "` (`" + miss + "` x )\nMod: `" + mod + "` Time: `" + ptime + "`",
+						"color": 8311585,
+						"author": {
+							"name": "Recent Play for "+ name,
+							"icon_url": rank
+						}
+					};
+				client.channels.get("464102207113920524").send({ embed });
+			}
         }
         playIndex++;
       }
