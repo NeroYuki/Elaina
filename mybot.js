@@ -5,7 +5,9 @@ const fs = require("fs");
 var http = require("http");
 var util = require("util");
 var s3fs = require("s3fs");
-s3fskey = process.env.AWS_KEY 
+require("dotenv").config();
+s3fskey = process.env.AWS_KEY;
+
 var s3Impl = new s3fs('elaina.neroyuki', {
 	region: 'us-east-2',
 	accessKeyId: 'AKIAJQOLLTS3ZN6GH7OA',
@@ -77,3 +79,5 @@ client.on("message", (message) => {
 });
 
 client.login(process.env.BOT_TOKEN);
+
+
