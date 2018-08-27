@@ -1,17 +1,17 @@
-nm1|(NM) Koronba - Iwashi ga Tsuchi kara Haete Kurunda [Sardine]|10882659
-nm2|(NM) Mami Kawada - Contrail ~Kiseki~ (Epsilon Remix) [Taeyang's Miracle]|63108212
-nm3|(NM) Brown Eyed Girls - Brave New World [-kevincela-'s Extra]|17372394
-nm4|(NM) PLight - YELLOW SPLASH!! [DSE Summertime 2016]|10625409
-hr1|(HR) kamome sano - citrus [EXTREME]|8407441
-hr2|(HR) 44teru-k - F.I [Extra445]|11006445
-hr3|(HR) Nardis - Cosmo Memory [Entelecheia]|8091894
-hd1|(HD) Memme - Barrier [Artificial]|9849442
-hd2|(HD) NICODE - The Way we Were [EXTREME]|11030446
-hd3|(HD) daniwellP - Nyanyanyanyanyanyanya! [Insane]|3147075
-dt1|(DT) Dreamcatcher - Lullaby [Dreams]|5660408
-dt2|(DT) VY1 - Cyber Thunder Cider [Cyber]|8107111
-dt3|(DT) Nelly ft. Fergie - Party People [KIRBY'S BIRTHDAY PARTY!]|7034059
-fm1|(FM) Aitsuki Nakuru - Monochrome Butterfly [Mysterious]|11353203
-fm2|(FM) Nekomata Master - Byakuya Gentou [EX]|7656914
-fm3|(FM) a_hisa - Butterfly [Cherry Blossom]|5666311
-tb|(TB) Shimotsuki Haruka - ReCall [ReCollab]|27423088
+nm1|(NM) gmtn vs. kozato - squartatrice [Calamity]|56464248
+nm2|(NM) Camellia - gigadelic (Camellia's The TERA RMX) [YOTTADELIC]|12716430
+nm3|(NM) Kuroneko Dungeon - Ryoushi no Umi no Lindwurm [Death of the Quantum Sea]|9115385
+nm4|(NM) hino isuika - Dreamin' attraction!!(Extended) [extreme!!]|67423072
+hr1|(HR) Demetori - Hartmann no Youkai Shoujo ~ Todestrieb und Lebenstrieb [Thanatos kai Eros]|57006076
+hr2|(HR) EGOIST - Eiyuu Unmei no Uta [Septuaginta]|38819788
+hr3|(HR) Culprate & Au5 - Impulse [Master]|39235200
+hd1|(HD) Hatsune Miku - Atama no Taisou [Nogard]|11370471
+hd2|(HD) Kucchi - Yakumo JOINT STRUGGLE [Phantasm]|119142520
+hd3|(HD) Akiyama Uni - Kokorokirou Hayashi(Short Version) [Phantasm]|4426609
+dt1|(DT) SHK - Identity Part 4 [Insane]|8884079
+dt2|(DT) cYsmix - Moonlight Sonata [Expert]|21177610
+dt3|(DT) colate feat. Nanahira - Good Night [Sweet Dreams]|42557840
+fm1|(FM) Aitsuki Nakuru - Presenter [Gift]|19155986
+fm2|(FM) L.E.D.-G - BITTER CHOCOLATE STRIKER [CHALLENGE]|8222088
+fm3|(FM) Camellia - Dance on the Mars [Weightless]|68363480
+tb|(TB) Kobaryo feat. kyou1110 - Attention Whore Magic [Solitude]|37845780
