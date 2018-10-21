@@ -2,14 +2,20 @@ var http = require('http');
 var fs = require('fs');
 
 module.exports.run = (client, message, args) => {
-	console.log(message.author.id);
+	let ufind = message.author.id;
+	if (args[0]) {
+		ufind = args[0];
+		ufind = ufind.replace('<@','');
+		ufind = ufind.replace('>','');
+	}
+	console.log(ufind);
 	fs.readFile("userbind.txt", 'utf8', function(err, data) {
         if (err) throw err;
 		var u = data;
-		var found=false;
+		var found = false;
 		let x = u.split('\n');
 		for (i = 0; i < x.length; i++) {
-			if (x[i].includes(message.author.id)) {
+			if (x[i].includes(ufind)) {
 				let e = x[i].split(' ');
 				uid = e[1];
 				var options = {
@@ -114,7 +120,7 @@ module.exports.run = (client, message, args) => {
 				found=true;
 			}
 		}
-		if(!found){message.channel.send("Your account is not binded, please use `&userbind <your uid>` first")};
+		if(!found){message.channel.send("The account is not binded, he/she/you need to use `&userbind <uid>` first")};
 	});
 }
 

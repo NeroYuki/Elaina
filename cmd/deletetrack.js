@@ -1,6 +1,7 @@
 var fs = require("fs");
 
 module.exports.run = (client, message, args) => {
+	if (message.member.roles.find("name", "Owner")) {
 		let uid = args[0];
 		if (isNaN(parseInt(uid))) {message.channel.send("uid please!")}
 		else {
@@ -28,6 +29,8 @@ module.exports.run = (client, message, args) => {
 				});
 			});
 		}
+	}
+	else message.channel.send("You don't have enough permission to use this :3");
 }
 
 module.exports.help = {

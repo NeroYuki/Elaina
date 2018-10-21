@@ -1,6 +1,7 @@
 var fs = require("fs");
 
 module.exports.run = (client, message, args) => {
+	if (message.member.roles.find("name", "Owner")) {
 		let uid = args[0];
 		if (isNaN(parseInt(uid))) {message.channel.send("Your uid please!")}
 		else {
@@ -11,9 +12,9 @@ module.exports.run = (client, message, args) => {
 			let b = data.split('\n');
 			for (i=0;i<b.length;i++) {
 				if (b[i] == uid) {
-                    		dup=true;
-                   		message.channel.send("this uid has been already added");
-                		}
+                    dup=true;
+                   	message.channel.send("this uid has been already added");
+                }
 			}
 			if (!dup) {
 				b.push(uid);
@@ -28,6 +29,8 @@ module.exports.run = (client, message, args) => {
 				});
 			});
 		}
+	}
+	else message.channel.send("You don't have enough permission to use this :3");
 }
 
 module.exports.help = {
