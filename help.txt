@@ -1,4 +1,4 @@
-Elaina's Guide
+﻿Elaina's Guide
 
 1. General
 
@@ -7,10 +7,7 @@ Elaina's Guide
 &setgame (Bot Owner only)
 &setstatus (Bot Owner only)
 &say
-&sayd
-&emote <subset> <number>
-&emotelist
-&invite
+&sayd (Owner only)
 
 2. osu!droid
 
@@ -19,9 +16,12 @@ Elaina's Guide
 &recent <uid>
 &recent5 <uid>
 &userbind <uid> (use to bind user to specific uid)
-&profileme (only binded user)
-&recentme (only binded user)
-&recent5me (only binded user)
+&profileme [discord user] (only binded user)
+&recentme [discord user] (only binded user)
+&recent5me [discord user] (only binded user)
+
+&addtrack (Owner only)
+&deletetrack (Owner only)
 
 3. Malody
 
