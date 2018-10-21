@@ -21,8 +21,8 @@ module.exports.run = (client, message, args) => {
 	let ufind = message.author.id;
 	if (args[0]) {
 		ufind = args[0];
-		ufind = ufind.replace('<@','');
 		ufind = ufind.replace('<@!','');
+		ufind = ufind.replace('<@','');
 		ufind = ufind.replace('>','');
 	}
 	console.log(ufind);
