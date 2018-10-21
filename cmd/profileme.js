@@ -6,6 +6,7 @@ module.exports.run = (client, message, args) => {
 	if (args[0]) {
 		ufind = args[0];
 		ufind = ufind.replace('<@','');
+		ufind = ufind.replace('<@!','');
 		ufind = ufind.replace('>','');
 	}
 	console.log(ufind);
