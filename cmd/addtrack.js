@@ -1,32 +1,26 @@
-var fs = require("fs");
+var mongodb = require('mongodb');
 
-module.exports.run = (client, message, args) => {
+module.exports.run = (client, message, args, maindb) => {
 	if (message.member.roles.find("name", "Owner")) {
 		let uid = args[0];
 		if (isNaN(parseInt(uid))) {message.channel.send("Your uid please!")}
 		else {
-		fs.readFile("tracking.txt", 'utf8', function(err, data) {
-			if (err) throw err;
-			var dup=false;
-			var updatedata="";
-			let b = data.split('\n');
-			for (i=0;i<b.length;i++) {
-				if (b[i] == uid) {
-                    dup=true;
-                   	message.channel.send("this uid has been already added");
-                }
-			}
-			if (!dup) {
-				b.push(uid);
-			}
-			for (i=0;i<b.length;i++) {
-				updatedata = updatedata + b[i];
-				if (i!=b.length-1) {updatedata=updatedata+"\n"}
-			}
-			fs.writeFile("tracking.txt", updatedata, function(err) {
+			let trackdb = maindb.collection("tracking");
+			let query = { uid: uid };
+			var track = { uid: uid };
+			trackdb.find(query).toArray(function(err, res) {
 				if (err) throw err;
-				message.channel.send("Now tracking uid "+uid);
-				});
+				if (!res[0]) {
+					trackdb.insertOne(track, function(err, res) {
+						if (err) throw err;
+						console.log("track added");
+						message.channel.send("Now tracking uid "+uid);
+					});
+				}
+				else {
+					console.log("duplicated");
+					message.channel.send("this uid has been already added");
+				}
 			});
 		}
 	}

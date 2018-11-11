@@ -1,5 +1,5 @@
 var http = require('http');
-var fs = require('fs');
+var mongodb = require('mongodb');
 
 function rankread(imgsrc) {
 	let rank="";
@@ -18,87 +18,88 @@ function rankread(imgsrc) {
 }
 
 function convertTimeDiff(playTime) {
-  year = parseInt(playTime.split(" ")[0].split("-")[0]);
-  month = parseInt(playTime.split(" ")[0].split("-")[1])-1;
-  day = parseInt(playTime.split(" ")[0].split("-")[2]);
-  hour = parseInt(playTime.split(" ")[1].split(":")[0]);
-  minute = parseInt(playTime.split(" ")[1].split(":")[1]);
-  second = parseInt(playTime.split(" ")[1].split(":")[2]);
-  var convertedTime = new Date(year, month, day, hour, minute, second);
-  var timeDiff = Date.now()-convertedTime;
-  return timeDiff;
+	year = parseInt(playTime.split(" ")[0].split("-")[0]);
+	month = parseInt(playTime.split(" ")[0].split("-")[1])-1;
+	day = parseInt(playTime.split(" ")[0].split("-")[2]);
+	hour = parseInt(playTime.split(" ")[1].split(":")[0]);
+	minute = parseInt(playTime.split(" ")[1].split(":")[1]);
+	second = parseInt(playTime.split(" ")[1].split(":")[2]);
+	var convertedTime = new Date(year, month, day, hour, minute, second);
+	var timeDiff = Date.now()-convertedTime;
+	return timeDiff;
 }
 
-module.exports.run = (client) => {
-    fs.readFile("tracking.txt", 'utf8', function(err, data) {
-    if (err) throw err;
-    var playerlist = data.split('\n');
-    console.log(playerlist);
-    playerlist.forEach(function(uid) {
-      var options = {
-        host: "ops.dgsrz.com",
-        port: 80,
-        path: "/profile.php?uid="+uid+".html"
-    };
+module.exports.run = (client, message = "", args = {}, maindb) => {
+	let trackdb = maindb.collection("tracking");
+	trackdb.find({}).toArray(function(err, res) {
+		if (err) throw err;
+		console.log(res);
+		res.forEach(function(player) {
+			var options = {
+				host: "ops.dgsrz.com",
+				port: 80,
+				path: "/profile.php?uid=" + player.uid + ".html"
+			};
 
-    var content = "";   
+			var content = "";   
 
-    var req = http.request(options, function(res) {
-      res.setEncoding("utf8");
-      res.on("data", function (chunk) {
-        content += chunk;
-      });
+			var req = http.request(options, function(res) {
+				res.setEncoding("utf8");
+				res.on("data", function (chunk) {
+					content += chunk;
+				});
 
-      res.on("end", function () {
-      const a = content;
-      let b = a.split('\n'); let name=""; let newplay = true; let playIndex=0; let title =""; let score=""; let ptime =""; let acc=""; let miss=""; let rank ="";let combo=""; let mod="";
-      for (x = 0; x < b.length; x++) {
-        if (b[x].includes('<small>') && b[x - 1].includes('class="block"')) {
-			b[x-1]=b[x-1].replace("<strong class=\"block\">","");
-			b[x-1]=b[x-1].replace("<\/strong>","");
-			b[x]=b[x].replace("<\/small>","");
-			b[x]=b[x].replace("<small>","");
-			b[x+1]=b[x+1].replace('<span id="statics" class="hidden">{"miss":','');
-			b[x+1]=b[x+1].replace('}</span>','')
-			title=b[x-1].trim();
-			b[x]=b[x].trim();
-			miss=b[x+1].trim();
-			var d = b[x].split("/"); ptime = d[0]; score = d[1]; mod = d[2]; combo = d[3]; acc = d[4];
-			ptime=ptime.trim();
-			b[x-5]=b[x-5].trim();
-			rank=rankread(b[x-5]);
-			let timeDiff = convertTimeDiff(ptime);
-			console.log(timeDiff);
-			if (newplay) {
-				if (timeDiff>600000) newplay = false;
-				else {
-					console.log(timeDiff)
-					const embed = {
-						"title": title,
-						"description": "**Score**: `" + score + "` - Combo: `" + combo + "` - Accuracy: `" + acc + "` (`" + miss + "` x )\nMod: `" + mod + "` Time: `" + ptime + "`",
-						"color": 8311585,
-						"author": {
-							"name": "Recent Play for "+ name,
-							"icon_url": rank
+				res.on("end", function () {
+					const a = content;
+					let b = a.split('\n'); let name=""; let newplay = true; let playIndex=0; let title =""; let score=""; let ptime =""; let acc=""; let miss=""; let rank ="";let combo=""; let mod="";
+					for (x = 0; x < b.length; x++) {
+						if (b[x].includes('<small>') && b[x - 1].includes('class="block"')) {
+							b[x-1]=b[x-1].replace("<strong class=\"block\">","");
+							b[x-1]=b[x-1].replace("<\/strong>","");
+							b[x]=b[x].replace("<\/small>","");
+							b[x]=b[x].replace("<small>","");
+							b[x+1]=b[x+1].replace('<span id="statics" class="hidden">{"miss":','');
+							b[x+1]=b[x+1].replace('}</span>','')
+							title=b[x-1].trim();
+							b[x]=b[x].trim();
+							miss=b[x+1].trim();
+							var d = b[x].split("/"); ptime = d[0]; score = d[1]; mod = d[2]; combo = d[3]; acc = d[4];
+							ptime=ptime.trim();
+							b[x-5]=b[x-5].trim();
+							rank=rankread(b[x-5]);
+							let timeDiff = convertTimeDiff(ptime);
+							console.log(timeDiff);
+							if (newplay) {
+								if (timeDiff>600000) newplay = false;
+								else {
+									console.log(timeDiff)
+									const embed = {
+										"title": title,
+										"description": "**Score**: `" + score + "` - Combo: `" + combo + "` - Accuracy: `" + acc + "` (`" + miss + "` x )\nMod: `" + mod + "` Time: `" + ptime + "`",
+										"color": 8311585,
+										"author": {
+											"name": "Recent Play for "+ name,
+											"icon_url": rank
+										}
+									};
+								//client.channels.get("464102207113920524").send({ embed }); //original
+								client.channels.get("461446313956081695").send({ embed });
+								}
+							}
+							playIndex++;
 						}
-					};
-				client.channels.get("464102207113920524").send({ embed });
-			}
-        }
-        playIndex++;
-      }
-      if (b[x].includes('h3 m-t-xs m-b-xs')) {
-        b[x]=b[x].replace('<div class="h3 m-t-xs m-b-xs">',"");
-        b[x]=b[x].replace('<\/div>',"");
-        b[x]=b[x].trim();
-        name = b[x]
-        }
-      }
-          });
-      });
-      req.end();
-    });
-  });
+						if (b[x].includes('h3 m-t-xs m-b-xs')) {
+							b[x]=b[x].replace('<div class="h3 m-t-xs m-b-xs">',"");
+							b[x]=b[x].replace('<\/div>',"");
+							b[x]=b[x].trim();
+							name = b[x]
+						}
+					}
+				});
+			});
+			req.end();
+		});
+	});
 }
 
 module.exports.help = {

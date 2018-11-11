@@ -1,32 +1,25 @@
-var fs = require("fs");
+var mongodb = require('mongodb');
 
-module.exports.run = (client, message, args) => {
+module.exports.run = (client, message, args, maindb) => {
 	if (message.member.roles.find("name", "Owner")) {
 		let uid = args[0];
 		if (isNaN(parseInt(uid))) {message.channel.send("uid please!")}
 		else {
-		fs.readFile("tracking.txt", 'utf8', function(err, data) {
-			if (err) throw err;
-			var found=false;
-			var updatedata="";
-			let b = data.split('\n');
-			for (i=0;i<b.length;i++) {
-				if (b[i] == uid) {
-          found=true;
-          b.splice(i,1);
-          message.channel.send("uid "+uid+" is now deleted from tracking list");          
-        }
-			}
-			if (!found) {
-        message.channel.send("this uid has not been tracked");
-			}
-			for (i=0;i<b.length;i++) {
-				updatedata = updatedata + b[i];
-				if (i!=b.length-1) {updatedata=updatedata+"\n"}
-			}
-			fs.writeFile("tracking.txt", updatedata, function(err) {
+		let trackdb = maindb.collection("tracking");
+			let query = { uid: uid };
+			trackdb.find(query).toArray(function(err, res) {
 				if (err) throw err;
-				});
+				if (!res[0]) {
+					console.log("track not found");
+					message.channel.send("uid " + uid + " is not tracked");
+				}
+				else {
+					trackdb.deleteOne(query, function(err, res) {
+						if (err) throw err;
+						console.log("track deleted");
+						message.channel.send("uid " + uid + " is deleted from tracking list");
+					});
+				}
 			});
 		}
 	}
