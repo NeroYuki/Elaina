@@ -4,15 +4,9 @@ const config = require("./config.json");
 const fs = require("fs");
 var http = require("http");
 var util = require("util");
-var s3fs = require("s3fs");
+var mongodb = require('mongodb');
 require("dotenv").config();
-s3fskey = process.env.AWS_KEY;
 
-var s3Impl = new s3fs('elaina.neroyuki', {
-	region: 'us-east-2',
-	accessKeyId: 'AKIAJQOLLTS3ZN6GH7OA',
-	secretAccessKey: s3fskey
-});
 
 client.commands = new Discord.Collection();
 fs.readdir("./cmd/" , (err, files) => {
@@ -31,33 +25,23 @@ fs.readdir("./cmd/" , (err, files) => {
 	});
 });
 
+let uri = 'mongodb+srv://NeroYuki:ngocdang241@elainadb-r6qx3.mongodb.net/test?retryWrites=true';
+let maindb = '';
+	
+mongodb.MongoClient.connect(uri, {useNewUrlParser: true}, function(err, db) {
+	if (err) throw err;
+	maindb = db.db('ElainaDB');
+	console.log("db connection established");
+})
 
 client.on("ready", () => {
     console.log("Elaina is up and running");
-	var updatedata = '';
-    	s3Impl.readFile("userbind.txt", 'utf8', function(err, data) {
-        if (err) throw err;
-        updatedata = data;
-        console.log('userbind downloaded, making change to file system...');
-        fs.writeFile("userbind.txt", updatedata, function(err) {
-            if (err) throw err;
-            console.log('userbind restored')
-        });
-    });
-	s3Impl.readFile("tracking.txt", 'utf8', function(err, data) {
-      if (err) throw err;
-      updatedata = data;
-      console.log('tracking downloaded, making change to file system...');
-      fs.writeFile("tracking.txt", updatedata, function(err) {
-          if (err) throw err;
-          console.log('tracking restored')
-      });
-  });
-  	setInterval(trackfunc,600000);
+	
+  	setInterval(trackfunc, 600000);
 
   	function trackfunc () {
-    		let cmd = client.commands.get("trackfunc");
-		cmd.run(client);
+    	let cmd = client.commands.get("trackfunc");
+		cmd.run(client, message = "", args = {}, maindb);
   	}
 });
 
@@ -74,7 +58,7 @@ client.on("message", (message) => {
 	if (!message.content.startsWith(config.prefix)|| message.author.bot) return;
 	let cmd = client.commands.get(command.slice(config.prefix.length));
 	if (cmd) {
-		cmd.run(client, message, args);
+		cmd.run(client, message, args, maindb);
 	}
 });
 
