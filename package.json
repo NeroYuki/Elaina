@@ -13,7 +13,6 @@
   "author": "NeroYuki",
   "license": "MIT",
   "dependencies": {
-    "canvas": "^2.0.0-alpha.17",
     "discord.js": "^11.3.2",
     "dotenv": "^6.0.0",
     "mongodb": "^3.1.6",
