@@ -1,5 +1,8 @@
 var http = require('http');
 var mongodb = require('mongodb');
+var cmd = require("node-cmd");
+var osu = require("ojsama");
+var https = require("https");
 
 function rankread(imgsrc) {
 	let rank="";
@@ -15,6 +18,177 @@ function rankread(imgsrc) {
 		default: rank="unknown";
 	}
 	return rank;
+}
+
+function mapstatusread(status) {
+	switch (status) {
+		case -2: return 16711711;
+		case -1: return 9442302;
+		case 0: return 16312092;
+		case 1: return 2483712;
+		case 2: return 16741376;
+		case 3: return 5301186;
+		case 4: return 16711796;
+		default: return 0;
+	}
+}
+
+function modenum(mod) {
+	var res = 4;
+	if (mod.includes("HardRock")) res += 16;
+	if (mod.includes("Hidden")) res += 8;
+	if (mod.includes("DoubleTime")) res += 64;
+	if (mod.includes("Nightcore")) res += 576;
+	if (mod.includes("NoFail")) res += 1;
+	if (mod.includes("Easy")) res += 2;
+	if (mod.includes("HalfTime")) res += 256;
+	return res;
+}
+
+function getMapPP(input, pcombo, pacc, pmissc, pmod, message) {
+	var mapper = "";
+	var diff = "";
+	var artist = "";
+	var title = "";
+
+	var a = input.split(' - '); artist = a[0]; for (var i = 2; i <a.length; i++) a[1] += " - " + a[i]; 
+	var b = a[1].split(' ('); title = b[0]; if (b.length>2) title += " (" + b[1];
+	var c = b[b.length-1].split(' ['); mapper = c[0]; mapper = mapper.replace(/\)/g,"");
+	for (var i = 1; i < c.length; i++) diff += c[i]; diff = diff.replace(/\]/g,"");
+
+	// console.log(artist);
+	// console.log(title);
+	// console.log(mapper);
+	// console.log(diff);
+	if (title.includes("   ")) title = "";
+	title = title.replace(/ s /g, "'s ");
+	diff = diff.replace(/ s /g, "'s ");
+
+	var options = new URL("https://osusearch.com/query/?title=" + title + "&artist=" + artist + "&mapper=" + mapper + "&diff_name=" + diff + "&query_order=favorites");
+
+	var content = "";   
+
+	var req = https.get(options, function(res) {
+		res.setEncoding("utf8");
+		res.on("data", function (chunk) {
+			content += chunk;
+		});
+
+		res.on("end", function () {
+			var obj = JSON.parse(content);
+			if (!obj.beatmaps[0]) {console.log("Map not found"); return;}
+			var mapinfo = obj.beatmaps[0];
+			//console.log(obj.beatmaps[0])
+			var mods = modenum(pmod);
+			var acc_percent = parseFloat(pacc);
+			var combo = parseInt(pcombo);
+			var nmiss = parseInt(pmissc);
+			var parser = new osu.parser();
+			var pcparser = new osu.parser();
+			//var url = "https://osu.ppy.sh/osu/1031991";
+			var url = 'https://osu.ppy.sh/osu/' + obj.beatmaps[0].beatmap_id
+			cmd.get('curl ' + url ,
+				function(err, data, stderr){
+					//console.log(mods);
+					pcparser.feed(data);
+					var pcmap = pcparser.map;
+					if (mods) {
+						console.log("+" + osu.modbits.string(mods - 4));
+					}
+					var pcstars = new osu.diff().calc({map: pcmap, mods: mods - 4});
+					//console.log(pcstars.toString());
+
+					var pcpp = osu.ppv2({
+						stars: pcstars,
+						combo: combo,
+						nmiss: nmiss,
+						acc_percent: acc_percent,
+					});
+
+					var max_combo = pcmap.max_combo();
+					combo = combo || max_combo;
+
+					//console.log(pcpp.computed_accuracy.toString());
+					//console.log(combo + "/" + max_combo + "x");
+
+					//console.log(pcpp.toString());
+					var line = data.split("\n");
+					data = "";
+					for (var x = 0; x < line.length; x++) {
+						if (line[x].includes("CircleSize:")) {
+							var csline = line[x].split(":");
+							var cs = parseFloat(csline[1]);
+							if (osu.modbits.string(mods).includes("HR")) var csedit = (cs*1.3-4)/1.3; 
+							else var csedit = cs - 4;
+							line[x] = csline[0] + ":" + csedit;
+							//console.log(line[x]);
+						}
+						if (line[x].includes("OverallDifficulty:")) {
+							var odline = line[x].split(":");
+							var od = parseFloat(odline[1])
+							if (osu.modbits.string(mods).includes("HR")) var odedit = (od*1.4>10)? 5/1.4 : ((od*1.4-5)/1.4);
+							else var odedit = od - 5;
+							line[x] = odline[0] + ":" + odedit;
+							//console.log(line[x]);
+						}
+					}
+					for (var x = 0; x < line.length; x++) data += line[x] + "\n";
+					parser.feed(data);
+					var map = parser.map;
+					if (mods) {
+						console.log("+" + osu.modbits.string(mods));
+					}
+					var stars = new osu.diff().calc({map: map, mods: mods});
+					//console.log(stars.toString());
+
+					var pp = osu.ppv2({
+						stars: stars,
+						combo: combo,
+						nmiss: nmiss,
+						acc_percent: acc_percent,
+					});
+
+					//console.log(pp.toString());
+					var ppline = pp.toString().split("(");
+					var starsline = stars.toString().split("(");
+					var pcppline = pcpp.toString().split("(");
+					var pcstarsline = pcstars.toString().split("(");
+					const embed = {
+						"title": mapinfo.artist + " - " + mapinfo.title + " (" + mapinfo.mapper + ") [" + mapinfo.difficulty_name + "] " + ((mods == 4)? " " : "+ ") + osu.modbits.string(mods - 4),
+						"description": "Download: [osu!](https://osu.ppy.sh/beatmapsets/" + mapinfo.beatmapset_id + "/download) ([no video](https://osu.ppy.sh/beatmapsets/" + mapinfo.beatmapset_id + "/download?noVideo=1)) - [Bloodcat]()",
+						"url": "https://osu.ppy.sh/b/" + mapinfo.beatmap_id ,
+						"color": mapstatusread(mapinfo.beatmap_status),
+						"footer": {
+							"icon_url": "https://images-ext-2.discordapp.net/external/d0iu_mPMvyoLQWnBSEnW4RL0-07KYm7zG9mjWdfWl7M/https/image.frl/p/yaa1nf94dho5f962.jpg",
+							"text": "Elaina owo"
+						},
+						"author": {
+							"name": "Map Found",
+							"icon_url": "https://image.frl/p/aoeh1ejvz3zmv5p1.jpg"
+						},
+						"thumbnail": {
+							"url": "https://b.ppy.sh/thumb/" + mapinfo.beatmapset_id + ".jpg"
+						},
+						"fields": [
+							{
+								"name": "CS: " + mapinfo.difficulty_cs + " - AR: " + mapinfo.difficulty_ar + " - OD: " + mapinfo.difficulty_od + " - HP: " + mapinfo.difficulty_hp ,
+								"value": "BPM: " + mapinfo.bpm + " - Length: " + mapinfo.play_length + "/" + mapinfo.total_length + " s"
+							},
+							{
+								"name": "Last Update: " + mapinfo.date,
+								"value": "❤️ " + mapinfo.favorites + " - ▶️ " + mapinfo.play_count
+							},
+							{
+								"name": "Droid pp (Experimental): __" + ppline[0] + "__ - " + starsline[0] ,
+								"value": "PC pp: " + pcppline[0] + " - " + pcstarsline[0]
+							}
+						]
+					};
+					message.channel.send({embed})
+				}
+			)
+		});
+	});
 }
 
 module.exports.run = (client, message, args, maindb) => {
@@ -73,6 +247,9 @@ module.exports.run = (client, message, args, maindb) => {
 					name = b[x]
 					}
 				}
+				
+				getMapPP(title, combo, acc, miss, mod, message);
+				
 				const embed = {
 					  "title": title,
 					  "description": "**Score**: `" + score + "` - Combo: `" + combo + "` - Accuracy: `" + acc + "` (`" + miss + "` x )\nMod: `" + mod + "` Time: `" + ptime + "`",
@@ -90,6 +267,7 @@ module.exports.run = (client, message, args, maindb) => {
 		else { message.channel.send("The account is not binded, he/she/you need to use `&userbind <uid>` first") };
 	});
 }
+
 
 module.exports.help = {
 	name: "recentme"
