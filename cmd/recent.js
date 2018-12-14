@@ -60,7 +60,9 @@ function getMapPP(input, pcombo, pacc, pmissc, pmod, message) {
 	// console.log(mapper);
 	// console.log(diff);
 	if (title.includes("   ")) title = "";
+	artist = artist.replace(/CV /g, "CV:");
 	title = title.replace(/ s /g, "'s ");
+	title = title.replace(/CV /g, "CV:");
 	diff = diff.replace(/ s /g, "'s ");
 
 	var options = new URL("https://osusearch.com/query/?title=" + title + "&artist=" + artist + "&mapper=" + mapper + "&diff_name=" + diff + "&query_order=favorites");
