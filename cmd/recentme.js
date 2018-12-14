@@ -248,7 +248,7 @@ module.exports.run = (client, message, args, maindb) => {
 					}
 				}
 				
-				getMapPP(title, combo, acc, miss, mod, message);
+				if (title) {getMapPP(title, combo, acc, miss, mod, message);}
 				
 				const embed = {
 					  "title": title,
