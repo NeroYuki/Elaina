@@ -38,7 +38,7 @@ function modenum(mod) {
 	if (mod.includes("HardRock")) res += 16;
 	if (mod.includes("Hidden")) res += 8;
 	if (mod.includes("DoubleTime")) res += 64;
-	if (mod.includes("Nightcore")) res += 576;
+	if (mod.includes("NightCore")) res += 576;
 	if (mod.includes("NoFail")) res += 1;
 	if (mod.includes("Easy")) res += 2;
 	if (mod.includes("HalfTime")) res += 256;
