@@ -61,9 +61,8 @@ function getMapPP(input, pcombo, pacc, pmissc, pmod, message) {
 	// console.log(mapper);
 	// console.log(diff);
 	if (title.includes("   ")) title = "";
-	artist = artist.replace(/CV /g, "CV:");
+	if (artist.includes("CV")) artist = artist.split("CV")[0]
 	title = title.replace(/ s /g, "'s ");
-	title = title.replace(/CV /g, "CV:");
 	diff = diff.replace(/ s /g, "'s ");
 
 	var options = new URL("https://osusearch.com/query/?title=" + title + "&artist=" + artist + "&mapper=" + mapper + "&diff_name=" + diff + "&query_order=favorites");
@@ -80,6 +79,7 @@ function getMapPP(input, pcombo, pacc, pmissc, pmod, message) {
 			var obj = JSON.parse(content);
 			if (!obj.beatmaps[0]) {console.log("Map not found"); return;}
 			var mapinfo = obj.beatmaps[0];
+			if (mapinfo.gamemode !=0) return;
 			//console.log(obj.beatmaps[0])
 			var mods = modenum(pmod);
 			var acc_percent = parseFloat(pacc);
@@ -149,7 +149,7 @@ function getMapPP(input, pcombo, pacc, pmissc, pmod, message) {
 						nmiss: nmiss,
 						acc_percent: acc_percent,
 					});
-
+					
 					//console.log(pp.toString());
 					var ppline = pp.toString().split("(");
 					var starsline = stars.toString().split("(");
