@@ -19,6 +19,7 @@
 &profileme [discord user] (only binded user)
 &recentme [discord user] (only binded user)
 &recent5me [discord user] (only binded user)
+&manualcalc <map link / map id> [(+<mod>) (<combo>x) (<acc>%) (<miss>m)]
 
 &addtrack (Owner only)
 &deletetrack (Owner only)

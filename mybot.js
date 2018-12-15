@@ -6,7 +6,7 @@ var http = require("http");
 var util = require("util");
 var mongodb = require('mongodb');
 require("dotenv").config();
-
+var dbkey = process.env.DB_KEY
 
 client.commands = new Discord.Collection();
 fs.readdir("./cmd/" , (err, files) => {
@@ -25,7 +25,7 @@ fs.readdir("./cmd/" , (err, files) => {
 	});
 });
 
-let uri = 'mongodb+srv://NeroYuki:ngocdang241@elainadb-r6qx3.mongodb.net/test?retryWrites=true';
+let uri = 'mongodb+srv://' + dbkey + '@elainadb-r6qx3.mongodb.net/test?retryWrites=true';
 let maindb = '';
 	
 mongodb.MongoClient.connect(uri, {useNewUrlParser: true}, function(err, db) {
