@@ -45,7 +45,7 @@ function modenum(mod) {
 	return res;
 }
 
-function getMapPP(input, pcombo, pacc, pmissc, pmod, message) {
+function getMapPP(input, pcombo, pacc, pmissc, pmod, message, fallback) {
 	var mapper = "";
 	var diff = "";
 	var artist = "";
@@ -56,16 +56,24 @@ function getMapPP(input, pcombo, pacc, pmissc, pmod, message) {
 	var c = b[b.length-1].split(' ['); mapper = c[0]; mapper = mapper.replace(/\)/g,"");
 	for (var i = 1; i < c.length; i++) diff += c[i]; diff = diff.replace(/\]/g,"");
 
-	// console.log(artist);
-	// console.log(title);
-	// console.log(mapper);
-	// console.log(diff);
+	var fmapper = mapper.split(" ")[0];
+	var ftitle = title.split(" ")[0];
+	var fartist = artist.split(" ")[0];
+	var fdiff = diff.split(" ")[0];
+
+	//small sure-fire patch
 	if (title.includes("   ")) title = "";
 	if (artist.includes("CV")) artist = artist.split("CV")[0]
 	title = title.replace(/ s /g, "'s ");
 	diff = diff.replace(/ s /g, "'s ");
+	
+	// console.log(artist);
+	// console.log(title);
+	// console.log(mapper);
+	// console.log(diff);
 
-	var options = new URL("https://osusearch.com/query/?title=" + title + "&artist=" + artist + "&mapper=" + mapper + "&diff_name=" + diff + "&query_order=favorites");
+	if (!fallback) var options = new URL("https://osusearch.com/query/?title=" + title + "&artist=" + artist + "&mapper=" + mapper + "&diff_name=" + diff + "&query_order=favorites")
+	else var options = new URL("https://osusearch.com/query/?title=" + ftitle + "&artist=" + fartist + "&mapper=" + fmapper + "&diff_name=" + fdiff + "&query_order=favorites");
 
 	var content = "";   
 
@@ -77,9 +85,16 @@ function getMapPP(input, pcombo, pacc, pmissc, pmod, message) {
 
 		res.on("end", function () {
 			var obj = JSON.parse(content);
-			if (!obj.beatmaps[0]) {console.log("Map not found"); return;}
+			if (!obj.beatmaps[0]) {
+				console.log("Map not found");
+				if (!fallback) {
+					getMapPP(input, pcombo, pacc, pmissc, pmod, message, true);
+					return;
+				}
+				else return;
+			}
 			var mapinfo = obj.beatmaps[0];
-			if (mapinfo.gamemode !=0) return;
+			if (mapinfo.gamemode !=0) {console.log("invalid gamemod"); return;}
 			//console.log(obj.beatmaps[0])
 			var mods = modenum(pmod);
 			var acc_percent = parseFloat(pacc);
@@ -162,7 +177,7 @@ function getMapPP(input, pcombo, pacc, pmissc, pmod, message) {
 						"color": mapstatusread(mapinfo.beatmap_status),
 						"footer": {
 							"icon_url": "https://images-ext-2.discordapp.net/external/d0iu_mPMvyoLQWnBSEnW4RL0-07KYm7zG9mjWdfWl7M/https/image.frl/p/yaa1nf94dho5f962.jpg",
-							"text": "Elaina owo"
+							"text": "Elaina owo" + ((fallback)? " [fallback search]" : "")
 						},
 						"author": {
 							"name": "Map Found",
@@ -250,7 +265,7 @@ module.exports.run = (client, message, args, maindb) => {
 					}
 				}
 				
-				if (title) {getMapPP(title, combo, acc, miss, mod, message);}
+				if (title) {getMapPP(title, combo, acc, miss, mod, message, false);}
 				
 				const embed = {
 					  "title": title,
