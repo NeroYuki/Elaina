@@ -73,6 +73,7 @@ function getMapPP(input, pcombo, pacc, pmissc, pmod, message) {
 			else var nmiss = 0;
 			var parser = new osu.parser();
 			var pcparser = new osu.parser();
+			console.log(acc_percent);
 			//var url = "https://osu.ppy.sh/osu/1031991";
 			var url = 'https://osu.ppy.sh/osu/' + input;
 			cmd.get('curl ' + url ,
@@ -113,15 +114,17 @@ function getMapPP(input, pcombo, pacc, pmissc, pmod, message) {
 						if (line[x].includes("OverallDifficulty:")) {
 							var odline = line[x].split(":");
 							var od = parseFloat(odline[1])
-							if (osu.modbits.string(mods).includes("HR")) var odedit = (od*1.4>10)? 5/1.4 : ((od*1.4-5)/1.4);
+							if (osu.modbits.string(mods).includes("HR") && pmod.includes("PR")) var odedit = (od*1.4>10)? 9/1.4 : ((od*1.4-1)/1.4);
+							else if (osu.modbits.string(mods).includes("HR") && !pmod.includes("PR")) var odedit = (od*1.4>10)? 5/1.4 : ((od*1.4-5)/1.4);
+							else if (!osu.modbits.string(mods).includes("HR") && pmod.includes("PR")) var odedit = od - 1;
 							else var odedit = od - 5;
 							line[x] = odline[0] + ":" + odedit;
-							//console.log(line[x]);
+							console.log(line[x]);
 						}
 					}
-					data = "";
-					for (var x = 0; x < line.length; x++) data += line[x] + "\n";
-					parser.feed(data);
+					var data2 = "";
+					for (var x = 0; x < line.length; x++) data2 += line[x] + "\n";
+					parser.feed(data2);
 					var map = parser.map;
 					if (mods) {
 						console.log("+" + osu.modbits.string(mods));
@@ -142,7 +145,7 @@ function getMapPP(input, pcombo, pacc, pmissc, pmod, message) {
 					var pcppline = pcpp.toString().split("(");
 					var pcstarsline = pcstars.toString().split("(");
 					const embed = {
-						"title": mapinfo.artist + " - " + mapinfo.title + " (" + mapinfo.creator + ") [" + mapinfo.version + "] " + ((mods == 4)? " " : "+ ") + osu.modbits.string(mods - 4),
+						"title": mapinfo.artist + " - " + mapinfo.title + " (" + mapinfo.creator + ") [" + mapinfo.version + "] " + ((mods == 4 && (!pmod.includes("PR")))? " " : "+ ") + osu.modbits.string(mods - 4) + ((pmod.includes("PR")? "PR": "")),
 						"description": "Download: [osu!](https://osu.ppy.sh/beatmapsets/" + mapinfo.beatmapset_id + "/download) ([no video](https://osu.ppy.sh/beatmapsets/" + mapinfo.beatmapset_id + "/download?noVideo=1)) - [Bloodcat]()",
 						"url": "https://osu.ppy.sh/b/" + mapinfo.beatmap_id ,
 						"color": mapstatusread(parseInt(mapinfo.approved)),
@@ -194,6 +197,7 @@ module.exports.run = (client, message, args) => {
 		if (args[i].endsWith("x")) combo = args[i];
 		if (args[i].startsWith("+")) mod = args[i];
 	}
+	console.log(acc);
 	getMapPP(beatmapid, combo, acc, missc, mod, message);
 }
 
