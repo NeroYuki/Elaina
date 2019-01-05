@@ -45,7 +45,7 @@ function mapstatusread(status) {
 	}
 }
 
-function getMapPP(input, pcombo, pacc, pmissc, pmod, message) {
+function getMapPP(input, pcombo, pacc, pmissc, pmod = "", message) {
 
 	var options = new URL("https://osu.ppy.sh/api/get_beatmaps?k=" + apikey + "&b=" + input);
 
