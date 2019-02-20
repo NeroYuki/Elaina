@@ -251,7 +251,7 @@ module.exports.run = (client, message, args, maindb) => {
 					b[x+1]=b[x+1].replace('}</span>','')
 					title=b[x-1].trim();
 					b[x]=b[x].trim();
-					miss=b[x+1].trim();
+					miss=b[x+1].trim().split(',')[0];
 					d = b[x].split("/"); ptime = d[0]; score = d[1]; mod = d[2]; combo = d[3]; acc = d[4];
 					b[x-5]=b[x-5].trim();
 					rank=rankread(b[x-5]);
