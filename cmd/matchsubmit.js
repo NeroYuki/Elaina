@@ -91,7 +91,8 @@ function getRecentPlay(i, uid, cb) {
 	req.end();
 }
 
-function scoreCalc(score, maxscore, accuracy, misscount) {
+function scoreCalc(score, maxscore, accuracy, misscount, mod) {
+	if (mod == Hidden, DoubleTime") score *= 0.94;
 	let newscore = score/maxscore*600000 + (Math.pow((accuracy/100), 4)*400000);
 	newscore = newscore - (misscount*0.003*newscore);
 	return newscore;
@@ -171,7 +172,7 @@ module.exports.run = (client, message, args, maindb) => {
 											if (allScoreFetch[m][2] == mapplay[1] && modValid(allScoreFetch[m][9], mapplay[0])) {
 												//TODO: input score
 												//		escape this nested hell (if false return)
-												pscore.push(scoreCalc(parseInt(scoreConvert(allScoreFetch[m][3])), parseInt(mapplay[2]), parseFloat(allScoreFetch[m][5]), parseInt(allScoreFetch[m][6])))
+												pscore.push(scoreCalc(parseInt(scoreConvert(allScoreFetch[m][3])), parseInt(mapplay[2]), parseFloat(allScoreFetch[m][5]), parseInt(allScoreFetch[m][6]), allScoreFetch[m][9]))
 											}
 											else {
 												pscore.push(0)
