@@ -144,7 +144,7 @@ function getMapPP(input, pcombo, pacc, pmissc, pmod = "", message, objcount, cb)
 					var starsline = stars.toString().split("(");
 					var playinfo = mapinfo.artist + " - " + mapinfo.title + " (" + mapinfo.creator + ") [" + mapinfo.version + "] " + ((mods == 4 && (!pmod.includes("PR")))? " " : "+ ") + osu.modbits.string(mods - 4) + ((pmod.includes("PR")? "PR": ""))
 					objcount.x++;
-					cb(ppline[0], playinfo, input);
+					cb(ppline[0], playinfo, input, pcombo, pacc, pmissc);
 				}
 			)
 		});
@@ -239,9 +239,9 @@ module.exports.run = (client, message, args, maindb) => {
 					
 					console.log(playentry);
 					playentry.forEach(function (x) {
-						if (x.title) getMapPP (x.hash, x.combo, x.acc, x.miss, x.mod, message, objcount, (pp, playinfo, hash) => {
+						if (x.title) getMapPP (x.hash, x.combo, x.acc, x.miss, x.mod, message, objcount, (pp, playinfo, hash, combo, acc, miss) => {
 							console.log(objcount);
-							var ppentry = [hash, playinfo, parseFloat(pp)]
+							var ppentry = [hash, playinfo, parseFloat(pp), combo, acc, miss]
 							var dup = false
 							//pplist.push(ppentry)
 							for (i in pplist) {
