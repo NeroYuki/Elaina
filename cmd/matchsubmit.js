@@ -92,7 +92,7 @@ function getRecentPlay(i, uid, cb) {
 }
 
 function scoreCalc(score, maxscore, accuracy, misscount, mod) {
-	if (mod == Hidden, DoubleTime") score *= 0.94;
+	if (mod == "Hidden, DoubleTime") score *= 0.94;
 	let newscore = score/maxscore*600000 + (Math.pow((accuracy/100), 4)*400000);
 	newscore = newscore - (misscount*0.003*newscore);
 	return newscore;
