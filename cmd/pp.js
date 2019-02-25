@@ -157,6 +157,8 @@ module.exports.run = (client, message, args, maindb) => {
 	var start = 1;
 	if (args[0]) offset = parseInt(args[0]);
 	if (args[1]) start = parseInt(args[1]);
+	if (isNaN(offset)) offset = 1;
+	if (isNaN(start)) start = 1;
 	let ufind = message.author.id;
 	if (offset > 5 || offset < 1) offset = 1;
 	if (start + offset - 1 > 50) {console.log('out of limit'); return;}
