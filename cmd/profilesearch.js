@@ -16,7 +16,7 @@ module.exports.run = (client, message, args) => {
 		if (c.length!=0) {message.channel.send("```"+c[0]+"```")}
 		else {
 			notFound++;
-			if (notFound==3) {
+			if (notFound==4) {
 				message.channel.send("User not found, please input correct name (include upper and lower case)");
 				notFound=0;
 			}
@@ -35,7 +35,7 @@ module.exports.run = (client, message, args) => {
 		if (d.length!=0) {message.channel.send("```"+d[0]+"```")}
 		else {
 			notFound++;
-			if (notFound==3) {
+			if (notFound==4) {
 				message.channel.send("User not found, please input correct name (include upper and lower case)");
 				notFound=0;
 			}
@@ -54,12 +54,32 @@ module.exports.run = (client, message, args) => {
 		if (e.length!=0) {message.channel.send("```"+e[0]+"```")}
 		else {
 			notFound++;
-			if (notFound==3) {
+			if (notFound==4) {
 				message.channel.send("User not found, please input correct name (include upper and lower case)");
 				notFound=0;
 			}
 		}
 	});
+	fs.readFile("profileDataDump(150000-200000).txt", 'utf8', function(err, data) {
+        if (err) throw err;
+		var u = data;
+        let b = u.split('\n');e=[];
+		for (x = 0; x < b.length; x++) {
+    	if (b[x].startsWith(username+" /") && b[x - 1].includes('http')) {
+			b[x-1]="\n"+b[x-1];
+			e.push([b[x],b[x-1]]);
+			}
+		}
+		if (e.length!=0) {message.channel.send("```"+e[0]+"```")}
+		else {
+			notFound++;
+			if (notFound==4) {
+				message.channel.send("User not found, please input correct name (include upper and lower case)");
+				notFound=0;
+			}
+		}
+	});
+}
 }
 
 module.exports.help = {
