@@ -1,7 +1,7 @@
 var http = require('http');
 var mongodb = require('mongodb');
 var cmd = require("node-cmd");
-var osu = require("ojsama");
+var droid = require("./ojsamadroid");
 var https = require("https");
 require("dotenv").config();
 var apikey = process.env.OSU_API_KEY;
@@ -22,18 +22,6 @@ function rankread(imgsrc) {
 	return rank;
 }
 
-function mapstatusread(status) {
-	switch (status) {
-		case -2: return 16711711;
-		case -1: return 9442302;
-		case 0: return 16312092;
-		case 1: return 2483712;
-		case 2: return 16741376;
-		case 3: return 5301186;
-		case 4: return 16711796;
-		default: return 0;
-	}
-}
 
 function modenum(mod) {
 	var res = 4;
@@ -46,8 +34,6 @@ function modenum(mod) {
 	if (mod.includes("HalfTime")) res += 256;
 	return res;
 }
-
-
 
 function getMapPP(input, pcombo, pacc, pmissc, pmod = "", message, objcount, cb) {
 
@@ -89,66 +75,59 @@ function getMapPP(input, pcombo, pacc, pmissc, pmod = "", message, objcount, cb)
 			else var combo;
 			if (pmissc) var nmiss = parseInt(pmissc)
 			else var nmiss = 0;
-			var parser = new osu.parser();
-			var pcparser = new osu.parser();
+			var parser = new droid.parser();
 			console.log(acc_percent);
 			//var url = "https://osu.ppy.sh/osu/1031991";
 			var url = 'https://osu.ppy.sh/osu/' + mapid;
 			cmd.get('curl ' + url ,
 				function(err, data, stderr){
-					var line = data.split("\n");
-					for (var x = 0; x < line.length; x++) {
-						if (line[x].includes("CircleSize:")) {
-							var csline = line[x].split(":");
-							var cs = parseFloat(csline[1]);
-							if (osu.modbits.string(mods).includes("HR")) var csedit = (cs*1.3-4)/1.3; 
-							else var csedit = cs - 4;
-							line[x] = csline[0] + ":" + csedit;
-							//console.log(line[x]);
-						}
-						if (line[x].includes("OverallDifficulty:")) {
-							var odline = line[x].split(":");
-							var od = parseFloat(odline[1])
-							if (osu.modbits.string(mods).includes("HR") && pmod.includes("PR")) var odedit = (od*1.4>10)? 9/1.4 : ((od*1.4-1)/1.4);
-							else if (osu.modbits.string(mods).includes("HR") && !pmod.includes("PR")) var odedit = (od*1.4>10)? 5/1.4 : ((od*1.4-5)/1.4);
-							else if (!osu.modbits.string(mods).includes("HR") && pmod.includes("PR")) var odedit = od - 1;
-							else var odedit = od - 5;
-							line[x] = odline[0] + ":" + odedit;
-							console.log(line[x]);
-						}
+                    parser.feed(data);
+					var nmap = parser.map;
+					var cur_od = nmap.od - 5;
+					var cur_ar = nmap.ar;
+					var cur_cs = nmap.cs - 4;
+					// if (mods) {
+					// 	console.log("+" + osu.modbits.string(mods));
+					// }
+					if (pmod.includes("HR")) {
+						mods -= 16; 
+						cur_ar = Math.min(cur_ar*1.4, 10);
+						cur_od = Math.min(cur_od*1.4, 5);
+						cur_cs += 1;
 					}
-					var data2 = "";
-					for (var x = 0; x < line.length; x++) data2 += line[x] + "\n";
-					parser.feed(data2);
-					var map = parser.map;
-					if (map.ncircles == 0 && map.nsliders == 0) {
+
+					if (pmod.includes("PR")) { cur_od += 4; }
+
+					nmap.od = cur_od; nmap.ar = cur_ar; nmap.cs = cur_cs;
+                    
+                    if (nmap.ncircles == 0 && nmap.nsliders == 0) {
 						console.log('Error: no object found'); 
 						objcount.x++;
 						return;
-					}
-					if (mods) {
-						console.log("+" + osu.modbits.string(mods));
-					}
-					var stars = new osu.diff().calc({map: map, mods: mods});
+                    }
+                    
+                    var nstars = new droid.diff().calc({map: nmap, mods: mods});
 					//console.log(stars.toString());
 
-					var pp = osu.ppv2({
-						stars: stars,
+                    
+                    var npp = droid.ppv2({
+						stars: nstars,
 						combo: combo,
 						nmiss: nmiss,
 						acc_percent: acc_percent,
 					});
-
-					//console.log(pp.toString());
-					var ppline = pp.toString().split("(");
-					var starsline = stars.toString().split("(");
-					var playinfo = mapinfo.artist + " - " + mapinfo.title + " (" + mapinfo.creator + ") [" + mapinfo.version + "] " + ((mods == 4 && (!pmod.includes("PR")))? " " : "+ ") + osu.modbits.string(mods - 4) + ((pmod.includes("PR")? "PR": ""))
+					
+					parser.reset()
+                    
+					console.log(nstars.toString());
+					console.log(npp.toString());
+					var ppline = npp.toString().split("(");
+					var playinfo = mapinfo.artist + " - " + mapinfo.title + " (" + mapinfo.creator + ") [" + mapinfo.version + "] " + ((mods == 4 && (!pmod.includes("PR")))? " " : "+ ") + droid.modbits.string(mods - 4) + ((pmod.includes("PR")? "PR": ""))
 					objcount.x++;
 					cb(ppline[0], playinfo, input, pcombo, pacc, pmissc);
-				}
-			)
-		});
-	});
+				})
+		})
+	})
 }
 
 module.exports.run = (client, message, args, maindb) => {
@@ -174,7 +153,7 @@ module.exports.run = (client, message, args, maindb) => {
 	binddb.find(query).toArray(function(err, userres) {
 		if (err) throw err;
 		if (userres[0]) {
-
+			console.log(offset);
 			let uid = userres[0].uid;
 			let discordid = userres[0].discordid;
 			if (userres[0].pp) var pplist = userres[0].pp;
@@ -205,7 +184,6 @@ module.exports.run = (client, message, args, maindb) => {
 					curpos = 0;
 					curentry = 0;
 					var playentry = [];
-					let name=""; var title =""; var acc=""; var miss=""; var rank =""; var combo= ""; var mod=""; var hash = ""; var ptime = ""; var score = "";
 					for (x = 0; x < b.length; x++) {
 						if (b[x].includes('<small>') && b[x - 1].includes('class="block"')) {
 							var play = {
@@ -221,13 +199,10 @@ module.exports.run = (client, message, args, maindb) => {
 							var mshs = b[x+1].trim().split(',');
 							play.miss = mshs[0];
 							play.hash = mshs[1].split(':')[1];
-							console.log(play.hash)
-							d = b[x].split("/"); ptime = d[0]; score = d[1]; play.mod = d[2]; play.combo = d[3]; play.acc = d[4];
+							//console.log(play.hash)
+							d = b[x].split("/"); ptime = d[0]; play.mod = d[2]; play.combo = d[3]; play.acc = d[4];
 							b[x-5]=b[x-5].trim();
-							rank=rankread(b[x-5]);
-							console.log(curentry);
 							curpos++;
-							console.log(curpos);
 							if (curpos >= start) {playentry[curentry] = play; curentry++;}
 							if (curentry >= offset) break;
 						}
@@ -241,9 +216,9 @@ module.exports.run = (client, message, args, maindb) => {
 					
 					console.log(playentry);
 					playentry.forEach(function (x) {
-						if (x.title) getMapPP (x.hash, x.combo, x.acc, x.miss, x.mod, message, objcount, (pp, playinfo, hash, combo, acc, miss) => {
+						if (x.title) getMapPP (x.hash, x.combo, x.acc, x.miss, x.mod, message, objcount, (pp, playinfo, hash) => {
 							console.log(objcount);
-							var ppentry = [hash, playinfo, parseFloat(pp), combo, acc, miss]
+							var ppentry = [hash, playinfo, parseFloat(pp)]
 							var dup = false
 							//pplist.push(ppentry)
 							for (i in pplist) {
