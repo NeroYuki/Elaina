@@ -35,53 +35,59 @@ function modenum(mod) {
 	return res;
 }
 
-function getMapPP(input, pcombo, pacc, pmissc, pmod = "", message, objcount, cb) {
+function getMapPP(input, pcombo, pacc, pmissc, pmod = "", message, objcount, whitelist, cb) {
 
-	console.log(input);
+	var isWhitelist = false;
 
-	var options = new URL("https://osu.ppy.sh/api/get_beatmaps?k=" + apikey + "&h=" + input);
+	var whitelistQuery = {hashid: input};
 
-	var content = "";   
+	whitelist.findOne(whitelistQuery, (err, wlres) => {
+		if (err) throw err;
+		if (wlres) isWhitelist = true; 
+		console.log(input);
 
-	var req = https.get(options, function(res) {
-		res.setEncoding("utf8");
-		res.on("data", function (chunk) {
-			content += chunk;
-		});
+		if (isWhitelist) var options = new URL("https://osu.ppy.sh/api/get_beatmaps?k=" + apikey + "&b=" + wlres.mapid); 
+		else var options = new URL("https://osu.ppy.sh/api/get_beatmaps?k=" + apikey + "&h=" + input);
 
-		res.on("end", function () {
-			var obj = JSON.parse(content);
-			if (!obj[0]) {
-				console.log("Map not found"); 
-				message.channel.send("Error: The map you've played can't be found on osu! beatmap listing, please make sure the map is submitted, and up-to-date")
-				objcount.x++;
-				return;
-			}
-			var mapinfo = obj[0];
-			var mapid = mapinfo.beatmap_id;
-			if (mapinfo.mode !=0) return;
-			//TODO: Check if a map in whitelist, 5 = Whitelisted 
-			if (mapinfo.approved == 3 || mapinfo.approved <= 0 ) {
-				message.channel.send('Error: PP system only accept ranked, approved or loved mapset right now');
-				objcount.x++;
-				return;
-			}
-			//console.log(obj.beatmaps[0])
-			if (pmod) var mods = modenum(pmod)
-			else var mods = 4;
-			if (pacc) var acc_percent = parseFloat(pacc)
-			else var acc_percent = 100;
-			if (pcombo) var combo = parseInt(pcombo)
-			else var combo;
-			if (pmissc) var nmiss = parseInt(pmissc)
-			else var nmiss = 0;
-			var parser = new droid.parser();
-			console.log(acc_percent);
-			//var url = "https://osu.ppy.sh/osu/1031991";
-			var url = 'https://osu.ppy.sh/osu/' + mapid;
-			cmd.get('curl ' + url ,
-				function(err, data, stderr){
-                    parser.feed(data);
+		var content = "";   
+
+		var req = https.get(options, function(res) {
+			res.setEncoding("utf8");
+			res.on("data", function (chunk) {
+				content += chunk;
+			});
+
+			res.on("end", function () {
+				var obj = JSON.parse(content);
+				if (!obj[0]) {
+					console.log("Map not found"); 
+					message.channel.send("Error: The map you've played can't be found on osu! beatmap listing, please make sure the map is submitted, and up-to-date")
+					objcount.x++;
+					return;
+				}
+				var mapinfo = obj[0];
+				var mapid = mapinfo.beatmap_id;
+				if (mapinfo.mode !=0) return;
+				if ((mapinfo.approved == 3 || mapinfo.approved <= 0) && !isWhitelist) {
+					message.channel.send('Error: PP system only accept ranked, approved, whitelisted or loved mapset right now');
+					objcount.x++;
+					return;
+				}
+				//console.log(obj.beatmaps[0])
+				if (pmod) var mods = modenum(pmod)
+				else var mods = 4;
+				if (pacc) var acc_percent = parseFloat(pacc)
+				else var acc_percent = 100;
+				if (pcombo) var combo = parseInt(pcombo)
+				else var combo;
+				if (pmissc) var nmiss = parseInt(pmissc)
+				else var nmiss = 0;
+				var parser = new droid.parser();
+				console.log(acc_percent);
+				//var url = "https://osu.ppy.sh/osu/1031991";
+				var url = 'https://osu.ppy.sh/osu/' + mapid;
+				cmd.get('curl ' + url , function(err, data, stderr){
+					parser.feed(data);
 					var nmap = parser.map;
 					var cur_od = nmap.od - 5;
 					var cur_ar = nmap.ar;
@@ -99,18 +105,18 @@ function getMapPP(input, pcombo, pacc, pmissc, pmod = "", message, objcount, cb)
 					if (pmod.includes("PR")) { cur_od += 4; }
 
 					nmap.od = cur_od; nmap.ar = cur_ar; nmap.cs = cur_cs;
-                    
-                    if (nmap.ncircles == 0 && nmap.nsliders == 0) {
+					
+					if (nmap.ncircles == 0 && nmap.nsliders == 0) {
 						console.log('Error: no object found'); 
 						objcount.x++;
 						return;
-                    }
-                    
-                    var nstars = new droid.diff().calc({map: nmap, mods: mods});
+					}
+					
+					var nstars = new droid.diff().calc({map: nmap, mods: mods});
 					//console.log(stars.toString());
 
-                    
-                    var npp = droid.ppv2({
+					
+					var npp = droid.ppv2({
 						stars: nstars,
 						combo: combo,
 						nmiss: nmiss,
@@ -118,7 +124,7 @@ function getMapPP(input, pcombo, pacc, pmissc, pmod = "", message, objcount, cb)
 					});
 					
 					parser.reset()
-                    
+					
 					console.log(nstars.toString());
 					console.log(npp.toString());
 					var ppline = npp.toString().split("(");
@@ -126,6 +132,7 @@ function getMapPP(input, pcombo, pacc, pmissc, pmod = "", message, objcount, cb)
 					objcount.x++;
 					cb(ppline[0], playinfo, input, pcombo, pacc, pmissc);
 				})
+			})
 		})
 	})
 }
@@ -149,6 +156,7 @@ module.exports.run = (client, message, args, maindb) => {
 	// }
 	console.log(ufind);
 	let binddb = maindb.collection("userbind");
+	let whitelist = maindb.collection("mapwhitelist");
 	let query = { discordid: ufind };
 	binddb.find(query).toArray(function(err, userres) {
 		if (err) throw err;
@@ -215,8 +223,8 @@ module.exports.run = (client, message, args, maindb) => {
 					}
 					
 					console.log(playentry);
-					playentry.forEach(function (x) {
-						if (x.title) getMapPP (x.hash, x.combo, x.acc, x.miss, x.mod, message, objcount, (pp, playinfo, hash, acc, combo, miss) => {
+					playentry.forEach(function (x) {		
+						if (x.title) getMapPP (x.hash, x.combo, x.acc, x.miss, x.mod, message, objcount, whitelist, (pp, playinfo, hash, acc, combo, miss) => {
 							console.log(objcount);
 							var ppentry = [hash, playinfo, parseFloat(pp), acc, combo, miss]
 							var dup = false
