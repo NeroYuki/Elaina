@@ -21,7 +21,7 @@ fs.readdir("./cmd/" , (err, files) => {
 	cmdfile.forEach((f, i) => {
 		let props = require(`./cmd/${f}`);
 		console.log(`${i+1} : ${f} loaded`);
-		client.commands.set(props.help.name, props);
+		if(f != 'ojsamadroid.js')client.commands.set(props.help.name, props);
 	});
 });
 
