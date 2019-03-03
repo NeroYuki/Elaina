@@ -1,7 +1,10 @@
 var http = require('http');
 var cmd = require("node-cmd");
-var osu = require("ojsama");
+var droid = require("./ojsamadroid");
+var osu = require("ojsama")
 var https = require("https");
+require("dotenv").config();
+var apikey = process.env.OSU_API_KEY;
 
 function rankread(imgsrc) {
 	let rank="";
@@ -44,35 +47,9 @@ function modenum(mod) {
 	return res;
 }
 
-function getMapPP(input, pcombo, pacc, pmissc, pmod, message, fallback) {
-	var mapper = "";
-	var diff = "";
-	var artist = "";
-	var title = "";
+function getMapPP(input, pcombo, pacc, pmissc, pmod = "", message) {
 
-	var a = input.split(' - '); artist = a[0]; for (var i = 2; i <a.length; i++) a[1] += " - " + a[i]; 
-	var b = a[1].split(' ('); title = b[0]; if (b.length>2) title += " (" + b[1];
-	var c = b[b.length-1].split(' ['); mapper = c[0]; mapper = mapper.replace(/\)/g,"");
-	for (var i = 1; i < c.length; i++) diff += c[i]; diff = diff.replace(/\]/g,"");
-	
-	var fmapper = mapper.split(" ")[0];
-	var ftitle = title.split(" ")[0];
-	var fartist = artist.split(" ")[0];
-	var fdiff = diff.split(" ")[0];
-
-	//small sure-fire patch
-	if (title.includes("   ")) title = "";
-	if (artist.includes("CV")) artist = artist.split("CV")[0]
-	title = title.replace(/ s /g, "'s ");
-	diff = diff.replace(/ s /g, "'s ");
-	
-	// console.log(artist);
-	// console.log(title);
-	// console.log(mapper);
-	// console.log(diff);
-
-	if (!fallback) var options = new URL("https://osusearch.com/query/?title=" + title + "&artist=" + artist + "&mapper=" + mapper + "&diff_name=" + diff + "&query_order=favorites")
-	else var options = new URL("https://osusearch.com/query/?title=" + ftitle + "&artist=" + fartist + "&mapper=" + fmapper + "&diff_name=" + fdiff + "&query_order=favorites");
+	var options = new URL("https://osu.ppy.sh/api/get_beatmaps?k=" + apikey + "&h=" + input);
 
 	var content = "";   
 
@@ -84,35 +61,64 @@ function getMapPP(input, pcombo, pacc, pmissc, pmod, message, fallback) {
 
 		res.on("end", function () {
 			var obj = JSON.parse(content);
-			if (!obj.beatmaps[0]) {
-				console.log("Map not found");
-				if (!fallback) {
-					getMapPP(input, pcombo, pacc, pmissc, pmod, message, true);
-					return;
-				}
-				else return;
-			}
-			var mapinfo = obj.beatmaps[0];
-			if (mapinfo.gamemode !=0) {console.log("invalid gamemod"); return;}
+			if (!obj[0]) {console.log("Map not found"); return;}
+			var mapinfo = obj[0];
+			var mapid = mapinfo.beatmap_id;
+			if (mapinfo.mode !=0) return;
 			//console.log(obj.beatmaps[0])
-			var mods = modenum(pmod);
-			var acc_percent = parseFloat(pacc);
-			var combo = parseInt(pcombo);
-			var nmiss = parseInt(pmissc);
-			var parser = new osu.parser();
+			if (pmod) var mods = modenum(pmod)
+			else var mods = 4;
+			if (pacc) var acc_percent = parseFloat(pacc)
+			else var acc_percent = 100;
+			if (pcombo) var combo = parseInt(pcombo)
+			else var combo;
+			if (pmissc) var nmiss = parseInt(pmissc)
+			else var nmiss = 0;
+			var nparser = new droid.parser();
 			var pcparser = new osu.parser();
+			console.log(acc_percent);
 			//var url = "https://osu.ppy.sh/osu/1031991";
-			var url = 'https://osu.ppy.sh/osu/' + obj.beatmaps[0].beatmap_id
+			var url = 'https://osu.ppy.sh/osu/' + mapid;
 			cmd.get('curl ' + url ,
 				function(err, data, stderr){
-					//console.log(mods);
+					nparser.feed(data);
 					pcparser.feed(data);
-					var pcmap = pcparser.map;
-					if (mods) {
-						console.log("+" + osu.modbits.string(mods - 4));
+					var pcmods = mods - 4;
+					var nmap = nparser.map;
+					var pcmap = pcparser.map
+					var cur_od = nmap.od - 5;
+					var cur_ar = nmap.ar;
+					var cur_cs = nmap.cs - 4;
+					// if (mods) {
+					// 	console.log("+" + osu.modbits.string(mods));
+					// }
+					if (pmod.includes("HR")) {
+						mods -= 16; 
+						cur_ar = Math.min(cur_ar*1.4, 10);
+						cur_od = Math.min(cur_od*1.4, 5);
+						cur_cs += 1;
 					}
-					var pcstars = new osu.diff().calc({map: pcmap, mods: mods - 4});
-					//console.log(pcstars.toString());
+
+					if (pmod.includes("PR")) { cur_od += 4; }
+
+					nmap.od = cur_od; nmap.ar = cur_ar; nmap.cs = cur_cs;
+                    
+                    if (nmap.ncircles == 0 && nmap.nsliders == 0) {
+						console.log(target[0] + ' - Error: no object found'); 
+						return;
+                    }
+                    
+					var nstars = new droid.diff().calc({map: nmap, mods: mods});
+					var pcstars = new osu.diff().calc({map: pcmap, mods: pcmods});
+					//console.log(stars.toString());
+
+                    
+                    var npp = droid.ppv2({
+						stars: nstars,
+						combo: combo,
+						nmiss: nmiss,
+						acc_percent: acc_percent,
+					});
 
 					var pcpp = osu.ppv2({
 						stars: pcstars,
@@ -120,63 +126,23 @@ function getMapPP(input, pcombo, pacc, pmissc, pmod, message, fallback) {
 						nmiss: nmiss,
 						acc_percent: acc_percent,
 					});
-
-					var max_combo = pcmap.max_combo();
-					combo = combo || max_combo;
-
-					//console.log(pcpp.computed_accuracy.toString());
-					//console.log(combo + "/" + max_combo + "x");
-
-					//console.log(pcpp.toString());
-					var line = data.split("\n");
-					data = "";
-					for (var x = 0; x < line.length; x++) {
-						if (line[x].includes("CircleSize:")) {
-							var csline = line[x].split(":");
-							var cs = parseFloat(csline[1]);
-							if (osu.modbits.string(mods).includes("HR")) var csedit = (cs*1.3-4)/1.3; 
-							else var csedit = cs - 4;
-							line[x] = csline[0] + ":" + csedit;
-							//console.log(line[x]);
-						}
-						if (line[x].includes("OverallDifficulty:")) {
-							var odline = line[x].split(":");
-							var od = parseFloat(odline[1])
-							if (osu.modbits.string(mods).includes("HR")) var odedit = (od*1.4>10)? 5/1.4 : ((od*1.4-5)/1.4);
-							else var odedit = od - 5;
-							line[x] = odline[0] + ":" + odedit;
-							//console.log(line[x]);
-						}
-					}
-					for (var x = 0; x < line.length; x++) data += line[x] + "\n";
-					parser.feed(data);
-					var map = parser.map;
-					if (mods) {
-						console.log("+" + osu.modbits.string(mods));
-					}
-					var stars = new osu.diff().calc({map: map, mods: mods});
-					//console.log(stars.toString());
-
-					var pp = osu.ppv2({
-						stars: stars,
-						combo: combo,
-						nmiss: nmiss,
-						acc_percent: acc_percent,
-					});
-
-					//console.log(pp.toString());
-					var ppline = pp.toString().split("(");
-					var starsline = stars.toString().split("(");
-					var pcppline = pcpp.toString().split("(");
+					
+					nparser.reset()
+                    
+					console.log(nstars.toString());
+                    console.log(npp.toString());
+					var starsline = nstars.toString().split("(");
+					var ppline = npp.toString().split("(");
 					var pcstarsline = pcstars.toString().split("(");
+					var pcppline = pcpp.toString().split("(");
 					const embed = {
-						"title": mapinfo.artist + " - " + mapinfo.title + " (" + mapinfo.mapper + ") [" + mapinfo.difficulty_name + "] " + ((mods == 4)? " " : "+ ") + osu.modbits.string(mods - 4),
+						"title": mapinfo.artist + " - " + mapinfo.title + " (" + mapinfo.creator + ") [" + mapinfo.version + "] " + ((mods == 4 && (!pmod.includes("PR")))? " " : "+ ") + osu.modbits.string(mods - 4) + ((pmod.includes("PR")? "PR": "")),
 						"description": "Download: [osu!](https://osu.ppy.sh/beatmapsets/" + mapinfo.beatmapset_id + "/download) ([no video](https://osu.ppy.sh/beatmapsets/" + mapinfo.beatmapset_id + "/download?noVideo=1)) - [Bloodcat]()",
 						"url": "https://osu.ppy.sh/b/" + mapinfo.beatmap_id ,
-						"color": mapstatusread(mapinfo.beatmap_status),
+						"color": mapstatusread(parseInt(mapinfo.approved)),
 						"footer": {
 							"icon_url": "https://images-ext-2.discordapp.net/external/d0iu_mPMvyoLQWnBSEnW4RL0-07KYm7zG9mjWdfWl7M/https/image.frl/p/yaa1nf94dho5f962.jpg",
-							"text": "Elaina owo" + ((fallback)? " [fallback search]" : "")
+							"text": "Elaina owo"
 						},
 						"author": {
 							"name": "Map Found",
@@ -187,12 +153,12 @@ function getMapPP(input, pcombo, pacc, pmissc, pmod, message, fallback) {
 						},
 						"fields": [
 							{
-								"name": "CS: " + mapinfo.difficulty_cs + " - AR: " + mapinfo.difficulty_ar + " - OD: " + mapinfo.difficulty_od + " - HP: " + mapinfo.difficulty_hp ,
-								"value": "BPM: " + mapinfo.bpm + " - Length: " + mapinfo.play_length + "/" + mapinfo.total_length + " s"
+								"name": "CS: " + mapinfo.diff_size + " - AR: " + mapinfo.diff_approach + " - OD: " + mapinfo.diff_overall + " - HP: " + mapinfo.diff_drain ,
+								"value": "BPM: " + mapinfo.bpm + " - Length: " + mapinfo.hit_length + "/" + mapinfo.total_length + " s"
 							},
 							{
-								"name": "Last Update: " + mapinfo.date,
-								"value": "❤️ " + mapinfo.favorites + " - ▶️ " + mapinfo.play_count
+								"name": "Last Update: " + mapinfo.last_update,
+								"value": "❤️ " + mapinfo.favourite_count + " - ▶️ " + mapinfo.playcount
 							},
 							{
 								"name": "Droid pp (Experimental): __" + ppline[0] + "__ - " + starsline[0] ,
@@ -226,7 +192,7 @@ module.exports.run = (client, message, args) => {
     	res.on("end", function () {
 		const a = content;
 		let b = a.split('\n'), d = []; 
-		let name=""; let title =""; let score=""; let ptime =""; let acc=""; let miss=""; let rank ="";let combo=""; let mod="";
+		let name=""; let title =""; let score=""; let ptime =""; let acc=""; let miss=""; let rank ="";let combo=""; let mod=""; let hash = "";
 		for (x = 0; x < b.length; x++) {
     	if (b[x].includes('<small>') && b[x - 1].includes('class="block"')) {
 			b[x-1]=b[x-1].replace("<strong class=\"block\">","");
@@ -237,7 +203,9 @@ module.exports.run = (client, message, args) => {
 			b[x+1]=b[x+1].replace('}</span>','')
 			title=b[x-1].trim();
 			b[x]=b[x].trim();
-			miss=b[x+1].trim().split(',')[0];
+			var mshs = b[x+1].trim().split(',');
+			miss = mshs[0];
+			hash = mshs[1].split(':')[1];
 			d = b[x].split("/"); ptime = d[0]; score = d[1]; mod = d[2]; combo = d[3]; acc = d[4];
 			b[x-5]=b[x-5].trim();
 			rank=rankread(b[x-5]);
@@ -251,7 +219,7 @@ module.exports.run = (client, message, args) => {
 			}
 		}
 		
-		if (title) {getMapPP(title, combo, acc, miss, mod, message, false);}
+		if (title) {getMapPP(hash, combo, acc, miss, mod, message);}
 		
 		const embed = {
 			  "title": title,
