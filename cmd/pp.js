@@ -216,9 +216,9 @@ module.exports.run = (client, message, args, maindb) => {
 					
 					console.log(playentry);
 					playentry.forEach(function (x) {
-						if (x.title) getMapPP (x.hash, x.combo, x.acc, x.miss, x.mod, message, objcount, (pp, playinfo, hash) => {
+						if (x.title) getMapPP (x.hash, x.combo, x.acc, x.miss, x.mod, message, objcount, (pp, playinfo, hash, acc, combo, miss) => {
 							console.log(objcount);
-							var ppentry = [hash, playinfo, parseFloat(pp)]
+							var ppentry = [hash, playinfo, parseFloat(pp), acc, combo, miss]
 							var dup = false
 							//pplist.push(ppentry)
 							for (i in pplist) {
