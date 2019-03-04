@@ -78,9 +78,9 @@ function whitelistInfo(link_in, hash_in, message, callback) {
         });
         res.on("end", function () {
 			var obj = JSON.parse(content);
-            if (!obj[0]) {console.log("Map not found"); callback(0);}
+            if (!obj[0]) {console.log("Map not found"); callback(0); return;}
             var mapinfo = obj[0];
-            if (mapinfo.mode !=0) callback(0);
+            if (mapinfo.mode !=0) {callback(0); return;}
 
             if (wlmode == 1) hashid = mapinfo.file_md5;
 
