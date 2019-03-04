@@ -28,7 +28,8 @@ module.exports.run = (client, message, args, maindb) => {
                     else if (!res) {
                         var insertData = {
                             mapid: mapid,
-                            hashid: hashid
+                            hashid: hashid,
+                            mapname: mapstring
                         }
                         whitelist.insertOne(insertData, () => {
                             console.log("Whitelist entry added")
@@ -38,7 +39,8 @@ module.exports.run = (client, message, args, maindb) => {
                     else {
                         var updateData = { $set: {
                             mapid: mapid,
-                            hashid: hashid
+                            hashid: hashid,
+                            mapname: mapstring
                         }}
                         whitelist.updateOne(dupQuery, updateData, () => {
                             console.log("Whitelist entry update")
