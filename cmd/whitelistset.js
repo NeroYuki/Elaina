@@ -83,10 +83,10 @@ function whitelistInfo(link_in, message, callback) {
         });
         res.on("end", function () {
 			var obj = JSON.parse(content);
-            if (!obj[0]) {console.log("Set not found"); callback(0);}
+            if (!obj[0]) {console.log("Set not found"); callback(0); return;}
             var mapinfo = obj;
             var firstmapinfo = mapinfo[0];
-            if (firstmapinfo.mode !=0) callback(0);
+            if (firstmapinfo.mode !=0) {callback(0); return;}
 
             for (i in mapinfo) {
                 mapid.push(mapinfo[i].beatmap_id);
@@ -126,10 +126,6 @@ function whitelistInfo(link_in, message, callback) {
                 ]
             };
             message.channel.send({embed})
-            console.log(mapid)
-            console.log(hashid)
-            console.log(mapstring)
-            console.log(diffstring)
             callback(1, mapid, hashid, mapstring, diffstring);
         });
     })
