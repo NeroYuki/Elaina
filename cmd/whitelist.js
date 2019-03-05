@@ -27,7 +27,7 @@ module.exports.run = (client, message, args, maindb) => {
                     if (err) throw err;
                     else if (!res) {
                         var insertData = {
-                            mapid: mapid,
+                            mapid: parseInt(mapid),
                             hashid: hashid,
                             mapname: mapstring
                         }
@@ -38,7 +38,7 @@ module.exports.run = (client, message, args, maindb) => {
                     }
                     else {
                         var updateData = { $set: {
-                            mapid: mapid,
+                            mapid: parseInt(mapid),
                             hashid: hashid,
                             mapname: mapstring
                         }}
