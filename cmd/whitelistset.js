@@ -33,7 +33,7 @@ module.exports.run = (client, message, args, maindb) => {
                         if (err) throw err;
                         if (!wlres) {
                             var insertData = {
-                                mapid: entry[0],
+                                mapid: parseInt(entry[0]),
                                 hashid: entry[1],
                                 mapname: entry[2]
                             }
@@ -44,7 +44,7 @@ module.exports.run = (client, message, args, maindb) => {
                         }
                         else {
                             var updateData = { $set: {
-                                mapid: entry[0],
+                                mapid: parseInt(entry[0]),
                                 hashid: entry[1],
                                 mapname: entry[2]
                             }}
