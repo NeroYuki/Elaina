@@ -1,63 +1,82 @@
 var http = require('http');
+require("dotenv").config();
+var droidapikey = process.env.DROID_API_KEY;
 
-function rankread(imgsrc) {
-	let rank="";
-	switch(imgsrc) {
-		case '<img src="assets/images/ranking-S-small.png"/>':rank="S Rank";break;
-		case '<img src="assets/images/ranking-A-small.png"/>':rank="A Rank";break;
-		case '<img src="assets/images/ranking-B-small.png"/>':rank="B Rank";break;
-		case '<img src="assets/images/ranking-C-small.png"/>':rank="C Rank";break;
-		case '<img src="assets/images/ranking-D-small.png"/>':rank="D Rank";break;
-		case '<img src="assets/images/ranking-SH-small.png"/>':rank="SH Rank";break;
-		case '<img src="assets/images/ranking-X-small.png"/>':rank="SS Rank";break;
-		case '<img src="assets/images/ranking-XH-small.png"/>':rank="SSH Rank";break;
-		default: rank="unknown";
+function modread(input) {
+	var res = '';
+	if (!res) return res;
+	if (input.includes('n')) res += 'NF'
+	if (input.includes('h')) res += 'HD'
+	if (input.includes('r')) res += 'HR'
+	if (input.includes('e')) res += 'EZ'
+	if (input.includes('t')) res += 'HT'
+	if (input.includes('c')) res += 'NC'
+	if (input.includes('d')) res += 'DT'
+	if (res) res = '+' + res;
+	return res;
+}
+
+function rankEmote(input) {
+	if (!input) return;
+	switch (input) {
+		case 'A': return '555772511628034061';
+		case 'B': return '555772511753601037';
+		case 'C': return '555772511577702460';
+		case 'D': return '555772512026361862';
+		case 'S': return '555772511812321320';
+		case 'X': return '555772513460944931';
+		case 'SH': return '555772511741018142';
+		case 'XH': return '555772511997132830';
+		default : return;
 	}
-	return rank;
 }
 
 module.exports.run = (client, message, args) => {
 	let uid = args[0];
-	var options = {
-    	host: "ops.dgsrz.com",
-    	port: 80,
-    	path: "/profile.php?uid="+uid+".html"
-	};
-
+	var options = new URL("http://ops.dgsrz.com/api/getuserinfo.php?apiKey=" + droidapikey + "&uid=" + uid);
 	var content = "";   
 
-	var req = http.request(options, function(res) {
-    	res.setEncoding("utf8");
-    	res.on("data", function (chunk) {
-        	content += chunk;
-    	});
+	var req = http.get(options, function(res) {
+		res.setEncoding("utf8");
+		res.on("data", function (chunk) {
+			content += chunk;
+		});
 
-    	res.on("end", function () {
-		const a = content;
-		let b = a.split('\n'), c = []; let name="";
-		for (x = 0; x < b.length; x++) {
-    	if (b[x].includes('<small>') && b[x - 1].includes('class="block"')) {
-			b[x-1]=b[x-1].replace("<strong class=\"block\">","");
-			b[x-1]=b[x-1].replace("<\/strong>","");
-			b[x]=b[x].replace("<\/small>","");
-			b[x-1]=b[x-1].trim();
-			b[x]=b[x].trim();
-			b[x-5]=b[x-5].trim();
-			b[x-5]=rankread(b[x-5]);
-			b[x]=b[x].replace("<small>","\n");
-        	c.push(b[x-5]+" - "+b[x-1]+b[x]);
-    		}
-		if (b[x].includes('h3 m-t-xs m-b-xs')) {
-			b[x]=b[x].replace('<div class="h3 m-t-xs m-b-xs">',"");
-			b[x]=b[x].replace('<\/div>',"");
-			b[x]=b[x].trim();
-			name = b[x]
+		res.on("end", function () {
+			var resarr = content.split('<br>');
+			var headerres = resarr[0].split(' ');
+			if (headerres[0] == 'FAILED') {message.channel.send("User not exist"); return;}
+			resarr.shift();
+			content = resarr.join("")
+			var obj = JSON.parse(content);
+			var name = headerres[2];
+			var entries = [];
+			var rplay = obj.recent;
+			for (var i = 0; i < 5; i++) {
+				if (!rplay[i]) break;
+				var date = new Date(rplay[0].date*1000);
+				date.setUTCHours(date.getUTCHours() + 8);
+				var entry = {
+					"name": client.emojis.get(rankEmote(rplay[i].mark)).toString() + " | " + rplay[i].filename + " " + modread(rplay[i].mode),
+					"value": rplay[i].score.toLocaleString() + ' / ' + rplay[i].combo + 'x / ' + parseFloat(rplay[i].accuracy)/1000 + '% / ' + rplay[i].miss + ' miss(es) \n `' + date.toUTCString() + '`'
+				}
+				entries.push(entry);
 			}
-		}
-		console.log(c[0]);
-		message.channel.send("```5 Recent plays for "+name+"\n\n1. "+c[0]+"\n\n2. "+c[1]+"\n\n3. "+c[2]+"\n\n4. "+c[3]+"\n\n5. "+c[4]+"```");
-    	});
-	});
+			date.setUTCHours(date.getUTCHours() + 8)
+			if (!rplay[0]) {message.channel.send("This player haven't submitted any play"); return;}
+			const embed = {
+				"description": "Recent play for **" + name + "**",
+				"color": 8102199,
+				"footer": {
+					"icon_url": "https://image.frl/p/yaa1nf94dho5f962.jpg",
+					"text": "Elaina owo"
+				},
+				"fields": entries
+			};
+			
+			message.channel.send({ embed });
+		})
+	})
 	req.end();
 }
 
