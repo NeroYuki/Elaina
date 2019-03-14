@@ -67,7 +67,7 @@ module.exports.run = (client, message, args, maindb) => {
 					var rplay = obj.recent;
 					for (var i = 0; i < 5; i++) {
 						if (!rplay[i]) break;
-						var date = new Date(rplay[0].date*1000);
+						var date = new Date(rplay[i].date*1000);
 						date.setUTCHours(date.getUTCHours() + 8);
 						var entry = {
 							"name": client.emojis.get(rankEmote(rplay[i].mark)).toString() + " | " + rplay[i].filename + " " + modread(rplay[i].mode),
