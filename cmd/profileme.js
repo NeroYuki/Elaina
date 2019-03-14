@@ -114,7 +114,7 @@ function apiFetch(uid, avalink, location, message) {
 				"fields": [
 					{
 						"name": "Total Score: " + parseInt(tscore).toLocaleString(),
-						"value": "Overall Accuracy: " + oacc +"%"
+						"value": "Overall Accuracy: " + oacc.toFixed(2) +"%"
 					},
 					{
 						"name": "Play Count: " + pcount,
