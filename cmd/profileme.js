@@ -122,7 +122,7 @@ function apiFetch(uid, avalink, location, message) {
 					},
 					{
 						"name": "Most Recent Play",
-						"value": rplay.mark + " rank | " + rplay.filename + " " + modread(rplay.mode) + '\n' + rplay.score.toLocaleString() + ' / ' + rplay.combo + 'x / ' + parseFloat(rplay.accuracy)/1000 + '% / ' + rplay.miss + 'm \n ' + date.toString() 
+						"value": rplay.mark + " rank | " + rplay.filename + " " + modread(rplay.mode) + '\n' + rplay.score.toLocaleString() + ' / ' + rplay.combo + 'x / ' + parseFloat(rplay.accuracy)/1000 + '% / ' + rplay.miss + 'm \n ' + date.toUTCString() 
 					}
 				]
 			};
