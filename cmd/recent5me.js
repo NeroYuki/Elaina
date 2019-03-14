@@ -5,7 +5,6 @@ var droidapikey = process.env.DROID_API_KEY;
 
 function modread(input) {
 	var res = '';
-	if (!res) return res;
 	if (input.includes('n')) res += 'NF'
 	if (input.includes('h')) res += 'HD'
 	if (input.includes('r')) res += 'HR'
