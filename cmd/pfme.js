@@ -1,5 +1,20 @@
 var http = require('http');
 var mongodb = require('mongodb');
+require("dotenv").config();
+var droidapikey = process.env.DROID_API_KEY;
+
+function modread(input) {
+	var res = '';
+	if (input.includes('n')) res += 'NF'
+	if (input.includes('h')) res += 'HD'
+	if (input.includes('r')) res += 'HR'
+	if (input.includes('e')) res += 'EZ'
+	if (input.includes('t')) res += 'HT'
+	if (input.includes('c')) res += 'NC'
+	if (input.includes('d')) res += 'DT'
+	if (res) res = '+' + res;
+	return res;
+}
 
 module.exports.run = (client, message, args, maindb) => {
 	let ufind = message.author.id;
@@ -25,70 +40,79 @@ module.exports.run = (client, message, args, maindb) => {
 			var content = "";   
 
 			var req = http.request(options, function(res) {
-			res.setEncoding("utf8");
-			res.on("data", function (chunk) {
-				content += chunk;
-			});
+				res.setEncoding("utf8");
+				res.on("data", function (chunk) {
+					content += chunk;
+				});
 
-			res.on("end", function () {
-				const a = content;
-				let b = a.split('\n'), c = []; 
-				let name=""; let rank=""; let tscore =""; let pcount=""; let avalink=""; let location="";
-				for (x = 0; x < b.length; x++) {
-				if (b[x].includes('h3 m-t-xs m-b-xs')) {
-					b[x]=b[x].replace('<div class="h3 m-t-xs m-b-xs">',"");
-					b[x]=b[x].replace('<\/div>',"");
-					b[x]=b[x].trim();
-					name = b[x];
-					b[x-3]=b[x-3].replace('<img src="',"");
-					b[x-3]=b[x-3].replace('" class="img-circle">',"");
-					b[x-3]=b[x-3].trim();
-					avalink = b[x-3];
-					b[x+8]=b[x+8].replace('<span class="m-b-xs h4 block">',"");
-					b[x+8]=b[x+8].replace('<\/span>',"");
-					b[x+8]=b[x+8].trim();
-					rank = (parseInt(b[x+8])-1).toString();
-					b[x+1]=b[x+1].replace('<small class="text-muted"><i class="fa fa-map-marker"><\/i>',"");
-					b[x+1]=b[x+1].replace("<\/small>","");
-					b[x+1]=b[x+1].trim()
-					location=b[x+1]
-					}
-				if (b[x].includes('Technical Analysis')) {
-					b[x+3]=b[x+3].replace('<span class="pull-right">',"");
-					b[x+3]=b[x+3].replace('<\/span>',"");
-					b[x+3]=b[x+3].trim()
-					tscore=b[x+3]
-					b[x+13]=b[x+13].replace('<span class="pull-right">',"");
-					b[x+13]=b[x+13].replace('<\/span>',"");
-					b[x+13]=b[x+13].trim()
-					pcount=b[x+13]
-					}
-				}
-				const embed = {
-					"description": "**Username: **"+name+"  /  **Rank**: "+rank + "\n" + location,
-					"color": 8102199,
-						"thumbnail": {
-							"url": avalink
-					},
-					"author": {
-						"name": "osu!droid profile (click here to view profile)",
-						"url": "http://ops.dgsrz.com/profile.php?uid="+uid,
-							"icon_url": "https://image.frl/p/beyefgeq5m7tobjg.jpg"
-					},
-					"fields": [
-						{
-							"name": "Total Score: " + tscore,
-							"value": "Play Count: " + pcount
+				res.on("end", function () {
+					const a = content;
+					let b = a.split('\n');
+					let avalink=""; let location="";
+					for (x = 0; x < b.length; x++) {
+						if (b[x].includes('h3 m-t-xs m-b-xs')) {
+							b[x-3]=b[x-3].replace('<img src="',"");
+							b[x-3]=b[x-3].replace('" class="img-circle">',"");
+							b[x-3]=b[x-3].trim();
+							avalink = b[x-3];
+							b[x+1]=b[x+1].replace('<small class="text-muted"><i class="fa fa-map-marker"><\/i>',"");
+							b[x+1]=b[x+1].replace("<\/small>","");
+							b[x+1]=b[x+1].trim()
+							location=b[x+1]
 						}
-					]
-					};
-				message.channel.send({ embed });
+					}
+					apiFetch(uid, avalink, location, message)
 				});
 			});
 			req.end();
 		}
 		else { message.channel.send("The account is not binded, he/she/you need to use `&userbind <uid>` first") };
 	});
+}
+
+function apiFetch(uid, avalink, location, message) {
+	var options = new URL("http://ops.dgsrz.com/api/getuserinfo.php?apiKey=" + droidapikey + "&uid=" + uid);
+	var content = "";   
+
+	var req = http.get(options, function(res) {
+		res.setEncoding("utf8");
+		res.on("data", function (chunk) {
+			content += chunk;
+		});
+
+		res.on("end", function () {
+			var resarr = content.split('<br>');
+			var headerres = resarr[0].split(' ');
+			if (headerres[0] == 'FAILED') {message.channel.send("User not exist"); return;}
+			resarr.shift();
+			content = resarr.join("")
+			var obj = JSON.parse(content);
+			var name = headerres[2];
+			var tscore = headerres[3];
+			var pcount = headerres[4];
+			var oacc = parseFloat(headerres[5])*100;
+			var rank = obj.rank;
+			const embed = {
+				"description": "**Username: **"+name+"  /  **Rank**: "+rank + "\n" + location,
+				"color": 8102199,
+					"thumbnail": {
+						"url": avalink
+				},
+				"author": {
+					"name": "osu!droid profile (click here to view profile)",
+					"url": "http://ops.dgsrz.com/profile.php?uid="+uid,
+						"icon_url": "https://image.frl/p/beyefgeq5m7tobjg.jpg"
+				},
+				"fields": [
+					{
+						"name": "Total Score: " + parseInt(tscore).toLocaleString(),
+						"value": "Play Count: " + pcount + "\n" + "Overall Accuracy: " + oacc + "%"
+					}
+				]
+			};
+			message.channel.send({ embed });
+		})
+	})
 }
 
 module.exports.help = {

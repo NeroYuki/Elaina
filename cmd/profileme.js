@@ -1,5 +1,20 @@
 var http = require('http');
 var mongodb = require('mongodb');
+require("dotenv").config();
+var droidapikey = process.env.DROID_API_KEY;
+
+function modread(input) {
+	var res = '';
+	if (input.includes('n')) res += 'NF'
+	if (input.includes('h')) res += 'HD'
+	if (input.includes('r')) res += 'HR'
+	if (input.includes('e')) res += 'EZ'
+	if (input.includes('t')) res += 'HT'
+	if (input.includes('c')) res += 'NC'
+	if (input.includes('d')) res += 'DT'
+	if (res) res = '+' + res;
+	return res;
+}
 
 module.exports.run = (client, message, args, maindb) => {
 	let ufind = message.author.id;
@@ -32,92 +47,89 @@ module.exports.run = (client, message, args, maindb) => {
 
 			res.on("end", function () {
 				const a = content;
-				let b = a.split('\n'), c = []; 
-				let name=""; let rank=""; let tscore =""; let pcount=""; let avalink=""; let location="";
+				let b = a.split('\n');
+				let avalink=""; let location="";
 				for (x = 0; x < b.length; x++) {
-				if (b[x].includes('h3 m-t-xs m-b-xs')) {
-					b[x]=b[x].replace('<div class="h3 m-t-xs m-b-xs">',"");
-					b[x]=b[x].replace('<\/div>',"");
-					b[x]=b[x].trim();
-					name = b[x];
-					b[x-3]=b[x-3].replace('<img src="',"");
-					b[x-3]=b[x-3].replace('" class="img-circle">',"");
-					b[x-3]=b[x-3].trim();
-					avalink = b[x-3];
-					b[x+8]=b[x+8].replace('<span class="m-b-xs h4 block">',"");
-					b[x+8]=b[x+8].replace('<\/span>',"");
-					b[x+8]=b[x+8].trim();
-					rank = (parseInt(b[x+8])-1).toString();
-					b[x+1]=b[x+1].replace('<small class="text-muted"><i class="fa fa-map-marker"><\/i>',"");
-					b[x+1]=b[x+1].replace("<\/small>","");
-					b[x+1]=b[x+1].trim()
-					location=b[x+1]
-					}
-				if (b[x].includes('Technical Analysis')) {
-					b[x+3]=b[x+3].replace('<span class="pull-right">',"");
-					b[x+3]=b[x+3].replace('<\/span>',"");
-					b[x+3]=b[x+3].trim()
-					tscore=b[x+3]
-					b[x+13]=b[x+13].replace('<span class="pull-right">',"");
-					b[x+13]=b[x+13].replace('<\/span>',"");
-					b[x+13]=b[x+13].trim()
-					pcount=b[x+13]
+					if (b[x].includes('h3 m-t-xs m-b-xs')) {
+						b[x-3]=b[x-3].replace('<img src="',"");
+						b[x-3]=b[x-3].replace('" class="img-circle">',"");
+						b[x-3]=b[x-3].trim();
+						avalink = b[x-3];
+						b[x+1]=b[x+1].replace('<small class="text-muted"><i class="fa fa-map-marker"><\/i>',"");
+						b[x+1]=b[x+1].replace("<\/small>","");
+						b[x+1]=b[x+1].trim()
+						location=b[x+1]
 					}
 				}
-				for (x = 0; x < b.length; x++) {
-				if (b[x].includes('<small>') && b[x - 1].includes('class="block"')) {
-					b[x-1]=b[x-1].replace("<strong class=\"block\">","");
-					b[x-1]=b[x-1].replace("<\/strong>","");
-					b[x]=b[x].replace("<\/small>","");
-					b[x-1]=b[x-1].trim();
-					b[x]=b[x].trim();
-					b[x]=b[x].replace("<small>","\n");
-					c.push(b[x-1]+b[x]);
-					break;
-					}
-				}
-				console.log(c[0]);
-				const embed = {
-					"description": "**Username: **"+name+"\n**Rank**: "+rank,
-					"color": 8102199,
-					"footer": {
-						"icon_url": "https://image.frl/p/yaa1nf94dho5f962.jpg",
-						"text": "Elaina owo"
-					},
-						"thumbnail": {
-							"url": avalink
-					},
-					"author": {
-						"name": "osu!droid profile (click here to view profile)",
-						"url": "http://ops.dgsrz.com/profile.php?uid="+uid,
-							"icon_url": "https://image.frl/p/beyefgeq5m7tobjg.jpg"
-					},
-					"fields": [
-						{
-							"name": "Total Score",
-							"value": tscore
-						},
-						{
-							"name": "Play Count",
-							"value": pcount
-						},
-						{
-							"name": "Location",
-							"value": location
-						},
-						{
-							"name": "Most Recent Play",
-							"value": c[0]
-						}
-					]
-					};
-				message.channel.send({ embed });
+				apiFetch(uid, avalink, location, message)
 				});
 			});
 			req.end();
 		}
 		else { message.channel.send("The account is not binded, he/she/you need to use `&userbind <uid>` first") };
 	});
+}
+
+function apiFetch(uid, avalink, location, message) {
+	var options = new URL("http://ops.dgsrz.com/api/getuserinfo.php?apiKey=" + droidapikey + "&uid=" + uid);
+	var content = "";   
+
+	var req = http.get(options, function(res) {
+		res.setEncoding("utf8");
+		res.on("data", function (chunk) {
+			content += chunk;
+		});
+
+		res.on("end", function () {
+			var resarr = content.split('<br>');
+			var headerres = resarr[0].split(' ');
+			if (headerres[0] == 'FAILED') {message.channel.send("User not exist"); return;}
+			resarr.shift();
+			content = resarr.join("")
+			var obj = JSON.parse(content);
+			var name = headerres[2];
+			var tscore = headerres[3];
+			var pcount = headerres[4];
+			var oacc = parseFloat(headerres[5])*100;
+			var rank = obj.rank;
+			var rplay = obj.recent[0];
+			var date = new Date(rplay.date*1000)
+			date.setUTCHours(date.getUTCHours() + 8)
+			if (!rplay) {message.channel.send("This player haven't submitted any play"); return;}
+			const embed = {
+				"description": "**Username: **"+name+"\n**Rank**: "+rank,
+				"color": 8102199,
+				"footer": {
+					"icon_url": "https://image.frl/p/yaa1nf94dho5f962.jpg",
+					"text": "Elaina owo"
+				},
+					"thumbnail": {
+						"url": avalink
+				},
+				"author": {
+					"name": "osu!droid profile (click here to view profile)",
+					"url": "http://ops.dgsrz.com/profile.php?uid="+uid,
+						"icon_url": "https://image.frl/p/beyefgeq5m7tobjg.jpg"
+				},
+				"fields": [
+					{
+						"name": "Total Score: " + parseInt(tscore).toLocaleString(),
+						"value": "Overall Accuracy: " + oacc +"%"
+					},
+					{
+						"name": "Play Count: " + pcount,
+						"value": "Location: " + location
+					},
+					{
+						"name": "Most Recent Play",
+						"value": rplay.mark + " rank | " + rplay.filename + " " + modread(rplay.mode) + '\n' + rplay.score.toLocaleString() + ' / ' + rplay.combo + 'x / ' + parseFloat(rplay.accuracy)/1000 + '% / ' + rplay.miss + 'm \n ' + date.toString() 
+					}
+				]
+			};
+			
+			message.channel.send({ embed });
+		})
+	})
 }
 
 module.exports.help = {
