@@ -230,7 +230,7 @@ module.exports.run = (client, message, args, maindb) => {
 							var dup = false
 							//pplist.push(ppentry)
 							for (i in pplist) {
-								if (ppentry[0] == pplist[i][0]) {pplist[i] = ppentry; dup = true; playc++; break;} 
+								if (ppentry[0] == pplist[i][0] || ppentry[1].split('+')[0] == pplist[i][1].split('+')[0]) {pplist[i] = ppentry; dup = true; playc++; break;} 
 							}
 							if (!dup) {pplist.push(ppentry); playc++;}
 							pplist.sort(function(a, b) {return b[2] - a[2]})
