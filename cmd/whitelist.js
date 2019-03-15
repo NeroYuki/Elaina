@@ -22,10 +22,10 @@ module.exports.run = (client, message, args, maindb) => {
         var hash_in = args[1]
         whitelistInfo(link_in, hash_in, message, (res, mapid = "", hashid = "", mapstring = "") => {
             if (res > 0) {
-                var dupQuery = {mapid: mapid}
-                whitelist.findOne(dupQuery, (err, res) => {
+                var dupQuery = {mapid: parseInt(mapid)}
+                whitelist.findOne(dupQuery, (err, wlres) => {
                     if (err) throw err;
-                    else if (!res) {
+                    if (!wlres) {
                         var insertData = {
                             mapid: parseInt(mapid),
                             hashid: hashid,
@@ -78,9 +78,9 @@ function whitelistInfo(link_in, hash_in, message, callback) {
         });
         res.on("end", function () {
 			var obj = JSON.parse(content);
-            if (!obj[0]) {console.log("Map not found"); callback(0); return;}
+            if (!obj[0]) {console.log("Map not found"); callback(0);}
             var mapinfo = obj[0];
-            if (mapinfo.mode !=0) {callback(0); return;}
+            if (mapinfo.mode !=0) callback(0);
 
             if (wlmode == 1) hashid = mapinfo.file_md5;
 

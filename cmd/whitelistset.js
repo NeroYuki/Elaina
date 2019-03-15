@@ -1,5 +1,6 @@
 var https = require("https");
 var mongodb = require("mongodb");
+require("dotenv").config();
 var apikey = process.env.OSU_API_KEY;
 
 function mapstatusread(status) {
@@ -17,7 +18,7 @@ function mapstatusread(status) {
 
 module.exports.run = (client, message, args, maindb) => {
     var whitelist = maindb.collection("mapwhitelist");
-    if (message.member.roles.find("name", "pp-project Map Validator")) {
+    if (message.member.roles.find("name", "Referee")) {
         var link_in = args[0];
         whitelistInfo(link_in, message, (res, mapid, hashid, mapstring, diffstring) => {
             if (res > 0) {
@@ -28,7 +29,7 @@ module.exports.run = (client, message, args, maindb) => {
                     entryarr.push([mapid[i], hashid[i], finalstring]);
                 }
                 entryarr.forEach((entry) => {
-                    var dupQuery = {mapid: entry[0]}
+                    var dupQuery = {mapid: parseInt(entry[0])}
                     whitelist.findOne(dupQuery, (err, wlres) => {
                         if (err) throw err;
                         if (!wlres) {
@@ -37,8 +38,8 @@ module.exports.run = (client, message, args, maindb) => {
                                 hashid: entry[1],
                                 mapname: entry[2]
                             }
+                            console.log("Whitelist entry added")
                             whitelist.insertOne(insertData, () => {
-                                console.log("Whitelist entry added")
                                 message.channel.send("Whitelist entry added | `" + entry[2] + "`")
                             })
                         }
@@ -48,8 +49,8 @@ module.exports.run = (client, message, args, maindb) => {
                                 hashid: entry[1],
                                 mapname: entry[2]
                             }}
+                            console.log("Whitelist entry update")
                             whitelist.updateOne(dupQuery, updateData, () => {
-                                console.log("Whitelist entry update")
                                 message.channel.send("Whitelist entry updated | `" + entry[2] + "`")
                             })
                         }
@@ -83,10 +84,10 @@ function whitelistInfo(link_in, message, callback) {
         });
         res.on("end", function () {
 			var obj = JSON.parse(content);
-            if (!obj[0]) {console.log("Set not found"); callback(0); return;}
+            if (!obj[0]) {console.log("Set not found"); callback(0);}
             var mapinfo = obj;
             var firstmapinfo = mapinfo[0];
-            if (firstmapinfo.mode !=0) {callback(0); return;}
+            if (firstmapinfo.mode !=0) callback(0);
 
             for (i in mapinfo) {
                 mapid.push(mapinfo[i].beatmap_id);
@@ -126,6 +127,10 @@ function whitelistInfo(link_in, message, callback) {
                 ]
             };
             message.channel.send({embed})
+            console.log(mapid)
+            console.log(hashid)
+            console.log(mapstring)
+            console.log(diffstring)
             callback(1, mapid, hashid, mapstring, diffstring);
         });
     })

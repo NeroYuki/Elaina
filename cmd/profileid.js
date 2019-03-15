@@ -15,6 +15,21 @@ function modread(input) {
 	return res;
 }
 
+function rankEmote(input) {
+	if (!input) return;
+	switch (input) {
+		case 'A': return '555772511628034061';
+		case 'B': return '555772511753601037';
+		case 'C': return '555772511577702460';
+		case 'D': return '555772512026361862';
+		case 'S': return '555772511812321320';
+		case 'X': return '555772513460944931';
+		case 'SH': return '555772511741018142';
+		case 'XH': return '555772511997132830';
+		default : return;
+	}
+}
+
 module.exports.run = (client, message, args) => {
     let uid = args[0];
     var options = {
@@ -47,13 +62,13 @@ module.exports.run = (client, message, args) => {
 					location=b[x+1]
 				}
 			}
-			apiFetch(uid, avalink, location, message)
+			apiFetch(uid, avalink, location, message, client)
 		});
 	});
 	req.end();
 }
 
-function apiFetch(uid, avalink, location, message) {
+function apiFetch(uid, avalink, location, message, client) {
 	var options = new URL("http://ops.dgsrz.com/api/getuserinfo.php?apiKey=" + droidapikey + "&uid=" + uid);
 	var content = "";   
 
@@ -97,7 +112,7 @@ function apiFetch(uid, avalink, location, message) {
 				"fields": [
 					{
 						"name": "Total Score: " + parseInt(tscore).toLocaleString(),
-						"value": "Overall Accuracy: " + oacc.toFixed(2) +"%"
+						"value": "Overall Accuracy: " + oacc +"%"
 					},
 					{
 						"name": "Play Count: " + pcount,
@@ -105,7 +120,7 @@ function apiFetch(uid, avalink, location, message) {
 					},
 					{
 						"name": "Most Recent Play",
-						"value": rplay.mark + " rank | " + rplay.filename + " " + modread(rplay.mode) + '\n' + rplay.score.toLocaleString() + ' / ' + rplay.combo + 'x / ' + parseFloat(rplay.accuracy)/1000 + '% / ' + rplay.miss + 'm \n ' + date.toUTCString() 
+						"value": client.emojis.get(rankEmote(rplay.mark)).toString() + " | " + rplay.filename + " " + modread(rplay.mode) + '\n' + rplay.score.toLocaleString() + ' / ' + rplay.combo + 'x / ' + parseFloat(rplay.accuracy)/1000 + '% / ' + rplay.miss + 'm \n ' + date.toUTCString() 
 					}
 				]
 			};
