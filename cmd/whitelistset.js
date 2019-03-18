@@ -18,7 +18,7 @@ function mapstatusread(status) {
 
 module.exports.run = (client, message, args, maindb) => {
     var whitelist = maindb.collection("mapwhitelist");
-    if (message.member.roles.find("name", "Referee")) {
+    if (message.member.roles.find("name", "pp-project Validator")) {
         var link_in = args[0];
         whitelistInfo(link_in, message, (res, mapid, hashid, mapstring, diffstring) => {
             if (res > 0) {
