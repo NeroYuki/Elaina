@@ -33,7 +33,7 @@ module.exports.run = (client, message = "", args = {}, maindb) => {
 	let trackdb = maindb.collection("tracking");
 	trackdb.find({}).toArray(function(err, res) {
 		if (err) throw err;
-		console.log(res);
+		//console.log(res);
 		res.forEach(function(player) {
 			var options = {
 				host: "ops.dgsrz.com",
@@ -62,17 +62,16 @@ module.exports.run = (client, message = "", args = {}, maindb) => {
 							b[x+1]=b[x+1].replace('}</span>','')
 							title=b[x-1].trim();
 							b[x]=b[x].trim();
-							miss=b[x+1].trim().split(',')[0];
+							miss=b[x+1].trim();
 							var d = b[x].split("/"); ptime = d[0]; score = d[1]; mod = d[2]; combo = d[3]; acc = d[4];
 							ptime=ptime.trim();
 							b[x-5]=b[x-5].trim();
 							rank=rankread(b[x-5]);
 							let timeDiff = convertTimeDiff(ptime);
-							console.log(timeDiff);
 							if (newplay) {
 								if (timeDiff>600000) newplay = false;
 								else {
-									console.log(timeDiff)
+									//console.log(timeDiff)
 									const embed = {
 										"title": title,
 										"description": "**Score**: `" + score + "` - Combo: `" + combo + "` - Accuracy: `" + acc + "` (`" + miss + "` x )\nMod: `" + mod + "` Time: `" + ptime + "`",
@@ -83,7 +82,7 @@ module.exports.run = (client, message = "", args = {}, maindb) => {
 										}
 									};
 								//client.channels.get("464102207113920524").send({ embed }); //original
-								client.channels.get("464102207113920524").send({ embed });
+								client.channels.get("461446313956081695").send({ embed });
 								}
 							}
 							playIndex++;
