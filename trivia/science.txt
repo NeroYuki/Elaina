@@ -1,0 +1,217 @@
+1 | 2 | - | What is the unit measurement for the activity of a radioactive source? (Full name) | Becqueral
+1 | 1 | - | If you mix all light colours, what do you get? | White | Black | Rainbow
+1 | 1 | - | How many separate patents did Thomas Edison file? | 1093 | 963 | 965 | 1095
+1 | 1 | - | Is a white gold ring pure gold? | False | True
+1 | 1 | - | What is the symbol for Silver? | Ag | Sv | Si | Au
+1 | 2 | - | What does ATP stand for? | Adenosine triphosphate
+1 | 1 | - | What survives impacting Earth’s surface? | Meteorite | Meteor | Asteroid
+1 | 1 | - | What is the strongest known magnet in the Universe? | Neutron Star | Black Hole | White Dwaft Star | Big Red Giant
+1 | 1 | - | Which is the hottest planet in the solar system? | Venus | Mercury | Earth | Mars
+1 | 1 | - | How far is the moon away from Earth? | 376 600 km | 371 600 km | 366 600 km | 361 600 km
+1 | 1 | - | Where does sound travel faster? | Metal | Water | Air | Vacuum
+1 | 2 | - | What is opposite to matter | Antimatter
+1 | 1 | - | Do have the same number of neck vertebrae as giraffe’s | Yes | No
+1 | 1 | - | How much salt does the average human body contain? | ~250 g | ~150 g | ~50 g | ~350 g
+1 | 1 | - | There are more bones in an adult human body than in an infants body? | False | True
+1 | 1 | - | Most of the dust in your home is made of human skin | True | False
+1 | 1 | - | What does a manometer measure? | The pressure of a closed system | The temprature of a closed system  | The volume of a closed system  | The energy of a closed system  
+1 | 1 | - | How old is the oldest known fossil found | 3.2 Billion years old | 4.2 Billion years old | 2.2 Billion years old | 2.7 Billion years old
+1 | 1 | - | What does the Scoville Heat Unit Scale measure | The heat of chillies | The temprature of heaters | The heat of fruits | The temprature of factories
+1 | 1 | - | Is a tomato a fruit or vegetable? | Fruit | Vegetable
+1 | 1 | - | Which is the rarest blood type in humans? | AB+ | AB- | B+ | B-
+1 | 1 | - | Nitroglycerine can be used to treat heart attacks? | True | False
+1 | 1 | - | When lighting hits a tree the water inside the tree boils and expands, blowing the tree apart? | True | False
+1 | 2 | - | What is the world’s tallest grass? | Bamboo
+1 | 1 | - | What type of rock is Obsidian | Igneous | Sedimentary | Metamorphic
+1 | 1 | - | Which country has the longest coastline | Canada | Russia | Denmark | The United States
+1 | 1 | - | Is a Tsunami and a tidal wave the same thing? | No | Yes
+1 | 1 | - | When was the first seismograph invented? | ~A.D. 200 | ~B.C. 200 | ~B.C. 100 | ~A.D. 100 
+1 | 1 | - | Is the stratosphere above or below the troposphere | Above | Below
+1 | 1 | - | What’s the lifespan of a human red blood cell? | ~120 days | ~100 days | ~80 days | ~60 days
+1 | 2 | - | What is the collective name of animals and plants that live on a lake bottom? | Benthos
+1 | 1 | - | What is the largest living structure on Earth? | The Great Barrier Reef
+1 | 1 | - | What’s the highest recorded surface wind speed? | 372km/h | 472km/h | 460km/h | 360km/h 
+1 | 2 | - | What is the name of the layer of air closest to us in the atmosphere? | Troposphere
+1 | 1 | - | How many time lightning is hotter than the Sun? | 3 times | 4 times | 2 times | 5 times
+1 | 2 | - | What formation on Earth can have the names tabular, blocky, wedge, dome, pinnacle, dry dock, growler or bergy bit | Icebergs
+1 | 1 | - | Which crystalline formations are on cave ceilings | Stalactites | Stalagmites
+1 | 1 | - | Sterling silver is pure silver | False | True
+1 | 2 | - | Which chemical causes the burning taste sensation when eating chilies? | Capcaicin
+1 | 1 | - | Which planet is closest to the sun? | Mercury | Venus | Earth | Mars
+1 | 1 | - | Where is the Suez Canal? | Egypt | Arab Saudi | Yemen | Jordan
+1 | 1 | - | What’s the Symbol to iron? | Fe | Cu | Ir | Io
+1 | 1 | - | Which planet spins the fastest? | Jupiter | Earth | Mercury | Mars1 | 1 | - | Which of the following bones is not in the leg? | Radius | Patella | Tibia | Fibula 
+3 | 1 | - | The Neanderthals were a direct ancestor of modern humans. | False | True
+1 | 1 | - | Igneous rocks are formed by excessive heat and pressure. | False | True
+3 | 1 | - | Chickens can live without a head. | True | False
+1 | 1 | - | Which is the longest bone in the human body?  | Femur | Scapula | Fibula | Ulna
+3 | 1 | - | In aeronautics, flaps and slats are used to control what on an aircraft? | Lift | Thrust | Drag | Weight 
+5 | 1 | - | The 'Islets of Langerhans' is found in which human organ? | Pancreas | Kidney | Liver | Brain
+3 | 1 | - | The "Gympie Stinger" is the deadliest plant in the world. | False | True
+5 | 1 | - | How many legs is it biologically impossible for a centipede to have? | 100 | 26 | 50 | 74
+5 | 1 | - | You can calculate Induced Voltage using: ε =-N * (dΦB)/(d) | False | True
+1 | 1 | - | Which gas forms about 78% of the Earth’s atmosphere? | Nitrogen | Oxygen | Argon | Carbon Dioxide
+3 | 1 | - | How many degrees Fahrenheit is 100 degrees Celsius?  | 212 | 326 | 100 | 451
+3 | 1 | - | To the nearest minute, how long does it take for light to travel from the Sun to the Earth? | 8 Minutes | 6 Minutes | 2 Minutes | 12 Minutes
+3 | 1 | - | Which chemical element has the lowest boiling point? | Helium | Hydrogen | Neon | Nitrogen
+1 | 1 | - | What is the powerhouse of the cell? | Mitochondria | Ribosome | Redbull | Nucleus
+1 | 1 | - | Which of the following blood vessels carries deoxygenated blood? | Pulmonary Artery | Pulmonary Vein | Aorta | Coronary Artery
+3 | 1 | - | Like with the Neanderthals, Homo sapiens sapiens also interbred with the Denisovans. | True | False
+3 | 1 | - | A defibrillator is used to start up a heartbeat once a heart has stopped beating. | False | True
+3 | 1 | - | Which psychological term refers to the stress of holding contrasting beliefs? | Cognitive Dissonance | Flip-Flop Syndrome | Split-Brain | Blind Sight
+1 | 1 | - | What is the chemical makeup of water? | H20 | C12H6O2 | CO2 | H
+5 | 1 | - | What is the scientific name of the knee cap? | Patella | Femur | Foramen Magnum | Scapula
+5 | 1 | - | It was once believed that injecting shark cartilage into people would prevent them from contracting cancer. | True | False
+3 | 1 | - | Who developed the first successful polio vaccine in the 1950s? | Jonas Salk | John F. Enders | Thomas Weller | Frederick Robbins
+5 | 1 | - | Which of these chemical compounds is NOT found in gastric acid? | Sulfuric acid | Hydrochloric acid | Potassium chloride | Sodium chloride
+5 | 1 | - | What is the scientific name of the red fox? | Vulpes Vulpes | Vulpes Redus | Red Fox | Vulpes Vulpie
+3 | 1 | - | Where did the dog breed "Chihuahua" originate? | Mexico | France | Spain | Russia
+5 | 1 | - | Which is not a type of neuron? | Perceptual Neuron | Sensory Neuron | Motor Neuron | Interneuron
+3 | 1 | - | The medical condition osteoporosis affects which part of the body? | Bones | Skin | Brain | Heart
+3 | 1 | - | What is the atomic number of the element Strontium? | 38 | 73 | 47 | 11
+1 | 1 | - | Salt is 100% composed of Sodium. | False | True
+5 | 1 | - | Which of the following is NOT a real element? | Vitrainium | Praseodymium | Hassium | Lutetium
+5 | 1 | - | Which one of these is scientific term for "Brain Freeze"? | Sphenopalatine Ganglioneuralgia | Hyacinthoides Italica | Amaranthus Retroflexus | Amblyomma Americanum
+1 | 1 | - | The human heart has how many chambers? | 4 | 2 | 6 | 3
+1 | 1 | - | The asteroid belt is located between which two planets? | Mars and Jupiter | Jupiter and Saturn | Mercury and Venus | Earth and Mars
+1 | 1 | - | The medical term for the belly button is which of the following? | Umbilicus | Nevus | Nares | Paxillus
+5 | 1 | - | The core of the Sun can reach which temperature? | 27° Million F (15° Million C) | 938,000° F (521093.3° C) | 8° Billion F (°4.4 Billion C) | Absolute Zero (Both F and C)
+3 | 1 | - | Deuterium is an isotope of which element? | Hydrogen | Nitrogen | Helium | Neon
+5 | 1 | - | What element on the periodic table has 92 electrons? | Uranium | Sulfur | Hydrogen | Iron
+3 | 1 | - | About how old is Earth? | 4.5 Billion Years | 3.5 Billion Years | 2.5 Billion Years | 5.5 Billion Years
+3 | 1 | - | Sugar contains fat. | False | True
+1 | 1 | - | What is the unit of electrical resistance? | Ohm | Mho | Tesla | Joule
+3 | 1 | - | Which desert is the only desert in the world where the "Saguaro" cactus grows indigenously? | The Sonoran Desert | The Gobi Desert | The Yuma Desert | The Arabian Desert
+5 | 1 | - | Which of the following is NOT a word used to describe an earthquake? | Drop-slide | Foreshock | Strike-slip | Temblor
+1 | 1 | - | Celiac Disease is a disease that effects the heart, causing those effected to be unable to eat meat. | False | True
+5 | 1 | - | Where is the Gluteus Maximus muscle located? | Butt | Arm | Head | Torso
+3 | 1 | - | What is the largest living organism currently known to man? | Honey Fungus | Blue Whale | Redwood Tree | The Coral Reef
+3 | 1 | - | Pneumonoultramicroscopicsilicovolcanoconiosis is a synonym for the disease known as silicosis. | True | False
+5 | 1 | - | How long is a light-year? | 9.461 Trillion Kilometres | 1 AU | 105.40 Earth-years | 501.2 Million Miles
+5 | 1 | - | What is the scientific name for the extinct hominin known as "Lucy"? | Australopithecus Afarensis | Australopithecus Africanus | Australopithecus Architeuthis | Australopithecus Antaris
+3 | 1 | - | What part of the brain takes its name from the Greek for seahorse? | Hippocampus | Cerebellum | Thalamus | Amygdala
+1 | 1 | - | Which Apollo mission was the first one to land on the Moon? | Apollo 11 | Apollo 10 | Apollo 9 | Apollo 13
+5 | 1 | - | What is considered the rarist form of color blindness? | Blue | Red | Green | Purple
+3 | 1 | - | Along with Oxygen, which element is primarily responsible for the sky appearing blue? | Nitrogen | Helium | Carbon | Hydrogen
+5 | 1 | - | Which of the following liquids is least viscous? Assume temperature is 25°C. | Acetone | Water | Mercury | Benzene
+1 | 1 | - | Which of these bones is hardest to break? | Femur | Cranium | Humerus | Tibia
+3 | 1 | - | You can be sunburned on a cloudy day. | True | False
+3 | 1 | - | What is the colour of unoxidized blood? | Red | Blue | Purple | Green
+5 | 1 | - | Which is the chemical name of H2O? | Dihydrogen Monoxide | Ammonium chloride | Anhydrous Sodium Carbonate | Manganese dioxide
+1 | 1 | - | Which element has the chemical symbol 'Fe'? | Iron | Gold | Silver | Tin
+1 | 1 | - | What name is given to all baby marsupials? | Joey | Calf | Pup | Cub
+1 | 1 | - | What is the "powerhouse" of the Eukaryotic animal cell? | Mitochondria | Nucleus | Chloroplast | Endoplasmic Reticulum
+1 | 1 | - | How many planets are in our Solar System? | Eight | Nine | Seven | Ten
+1 | 1 | - | What is the hottest planet in the Solar System? | Venus | Mars | Mercury | Jupiter
+1 | 1 | - | What is the first element on the periodic table? | Hydrogen | Helium | Oxygen | Lithium
+5 | 1 | - | On the Beaufort Scale of wind force, what wind name is given to number 8? | Gale | Storm | Hurricane | Breeze
+1 | 1 | - | How many planets make up our Solar System? | 8 | 7 | 9 | 6
+3 | 1 | - | Which element has the atomic number of 7? | Nitrogen | Oxygen | Hydrogen | Neon
+3 | 1 | - | All the following metal elements are liquids at or near room temperature EXCEPT: | Beryllium | Gallium | Caesium | Mercury
+3 | 1 | - | The "Tibia" is found in which part of the body? | Leg | Arm | Hand | Head
+5 | 1 | - | If you planted the seeds of Quercus robur what would grow? | Trees | Flowers | Vegtables | Grains
+1 | 1 | - | What is the primary addictive substance found in tobacco? | Nicotine | Cathinone | Ephedrine | Glaucine
+1 | 1 | - | What was the name of the first artificial Earth satellite, launched by the Soviet Union in 1957? | Sputnik 1 | Soyuz 7K-OK | Zenit-2 | Voskhod 3KV
+5 | 1 | - | What is isobutylphenylpropanoic acid more commonly known as? | Ibuprofen | Morphine | Ketamine | Aspirin
+3 | 1 | - | What polymer is used to make CDs, safety goggles and riot shields? | Polycarbonate | Rubber | Nylon | Bakelite
+5 | 1 | - | Folic acid is the synthetic form of which vitamin? | Vitamin B | Vitamin A | Vitamin C | Vitamin D
+5 | 1 | - | Scientists can grow teeth from urine. | True | False
+3 | 1 | - | Scientists accidentally killed the once known world's oldest living creature, a mollusc, known to be aged as 507 years old. | True | False
+3 | 1 | - | Centripedal force is an apparent force that acts outward on a body moving around a center, arising from the body's inertia. | False | True
+3 | 1 | - | Which of these is a type of stretch/deep tendon reflex? | Ankle jerk reflex | Gag reflex | Pupillary light reflex | Scratch reflex
+3 | 1 | - | The human right lung has how many lobes? | 3 | 4 | 2 | 1
+1 | 1 | - | Human cells typically have how many copies of each gene? | 2 | 1 | 4 | 3
+1 | 1 | - | Which is the most abundant element in the universe? | Hydrogen | Helium | Lithium | Oxygen
+5 | 1 | - | What is the molecular formula of Ozone? | O3 | C6H2O6 | N2O | SO4
+1 | 1 | - | Which element has the highest melting point? | Carbon | Tungsten | Platinum | Osmium
+3 | 1 | - | What stage of development do the majority of eukaryotic cells remain in for most of their life? | Interphase | Prophase | Stasis | Telophase
+3 | 1 | - | Who made the discovery of X-rays? | Wilhelm Conrad Röntgen | Thomas Alva Edison | James Watt | Albert Einstein
+3 | 1 | - | In the periodic table, Potassium's symbol is the letter K. | True | False
+5 | 1 | - | What nucleotide pairs with guanine? | Cytosine | Thymine | Adenine | Uracil
+5 | 1 | - | What genetic disease is caused by having an extra Y chromosome (XYY)? | Jacob's Syndrome | Klinefelter's Syndrome | Turner's Syndrome | Down Syndrome
+5 | 1 | - | The chemical element Lithium is named after the country of Lithuania. | False | True
+5 | 1 | - | What does the term "isolation" refer to in microbiology? | The separation of a strain from a natural, mixed population of living microbes | A lack of nutrition in microenviroments | The nitrogen level in soil | Testing effects of certain microorganisms in an isolated enviroments, such as caves
+5 | 1 | - | How much radiation does a banana emit? | 0.1 Microsievert | 0.3 Microsievert | 0.5 Microsievert | 0.7 Microsievert
+1 | 1 | - | An average human can go two weeks without water. | False | True
+3 | 1 | - | What is the unit of electrical capacitance? | Farad | Gauss | Henry | Watt
+1 | 1 | - | What animal takes part in Schrödinger's most famous thought experiment? | Cat | Dog | Bat | Butterfly
+3 | 1 | - | What are human nails made of? | Keratin | Bone | Chitin | Calcium
+3 | 1 | - | The Sun consists of mostly which two elements? | Hydrogen & Helium | Hydrogen & Nitrogen | Carbon & Nitrogen | Carbon & Helium
+3 | 1 | - | On which mission did the Space Shuttle Columbia break up upon re-entry? | STS-107 | STS-51-L | STS-61-C | STS-109
+3 | 1 | - | What do you study if you are studying entomology? | Insects | Humans | the Brain | Fish
+3 | 1 | - | Down Syndrome is usually caused by an extra copy of which chromosome? | 21 | 23 | 15 | 24
+1 | 1 | - | What is the largest animal currently on Earth? | Blue Whale | Orca | Colossal Squid | Giraffe
+1 | 1 | - | What does the letter 'S' stand for in 'NASA'? | Space | Science | Society | Star
+3 | 1 | - | The humerus, paired radius, and ulna come together to form what joint? | Elbow | Knee | Sholder | Ankle
+1 | 1 | - | Rhinoplasty is a surgical procedure on what part of the human body? | Nose | Ears | Chin | Neck
+1 | 1 | - | Which type of rock is created by intense heat AND pressure? | Metamorphic | Sedimentary | Igneous | Diamond
+1 | 1 | - | This element, when overcome with extreme heat and pressure, creates diamonds. | Carbon | Nitrogen | Oxygen | Hydrogen
+1 | 1 | - | What is the elemental symbol for mercury? | Hg | Me | Mc | Hy
+3 | 1 | - | Which of these stars is the largest? | UY Scuti | VY Canis Majoris | Betelgeuse | RW Cephei
+3 | 1 | - | The planet Mars has two moons orbiting it. | True | False
+3 | 1 | - | What was the first living creature in space? | Fruit Flies  | Monkey | Dog | Mouse
+5 | 1 | - | What common name is given to the medial condition, tibial stress syndrome (MTSS)? | Shin Splints | Tennis Elbow | Carpal Tunnel | Housemaid's Knee
+3 | 1 | - | Gannymede is the largest moon of which planet? | Jupiter | Uranus | Neptune | Mars
+5 | 1 | - | What is the molecular formula of Glucose? | C6H12O6 | C2H4O2 | K+ | CH4
+3 | 1 | - | Steel is an alloy of Iron and Carbon. | True | False
+5 | 1 | - | An organic compound is considered an alcohol if it has what functional group? | Hydroxyl | Carbonyl | Alkyl | Aldehyde
+3 | 1 | - | Au on the Periodic Table refers to which element? | Gold | Silver | Oxygen | Nickel
+5 | 1 | - | All of the following human genetic haplogroup names are shared between Y-chromosome and mitochondrial DNA haplogroups EXCEPT: | Haplogroup U | Haplogroup L | Haplogroup T | Haplogroup J
+3 | 1 | - | How many officially recognized dwarf planets in the solar system are named after Polynesian deities? | 2 | 0 | 1 | 5
+3 | 1 | - | Shrimp can swim backwards. | True | False
+5 | 1 | - | Which horizon in a soil profile consists of bedrock? | R | O | B | D
+3 | 1 | - | Type 1 diabetes is a result of the liver working improperly. | False | True
+1 | 1 | - | Alzheimer's disease primarily affects which part of the human body? | Brain | Lungs | Skin | Heart
+3 | 1 | - | What is the chemical formula for ammonia? | NH3 | CO2 | NO3 | CH4
+1 | 1 | - | How many bones are in the human body? | 206 | 203 | 209 | 200
+1 | 1 | - | What does DNA stand for? | Deoxyribonucleic Acid | Deoxyribogenetic Acid | Deoxyribogenetic Atoms | Detoxic Acid
+1 | 1 | - | An atom contains a nucleus. | True | False
+5 | 1 | - | "The Big Bang Theory" was first theorized by a priest of what religious ideology? | Catholic | Christian | Jewish | Islamic
+3 | 1 | - | What term is best associated with Sigmund Freud? | Psychoanalysis | Cognitive-Behavioral Therapy | Theory of Gravity | Dialectical Behavior Therapy
+3 | 1 | - | Which one of these scientists conducted the Gold Foil Experiment which concluded that atoms are mostly made of empty space? | Ernest Rutherford | Joseph John Thomson | Archimedes | Niels Henrik David Bohr
+3 | 1 | - | What does the yellow diamond on the NFPA 704 fire diamond represent? | Reactivity | Health | Flammability | Radioactivity
+5 | 1 | - | Which moon is the only satellite in our solar system to possess a dense atmosphere? | Titan | Europa | Miranda | Callisto
+1 | 1 | - | The biggest distinction between a eukaryotic cell and a prokaryotic cell is: | The presence or absence of a nucleus | The overall size | The presence or absence of certain organelles | The mode of reproduction
+5 | 1 | - | Which of these is a stop codon in DNA? | TAA | ACT | ACA | GTA
+3 | 1 | - | In Chemistry, how many isomers does Butanol (C4H9OH) have? | 4 | 3 | 5 | 6
+3 | 1 | - | At what temperature does water boil? | 212°F | 200°F | 181°F | 178°F
+1 | 1 | - | How many chromosomes are in your body cells? | 23 | 21 | 22 | 24
+1 | 1 | - | What is the standard atomic weight of a Plutonium nucleus? | 244 | 94 | 481 | 128
+1 | 1 | - | An exothermic reaction is a chemical reaction that releases energy by radiating electricity. | False | True
+1 | 1 | - | 71% of the Earth's surface is made up of | Water | Deserts | Continents | Forests
+3 | 1 | - | What is radiation measured in? | Gray  | Watt | Decibel | Kelvin
+5 | 1 | - | Botanically speaking, which of these fruits is NOT a berry? | Strawberry | Blueberry | Banana | Concord Grape
+5 | 1 | - | What is the unit of electrical inductance? | Henry | Weber | Coulomb | Mho
+5 | 1 | - | The value of one Calorie is different than the value of one calorie. | True | False
+3 | 1 | - | In Psychology, which need appears highest in the "Maslow's hierarchy of needs" pyramid? | Esteem | Love | Safety | Physiological
+1 | 1 | - | Psychology is the science of behavior and mind. | True | False
+3 | 1 | - | Which planet did the "Viking 1" spacecraft send surface images of, starting in 1976? | Mars | Saturn | Jupiter | Venus
+3 | 1 | - | Approximately how long is a year on Uranus? | 84 Earth years | 47 Earth years | 62 Earth years | 109 Earth years
+5 | 1 | - | Coulrophobia is the irrational fear of what? | Clowns | Cemeteries | Needles | Tunnels
+3 | 1 | - | Which chemical element was originally known as Alabamine? | Astatine | Selenium | Antimony | Molybdenum
+5 | 1 | - | The Western Lowland Gorilla is scientifically know as? | Gorilla Gorilla Gorilla | Gorilla Gorilla Diehli | Gorilla Beringei Graueri | Gorilla Beringei Beringei
+3 | 1 | - | The Doppler effect applies to light. | True | False
+1 | 1 | - | How many objects are equivalent to one mole? | 6.022 x 10^23 | 6.002 x 10^22 | 6.022 x 10^22 | 6.002 x 10^23
+3 | 1 | - | The moons, Miranda, Ariel, Umbriel, Titania and Oberon orbit which planet? | Uranus | Jupiter | Venus | Neptune
+3 | 1 | - | Hippopotomonstrosesquippedaliophobia is the irrational fear of long words. | True | False
+3 | 1 | - | What mineral has the lowest number on the Mohs scale? | Talc | Quartz | Diamond | Gypsum
+1 | 1 | - | What is the standard SI unit for temperature? | Kelvin | Fahrenheit | Celsius | Rankine
+3 | 1 | - | The Axiom of Preventive Medicine states that people with ___ risk for a disease should be screened and we should treat ___ of those people. | low, all | low, some | high, all | high, some
+1 | 1 | - | Who is the chemical element Curium named after? | Marie & Pierre Curie | The Curiosity Rover | Curious George | Stephen Curry
+3 | 1 | - | Which of these is NOT a part of the structure of a typical neuron? | Islets of Langerhans | Node of Ranvier | Schwann cell | Myelin sheath
+3 | 1 | - | Which part of the body does glaucoma affect? | Eyes | Throat | Stomach | Blood
+3 | 1 | - | Anatomy considers the forms of macroscopic structures such as organs and organ systems. | True | False
+3 | 1 | - | After which Danish city is the 72th element on the periodic table named? | Copenhagen | Odense | Herning | Skagen
+1 | 1 | - | The element involved in making human blood red is which of the following? | Iron | Copper | Iridium | Cobalt
+5 | 1 | - | A comet's gaseous envelope (which creates the tail) is called what? | The coma | The wake | The backwash | The ablative
+3 | 1 | - | Myopia is the scientific term for which condition? | Shortsightedness | Farsightedness | Double Vision | Clouded Vision
+5 | 1 | - | Which of the following plastic is commonly used for window frames, gutters and drain pipes? | Polyvinylchloride (PVC)  | Polyethylene (PE) | Polypropylene (PP) | Polystyrene (PS)
+3 | 1 | - | Which of these elements on the Periodic Table is a Noble Gas? | Neon | Potassium | Iodine | Colbalt
+3 | 1 | - | A positron is an antiparticle of a what? | Electron | Neutron | Proton | Photon
+1 | 1 | - | An Astronomical Unit is the distance between Earth and the Moon. | False | True
+5 | 1 | - | What is the same in Celsius and Fahrenheit? | -40 | 32 | -39 | -42
+1 | 1 | - | What does LASER stand for? | Light amplifiaction by stimulated eminission of radioation | Lite analysing by stereo ecorazer | Light ampiflier by standby energy of radio | Life antimatter by standing entry of range
+5 | 1 | - | Burning which of these metals will produce a bright white flame? | Magnesium | Copper | Lithium | Lead
+5 | 1 | - | Muscle fiber is constructed of bundles small long organelles called what? | Myofibrils | Epimysium | Myofiaments | Myocardium
+5 | 1 | - | Which of the following is the term for "surgical complications resulting from surgical sponges left inside the patient's body? | Gossypiboma | Gongoozler | Jentacular | Meupareunia
+3 | 1 | - | Which of the following men does not have a chemical element named after him? | Sir Isaac Newton | Albert Einstein | Niels Bohr | Enrico Fermi

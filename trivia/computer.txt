@@ -1,0 +1,130 @@
+5 | 1 | - | The Harvard architecture for micro-controllers added which additional bus? | Instruction | Address | Data | Control
+1 | 1 | - | In any programming language, what is the most common way to iterate through an array? | 'For' loops | 'If' Statements | 'Do-while' loops | 'While' loops
+1 | 1 | - | What does CPU stand for? | Central Processing Unit | Central Process Unit | Computer Personal Unit | Central Processor Unit
+3 | 1 | - | The first computer bug was formed by faulty wires. | False | True
+5 | 1 | - | What was the name of the security vulnerability found in Bash in 2014? | Shellshock | Heartbleed | Bashbug | Stagefright
+3 | 1 | - | Moore's law originally stated that the number of transistors on a microprocessor chip would double every... | Year | Four Years | Two Years | Eight Years
+1 | 1 | - | What does GHz stand for? | Gigahertz | Gigahotz | Gigahetz | Gigahatz
+3 | 1 | - | What does AD stand for in relation to Windows Operating Systems?  | Active Directory | Alternative Drive | Automated Database | Active Department
+1 | 1 | - | The programming language 'Swift' was created to replace what other programming language? | Objective-C | C# | Ruby | C++
+3 | 1 | - | What five letter word is the motto of the IBM Computer company? | Think | Click | Logic | Pixel
+1 | 1 | - | What amount of bits commonly equals one byte? | 8 | 1 | 2 | 64
+1 | 1 | - | In the programming language Java, which of these keywords would you put on a variable to make sure it doesn't get modified? | Final | Static | Private | Public
+1 | 1 | - | The programming language "Python" is based off a modified version of "JavaScript". | False | True
+1 | 1 | - | What does the Prt Sc button do? | Captures what's on the screen and copies it to your clipboard | Nothing | Saves a .png file of what's on the screen in your screenshots folder in photos | Closes all windows
+3 | 1 | - | The computer OEM manufacturer Clevo, known for its Sager notebook line, is based in which country? | Taiwan | United States | Germany | China (People's Republic of)
+3 | 1 | - | What was the name given to Android 4.3? | Jelly Bean | Lollipop | Nutella | Froyo
+1 | 1 | - | In web design, what does CSS stand for? | Cascading Style Sheet | Counter Strike: Source | Corrective Style Sheet | Computer Style Sheet
+3 | 1 | - | "Windows NT" is a monolithic kernel. | False | True
+3 | 1 | - | To bypass US Munitions Export Laws, the creator of the PGP published all the source code in book form.  | True | False
+1 | 1 | - | What is the domain name for the country Tuvalu? | .tv | .tu | .tt | .tl
+5 | 1 | - | The internet domain .fm is the country-code top-level domain for which Pacific Ocean island nation? | Micronesia | Fiji | Tuvalu | Marshall Islands
+3 | 1 | - | While Apple was formed in California, in which western state was Microsoft founded? | New Mexico | Washington | Colorado | Arizona
+3 | 1 | - | MacOS is based on Linux. | False | True
+5 | 1 | - | Which of these names was an actual codename for a cancelled Microsoft project? | Neptune | Enceladus | Pollux | Saturn
+3 | 1 | - | What is the name of the default theme that is installed with Windows XP? | Luna | Neptune | Whistler | Bliss
+5 | 1 | - | DHCP stands for Dynamic Host Configuration Port. | False | True
+1 | 1 | - | "HTML" stands for Hypertext Markup Language. | True | False
+5 | 1 | - | Which of these was the name of a bug found in April 2014 in the publicly available OpenSSL cryptography library? | Heartbleed | Shellshock | Corrupted Blood | Shellscript
+1 | 1 | - | In "Hexadecimal", what color would be displayed from the color code? "#00FF00"? | Green | Red | Blue | Yellow
+3 | 1 | - | What is the correct term for the metal object in between the CPU and the CPU fan within a computer system? | Heat Sink | CPU Vent | Temperature Decipator | Heat Vent
+1 | 1 | - | Time on Computers is measured via the EPOX System. | False | True
+3 | 1 | - | How fast is USB 3.1 Gen 2 theoretically? | 10 Gb/s | 5 Gb/s | 8 Gb/s | 1 Gb/s
+3 | 1 | - | What does "LCD" stand for? | Liquid Crystal Display | Language Control Design | Last Common Difference | Long Continuous Design
+3 | 1 | - | Which of the following is a personal computer made by the Japanese company Fujitsu? | FM-7 | PC-9801 | Xmillennium  | MSX
+3 | 1 | - | The last Windows operating system to be based on the Windows 9x kernel was Windows 98. | False | True
+3 | 1 | - | What is known as "the brain" of the Computer? | Central Processing Unit | Motherboard | Graphics Processing Unit | Keyboard
+5 | 1 | - | America Online (AOL) started out as which of these online service providers? | Quantum Link | CompuServe | Prodigy | GEnie
+1 | 1 | - | Linux was first created as an alternative to Windows XP. | False | True
+3 | 1 | - | What is the main CPU is the Sega Mega Drive / Sega Genesis? | Motorola 68000 | Zilog Z80 | Yamaha YM2612 | Intel 8088
+1 | 1 | - | This mobile OS held the largest market share in 2012. | iOS | Android | BlackBerry | Symbian
+5 | 1 | - | What does the International System of Quantities refer 1024 bytes as? | Kibibyte | Kylobyte | Kilobyte | Kelobyte
+3 | 1 | - | Laserjet and inkjet printers are both examples of what type of printer? | Non-impact printer | Impact printer | Daisywheel printer | Dot matrix printer
+3 | 1 | - | What does the term MIME stand for, in regards to computing? | Multipurpose Internet Mail Extensions | Mail Internet Mail Exchange | Multipurpose Interleave Mail Exchange | Mail Interleave Method Exchange
+5 | 1 | - | Released in 2001, the first edition of Apple's Mac OS X operating system (version 10.0) was given what animal code name? | Cheetah | Puma | Tiger | Leopard
+5 | 1 | - | Dutch computer scientist Mark Overmars is known for creating which game development engine? | Game Maker | Stencyl | Construct | Torque 2D
+3 | 1 | - | The name of technology company HP stands for what? | Hewlett-Packard | Howard Packmann | Husker-Pollosk | Hellman-Pohl
+5 | 1 | - | What vulnerability ranked #1 on the OWASP Top 10 in 2013? | Injection  | Broken Authentication | Cross-Site Scripting | Insecure Direct Object References
+5 | 1 | - | Who invented the "Spanning Tree Protocol"? | Radia Perlman | Paul Vixie | Vint Cerf | Michael Roberts
+1 | 1 | - | Which programming language shares its name with an island in Indonesia? | Java | Python | C | Jakarta
+3 | 1 | - | In programming, what do you call functions with the same name but different implementations? | Overloading | Overriding | Abstracting | Inheriting
+3 | 1 | - | The HTML5 standard was published in 2014. | True | False
+1 | 1 | - | What does the "MP" stand for in MP3? | Moving Picture | Music Player | Multi Pass | Micro Point
+1 | 1 | - | According to the International System of Units, how many bytes are in a kilobyte of RAM? | 1000 | 512 | 1024 | 500
+1 | 1 | - | When Gmail first launched, how much storage did it provide for your email? | 1GB | 512MB | 5GB | Unlimited
+3 | 1 | - | Whistler was the codename of this Microsoft Operating System. | Windows XP | Windows 2000 | Windows 7 | Windows 95
+3 | 1 | - | The very first recorded computer "bug" was a moth found inside a Harvard Mark II computer. | True | False
+3 | 1 | - | When was the programming language "C#" released? | 2000 | 1998 | 1999 | 2001
+1 | 1 | - | HTML is what type of language? | Markup Language | Macro Language | Programming Language | Scripting Language
+3 | 1 | - | All program codes have to be compiled into an executable file in order to be run. This file can then be executed on any machine. | False | True
+1 | 1 | - | Which computer hardware device provides an interface for all other connected devices to communicate? | Motherboard | Central Processing Unit | Hard Disk Drive | Random Access Memory
+3 | 1 | - | On which computer hardware device is the BIOS chip located? | Motherboard | Hard Disk Drive | Central Processing Unit | Graphics Processing Unit
+1 | 1 | - | Linus Torvalds created Linux and Git. | True | False
+1 | 1 | - | The logo for Snapchat is a Bell. | False | True
+1 | 1 | - | If you were to code software in this language you'd only be able to type 0's and 1's. | Binary | JavaScript | C++ | Python
+1 | 1 | - | The series of the Intel HD graphics generation succeeding that of the 5000 and 6000 series (Broadwell) is called: | HD Graphics 500 | HD Graphics 700  | HD Graphics 600 | HD Graphics 7000
+3 | 1 | - | Nvidia's headquarters are based in which Silicon Valley city? | Santa Clara | Palo Alto | Cupertino | Mountain View
+1 | 1 | - | What is the most preferred image format used for logos in the Wikimedia database? | .svg | .png | .jpeg | .gif
+3 | 1 | - | What did the name of the Tor Anonymity Network orignially stand for? | The Onion Router | The Only Router | The Orange Router | The Ominous Router
+3 | 1 | - | Which of these is the name for the failed key escrow device introduced by the National Security Agency in 1993? | Clipper Chip | Enigma Machine | Skipjack | Nautilus
+3 | 1 | - | On which day did the World Wide Web go online? | December 20, 1990 | December 17, 1996 | November 12, 1990 | November 24, 1995
+3 | 1 | - | What does the acronym CDN stand for in terms of networking? | Content Delivery Network | Content Distribution Network | Computational Data Network | Compressed Data Network
+1 | 1 | - | Ada Lovelace is often considered the first computer programmer. | True | False
+3 | 1 | - | How many cores does the Intel i7-6950X have? | 10 | 12 | 8 | 4
+3 | 1 | - | In the server hosting industry IaaS stands for... | Infrastructure as a Service | Internet as a Service | Internet and a Server | Infrastructure as a Server
+3 | 1 | - | The open source program Redis is a relational database server. | False | True
+3 | 1 | - | Which coding language was the #1 programming language in terms of usage on GitHub in 2015? | JavaScript | C# | Python | PHP
+5 | 1 | - | What port does HTTP run on? | 80 | 53 | 443 | 23
+3 | 1 | - | In the programming language "Python", which of these statements would display the string "Hello World" correctly? | print("Hello World") | console.log("Hello World") | echo "Hello World" | printf("Hello World")
+3 | 1 | - | In HTML, which non-standard tag used to be be used to make elements scroll across the viewport? | <marquee></marquee> | <scroll></scroll> | <move></move> | <slide></slide>
+3 | 1 | - | In CSS, which of these values CANNOT be used with the "position" property? | center | static | absolute | relative
+3 | 1 | - | In programming, the ternary operator is mostly defined with what symbol(s)? | ?: | ?? | if then | ?
+3 | 1 | - | Which of these programming languages is a low-level language? | Assembly | Python | C# | Pascal
+3 | 1 | - | Early RAM was directly seated onto the motherboard and could not be easily removed. | True | False
+1 | 1 | - | The Windows ME operating system was released in the year 2000. | True | False
+3 | 1 | - | In computing terms, typically what does CLI stand for? | Command Line Interface | Common Language Input | Control Line Interface | Common Language Interface
+5 | 1 | - | Who is the original author of the realtime physics engine called PhysX? | NovodeX | Ageia | Nvidia | AMD
+3 | 1 | - | Which operating system was released first? | Mac OS | Windows | Linux | OS/2
+3 | 1 | - | .at is the top-level domain for what country? | Austria | Argentina | Australia | Angola
+1 | 1 | - | The numbering system with a radix of 16 is more commonly referred to as  | Hexidecimal | Binary | Duodecimal | Octal
+5 | 1 | - | Which of the following is the oldest of these computers by release date? | TRS-80 | Commodore 64 | ZX Spectrum | Apple 3
+3 | 1 | - | What does the term GPU stand for? | Graphics Processing Unit | Gaming Processor Unit | Graphite Producing Unit | Graphical Proprietary Unit
+3 | 1 | - | Android versions are named in alphabetical order. | True | False
+3 | 1 | - | What was the first Android version specifically optimized for tablets? | Honeycomb | Eclair | Froyo | Marshmellow
+3 | 1 | - | Which of these people was NOT a founder of Apple Inc? | Jonathan Ive | Steve Jobs | Ronald Wayne | Steve Wozniak
+5 | 1 | - | Which RAID array type is associated with data mirroring? | RAID 1 | RAID 0 | RAID 10 | RAID 5
+3 | 1 | - | When did the online streaming service "Mixer" launch? | 2016 | 2013 | 2009 | 2011
+5 | 1 | - | What was the first company to use the term "Golden Master"? | Apple | IBM | Microsoft | Google
+3 | 1 | - | Which programming language was developed by Sun Microsystems in 1995? | Java | Python | Solaris OS | C++
+5 | 1 | - | What is the name given to layer 4 of the Open Systems Interconnection (ISO) model? | Transport | Session | Data link | Network
+3 | 1 | - | Approximately how many Apple I personal computers were created? | 200 | 100 | 500 | 1000
+3 | 1 | - | The common software-programming acronym "I18N" comes from the term "Interlocalization". | False | True
+3 | 1 | - | Which internet company began life as an online bookstore called 'Cadabra'? | Amazon | eBay | Overstock | Shopify
+3 | 1 | - | FLAC stands for "Free Lossless Audio Condenser"' | False | True
+5 | 1 | - | How many Hz does the video standard PAL support? | 50 | 59 | 60 | 25
+3 | 1 | - | Which of the following languages is used as a scripting language in the Unity 3D game engine? | C# | Java | C++ | Objective-C
+1 | 1 | - | Pointers were not used in the original C programming language; they were added later on in C++. | False | True
+3 | 1 | - | All of the following programs are classified as raster graphics editors EXCEPT: | Inkscape | Paint.NET | GIMP | Adobe Photoshop
+1 | 1 | - | What is the code name for the mobile operating system Android 7.0? | Nougat | Ice Cream Sandwich | Jelly Bean | Marshmallow
+1 | 1 | - | How many kilobytes in one gigabyte? | 1000000 | 1024 | 1000 | 1048576
+3 | 1 | - | Generally, which component of a computer draws the most power? | Video Card | Hard Drive | Processor | Power Supply
+3 | 1 | - | Which one of these is not an official development name for a Ubuntu release? | Mystic Mansion | Trusty Tahr | Utopic Unicorn | Wily Werewolf
+3 | 1 | - | AMD created the first consumer 64-bit processor. | True | False
+1 | 1 | - | On Twitter, what is the character limit for a Tweet? | 140 | 120 | 160 | 100
+1 | 1 | - | In most programming languages, the operator ++ is equivalent to the statement "+= 1". | True | False
+1 | 1 | - | Which computer language would you associate Django framework with? | Python | C# | C++ | Java
+5 | 1 | - | The IBM PC used an Intel 8008 microprocessor clocked at 4.77 MHz and 8 kilobytes of memory. | False | True
+1 | 1 | - | The Windows 7 operating system has six main editions. | True | False
+1 | 1 | - | The NVidia GTX 1080 gets its name because it can only render at a 1920x1080 screen resolution. | False | True
+3 | 1 | - | The first dual-core CPU was the Intel Pentium D. | False | True
+3 | 1 | - | .rs is the top-level domain for what country? | Serbia | Romania | Russia | Rwanda
+3 | 1 | - | It's not possible to format a write-protected DVD-R Hard Disk. | True | False
+5 | 1 | - | Which data structure does FILO apply to? | Stack | Queue | Heap | Tree
+5 | 1 | - | Which of these is not a key value of Agile software development? | Comprehensive documentation | Individuals and interactions | Customer collaboration | Responding to change
+3 | 1 | - | Linus Sebastian is the creator of the Linux kernel, which went on to be used in Linux, Android, and Chrome OS. | False | True
+1 | 1 | - | The C programming language was created by this American computer scientist.  | Dennis Ritchie | Tim Berners Lee | al-Khwārizmī | Willis Ware
+3 | 1 | - | What was the first commerically available computer processor? | Intel 4004 | Intel 486SX | TMS 1000 | AMD AM386
+1 | 1 | - | RAM stands for Random Access Memory. | True | False
+1 | 1 | - | What does LTS stand for in the software market? | Long Term Support | Long Taco Service | Ludicrous Transfer Speed | Ludicrous Turbo Speed
+5 | 1 | - | What internet protocol was documented in RFC 1459? | IRC | HTTP | HTTPS | FTP
+1 | 1 | - | How many values can a single byte represent? | 256 | 8 | 1 | 1024

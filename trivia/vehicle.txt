@@ -1,0 +1,65 @@
+3 | 1 | - | What was the name of the first front-wheel-drive car produced by Datsun (now Nissan)? | Cherry | Sunny | Bluebird | Skyline
+1 | 1 | - | The Italian automaker Lamborghini uses what animal as its logo? | Bull | Bat | Horse | Snake
+3 | 1 | - | What part of an automobile engine uses lobes to open and close intake and exhaust valves, and allows an air/fuel mixture into the engine? | Camshaft | Piston | Drive shaft | Crankshaft
+1 | 1 | - | Which Italian city is home of the car manufacturer 'Fiat'? | Turin | Maranello | Modena | Rome
+3 | 1 | - | Which country has the international vehicle registration letter 'A'? | Austria | Afghanistan | Australia | Armenia
+3 | 1 | - | Which Japanese company is the world's largest manufacturer of motorcycles? | Honda | Yamaha | Suzuki | Kawasaki
+3 | 1 | - | Which of the following is NOT a Russian car manufacturer? | BYD | Silant | Dragon | GAZ
+3 | 1 | - | The Japanese Shinkansen beat the French TGV's speed record for fastest electric rail train. | False | True
+3 | 1 | - | Which of the following countries has officially banned the civilian use of dash cams in cars? | Austria | United States | Czechia | South Korea
+5 | 1 | - | The difference between the lengths of a Boeing 777-300ER and an Airbus A350-1000 is closest to: | 0.1m | 1m | 10m  | 100m
+3 | 1 | - | Enzo Ferrari was originally an auto racer for what manufacturer before founding his own car company? | Alfa Romeo | Auto Union | Mercedes Benz | Bentley
+3 | 1 | - | Complete the following analogy: Audi is to Volkswagen as Infiniti is to ? | Nissan | Honda | Hyundai | Subaru
+1 | 1 | - | Jaguar Cars was previously owned by which car manfacturer? | Ford | Chrysler | General Motors | Fiat
+3 | 1 | - | Which of the following car models has been badge-engineered (rebadged) the most? | Isuzu Trooper | Holden Monaro | Suzuki Swift | Chevy Camaro
+3 | 1 | - | The Chevrolet Corvette has always been made exclusively with V8 engines only. | False | True
+3 | 1 | - | When was Tesla founded? | 2003 | 2008 | 2005 | 2007
+1 | 1 | - | What UK Train does NOT go over 125MPH? | Sprinter | Class 43 | Javelin | Pendolino
+1 | 1 | - | Which of the following collision avoidance systems helps airplanes avoid colliding with each other? | TCAS | GPWS | OCAS | TAWS
+5 | 1 | - | Which of these is NOT a car model produced by Malaysian car manufacturer Proton? | Kelisa | Saga | Perdana | Inspira
+1 | 1 | - | Which of these companies does NOT manufacture motorcycles? | Toyota | Honda | Kawasaki | Yamaha
+1 | 1 | - | The full English name of the car manufacturer BMW is Bavarian Motor Works | True | False
+5 | 1 | - | Which one of these chassis codes are used by BMW 3-series? | E46 | E39 | E85 | F10
+3 | 1 | - | Which supercar company is from Sweden? | Koenigsegg | Bugatti | Lamborghini | McLaren
+1 | 1 | - | Automobiles produced by Telsa Motors operate on which form of energy? | Electricity | Gasoline | Diesel | Nuclear
+5 | 1 | - | Which car is the first mass-produced hybrid vehicle? | Toyota Prius | Chevrolet Volt | Honda Fit | Peugeot 308 R HYbrid
+3 | 1 | - | Which of these car models are produced by Lamborghini? | Aventador | Huayra | 918 | Chiron
+5 | 1 | - | Which Variable Valve Timing technology is used by BMW? | VANOS | VVT-iw | VVEL | MultiAir
+3 | 1 | - | When BMW was established in 1916, it was producing automobiles. | False | True
+3 | 1 | - | What do the 4 Rings in Audi's Logo represent? | Previously independent automobile manufacturers | States in which Audi makes the most sales | Main cities vital to Audi | Countries in which Audi makes the most sales
+3 | 1 | - | Which one is NOT the function of engine oil in car engines? | Combustion | Lubrication | Cooling | Reduce corrosion
+5 | 1 | - | How much horsepower is produced by the SD40-2 Locomotive? | 3,000 | 3,200 | 2,578 | 2,190
+5 | 1 | - | What engine is in the Lexus SC400? | 1UZ-FE | 2JZ-GTE | 7M-GTE | 5M-GE
+3 | 1 | - | Volkswagen's legendary VR6 engine has cylinders positioned at what degree angle? | 15 Degree | 30 Degree | 45 Degree | 90 Degree
+3 | 1 | - | Arriva is owned by the Deutsche Bahn. | True | False
+5 | 1 | - | Which one of the following is NOT a sub-company of the Volkswagen Group? | Opel | Porsche | Bugatti | Bentley
+3 | 1 | - | Ferrari has never made a V10 engine for any of its cars. | False | True
+3 | 1 | - | The General Motors EV1 was the first street-legal production electric vehicle. | False | True
+1 | 1 | - | Which car tire manufacturer is famous for its "Eagle" brand of tires, and is the official tire supplier of NASCAR? | Goodyear | Pirelli | Bridgestone | Michelin
+1 | 1 | - | Which car tire manufacturer is famous for its "P Zero" line? | Pirelli | Goodyear | Bridgestone | Michelin
+3 | 1 | - | When was Cadillac founded? | 1902 | 1964 | 1898 | 1985
+1 | 1 | - | What are the cylinder-like parts that pump up and down within the engine? | Pistons | Leaf Springs | Radiators | ABS
+3 | 1 | - | Which one of the following is not made by Ford? | Camry | Fusion | Model A | F-150
+1 | 1 | - | The LS2 engine is how many cubic inches? | 364 | 346 | 376 | 402
+1 | 1 | - | The LS7 engine is how many cubic inches? | 427 | 346 | 364 | 376
+1 | 1 | - | The LS3 engine is how many cubic inches? | 376 | 346 | 364 | 427
+1 | 1 | - | What is the name of Nissan's most popular electric car? | Leaf | Tree | Deer | Roots
+5 | 1 | - | Which Audi does not use Haldex based all wheel drive system? | Audi A8 | Audi TT | Audi S3 | Audi A3
+5 | 1 | - | What kind of train was Stepney, a train on the Bluebell Railway notable for his appearance in "The Railway Series"? | LB&SCR A1X | LB&SCR E2 | LB&SCR J1 | LB&SCR D1
+3 | 1 | - | The majority of Subaru vehicles are made in China. | False | True
+1 | 1 | - | BMW M GmbH is a subsidiary of BMW AG that focuses on car performance. | True | False
+1 | 1 | - | In 1993 Swedish car manufacturer Saab experimented with replacing the steering wheel with a joystick in a Saab 9000. | True | False
+3 | 1 | - | Which animal features on the logo for Abarth, the motorsport division of Fiat? | Scorpion | Snake | Bull | Horse
+3 | 1 | - | What country is the Hussarya supercar, made by the car manufacturer "Arrinera", assembled in? | Poland | China | Sweden | Italy
+3 | 1 | - | Which of the following passenger jets is the longest? | Boeing 747-8 | Airbus A350-1000 | Airbus A330-200 | Boeing 787-10
+3 | 1 | - | Which of the following vehicles featured a full glass roof at base model? | Renault Avantime | Chevy Volt | Mercedes-Benz A-Class | Honda Odyssey
+3 | 1 | - | Which car brand does NOT belong to General Motors? | Ford | Buick | Cadillac | Chevrolet
+3 | 1 | - | Bugatti was an Italian car manufacturer. | False | True
+5 | 1 | - | What model was the sports car gifted to Yuri Gagarin by the French government in 1965? | Matra Djet | Porsche 911 | Alpine A110 | AC Cobra
+3 | 1 | - | Which car manufacturer created the "Aventador"? | Lamborghini | Ferrari | Pagani | Bugatti
+5 | 1 | - | What year did the Chevrolet LUV mini truck make its debut? | 1972 | 1982 | 1975 | 1973
+1 | 1 | - | Where are the cars of the brand 'Ferrari' manufactured? | Italy | Romania | Germany | Russia
+1 | 1 | - | Which of the following car manufacturers had a war named after it? | Toyota | Honda | Ford | Volkswagen
+5 | 1 | - | In 2014, over 6 million General Motors vehicles were recalled due to what critical flaw? | Faulty ignition switch | Malfunctioning gas pedal | Breaking fuel lines | Faulty brake pads
+3 | 1 | - | What nickname was given to Air Canada Flight 143 after it ran out of fuel and glided to safety in 1983? | Gimli Glider | Gimli Microlight | Gimli Chaser | Gimli Superb
+1 | 1 | - | The LS1 engine is how many cubic inches? | 346 | 350 | 355 | 360

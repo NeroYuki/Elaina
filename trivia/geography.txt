@@ -1,0 +1,230 @@
+1 | 1 | - | Which city is the capital of the United States of America? | Washington D.C | Seattle | Albany | Los Angeles
+3 | 1 | - | What European country is not a part of the EU? | Norway | Lithuania | Ireland | Czechia
+1 | 1 | - | What is the capital of the American state of Arizona? | Phoenix | Montgomery | Tallahassee | Raleigh
+5 | 1 | - | What is the largest city and commercial capital of Sri Lanka? | Colombo | Moratuwa | Negombo | Kandy
+3 | 1 | - | On a London Underground map, what colour is the Circle Line? | Yellow | Red | Blue | Green
+3 | 1 | - | How many countries are inside the United Kingdom? | Four | Two | Three | One
+1 | 1 | - | Greenland is almost as big as Africa. | False | True
+3 | 1 | - | Which of these is NOT a city in Saudi Arabia? | Dubai | Riyadh | Mecca | Medina
+3 | 1 | - | The surface area of Russia is slightly larger than that of the dwarf planet Pluto. | True | False
+1 | 1 | - | The Republic of Malta is the smallest microstate worldwide. | False | True
+1 | 1 | - | Which country does Austria not border? | France | Slovenia | Switzerland | Slovakia
+1 | 1 | - | San Marino is the only country completely surrounded by another country. | False | True
+5 | 1 | - | The prefix Sino- (As in Sino-American) is used to refer to what nationality? | Chinese | Japanese | Russian | Indian
+1 | 1 | - | How many federal states does Germany have? | 16 | 13 | 32 | 25
+1 | 1 | - | What colour is the circle on the Japanese flag? | Red | White | Yellow | Black
+5 | 1 | - | Which country is completely landlocked by South Africa? | Lesotho | Swaziland | Botswana | Zimbabwe
+3 | 1 | - | Kuala Lumpur is the capital of which country? | Malaysia | Indonesia | Singapore | Thailand
+1 | 1 | - | What is the capital of Jamaica? | Kingston | Rio de Janeiro | Dar es Salaam | Kano
+5 | 1 | - | The mountainous Khyber Pass connects which of the two following countries? | Afghanistan and Pakistan | India and Nepal | Pakistan and India | Tajikistan and Kyrgyzstan
+1 | 1 | - | Which of the following former Yugoslavian states is landlocked? | Serbia | Bosnia and Herzegovina | Montenegro | Croatia
+3 | 1 | - | Where is the area commonly known as the Bermuda Triangle? | North Atlantic Ocean, between Florida and Puerto Rico | North Pacific Ocean, between Japan and the USA | In the Caribbean Sea | South Pacific Ocean, far off Chile
+3 | 1 | - | Which of these is NOT an island that is part of the Philippines? | Java | Luzon | Mindanao | Palawan
+3 | 1 | - | How many countries are larger than Australia? | 5 | 4 | 3 | 6
+5 | 1 | - | Which is the largest freshwater lake in the world? | Lake Superior  | Caspian Sea | Lake Michigan | Lake Huron
+1 | 1 | - | What is the Capital of the United States? | Washington, D.C. | Los Angelas, CA | New York City, NY | Houston, TX
+5 | 1 | - | Fucking is a village in which country? | Austria | Germany | Switzerland | Czech Republic
+5 | 1 | - | Which country was NOT formerly part of Yugoslavia? | Albania | Croatia | Serbia | Macedonia
+3 | 1 | - | What tiny principality lies between Spain and France? | Andorra | Liechtenstein | Monaco | San Marino
+3 | 1 | - | Where is the world's oldest still operational space launch facility located? | Kazakhstan | Russia | Iran | United States
+3 | 1 | - | Liechtenstein does not have an airport. | True | False
+3 | 1 | - | What is the largest Muslim country in the world? | Indonesia | Pakistan | Saudi Arabia | Iran
+3 | 1 | - | What is the busiest port in Europe? | Port of Rotterdam | Port of Antwerp | Port of Hamburg | Port of Amsterdam
+5 | 1 | - | What is the Finnish word for "Finland"? | Suomi | Eesti | Magyarország | Sverige
+5 | 1 | - | What is the name of rocky region that spans most of eastern Canada? | Canadian Shield | Rocky Mountains | Appalachian Mountains | Himalayas
+5 | 1 | - | What is the name of the formerly rich fishing grounds off the island of Newfoundland, Canada? | Grand Banks | Great Barrier Reef | Mariana Trench | Hudson Bay
+1 | 1 | - | Which of the following Japanese islands is the biggest? | Honshu | Hokkaido | Shikoku | Kyushu
+3 | 1 | - | What is the capital of Belarus? | Minsk | Warsaw | Kiev | Vilnius
+3 | 1 | - | How many timezones does Russia have? | 11 | 6 | 24 | 16
+1 | 1 | - | What is the capital of Spain? | Madrid | Barcelona | Sevilla | Toledo
+1 | 1 | - | What is the capital of India? | New Delhi | Bejing | Montreal | Tithi
+3 | 1 | - | Which of these countries is the smallest by population? | Norway | Slovakia | Finland | Hong Kong
+3 | 1 | - | What is the highest mountain in the world? | Mt. Everest | Mount Godwin Austen | Kangchenjunga | Annapurna
+1 | 1 | - | Tokyo is the capital of Japan. | True | False
+5 | 1 | - | The Andaman and Nicobar Islands in South East Asia are controlled by which country? | India | Vietnam | Thailand | Indonesia
+1 | 1 | - | What is the largest country in the world? | Russia | Canada | China | United States
+3 | 1 | - | Colchester Overpass, otherwise known as "Bunny Man Bridge", is located where? | Fairfax County, Virginia | Medford, Oregon | Braxton County, Virgina | Lemon Grove, California
+3 | 1 | - | How many independent countries are there within the continent of South America? | 12 | 8 | 9 | 10
+3 | 1 | - | What continent is the country Lesotho in? | Africa | Asia | South America | Europe
+1 | 1 | - | What is the capital of Scotland? | Edinburgh | Glasgow | Dundee | London
+3 | 1 | - | How many rivers are in Saudi Arabia? | 0 | 1 | 2 | 3
+3 | 1 | - | Montreal is in which Canadian province? | Quebec | Ontario | Nova Scotia | Alberta
+1 | 1 | - | What state is the largest state of the United States of America? | Alaska | California | Texas | Washington
+3 | 1 | - | Seoul is the capital of North Korea. | False | True
+5 | 1 | - | Which of these countries is NOT a part of the Asian continent? | Suriname | Georgia | Russia | Singapore
+3 | 1 | - | What is the largest non-continental island in the world? | Greenland | New Guinea | Borneo | Madagascar
+5 | 1 | - | Which of these island countries is located in the Caribbean? | Barbados | Fiji | Maldives | Seychelles
+1 | 1 | - | Which of these is NOT an Australian state or territory? | Alberta | New South Wales | Victoria | Queensland
+1 | 1 | - | Vatican City is a country. | True | False
+3 | 1 | - | Which is the largest city in Morocco? | Casablanca | Rabat | Fes | Sale
+3 | 1 | - | In which English county is Stonehenge? | Wiltshire | Somerset | Cumbria | Herefordshire
+3 | 1 | - | What is the capital of Australia? | Canberra | Sydney | Melbourne | Brisbane
+3 | 1 | - | Israel is 7 hours ahead of New York. | True | False
+3 | 1 | - | All of the following are towns/villages in the Pacific Island nation of Kiribati EXCEPT: | Urutora | Rungata | London | Washington
+1 | 1 | - | There is a city called Rome in every continent on Earth. | False | True
+1 | 1 | - | Alaska is the largest state in the United States. | True | False
+3 | 1 | - | What African country has Portuguese as its official language? | Mozambique | Botswana | Gabon | Togo
+3 | 1 | - | Where is Earth's South Magnetic Pole? | The North Pole | The South Pole | The Tropic of Cancer | The Equator
+1 | 1 | - | Which nation claims ownership of Antarctica? | No one, but there are claims. | United States of America | United Nations | Australia
+3 | 1 | - | The World Health Organization headquarters is located in which European country? | Switzerland | United Kingdom | France | Belgium
+1 | 1 | - | What name was historically used for the Turkish city currently known as Istanbul? | Constaninople | Hüdavendigar | Söğüt | Adrianople
+3 | 1 | - | What is the capital of the US state Nevada? | Carson City | Las Vegas | Henderson | Reno
+3 | 1 | - | What event led to Liechenstein adding a crown to its flag? | The 1936 Olympics | Coronation of Prince Johann I Joseph in 1805 | Charles VI's decree in 1719 | Signing of the 1862 Constitution of Liechtenstein
+3 | 1 | - | The historical city Timbuktu is located in which West African country? | Mali | Senegal | Niger | Burkina Faso
+3 | 1 | - | Where are the Nazca Lines located? | Peru | Brazil | Colombia | Ecuador
+5 | 1 | - | Where is the fast food chain "Panda Express" headquartered? | Rosemead, California | Sacremento, California | Fresno, California | San Diego, California
+1 | 1 | - | Which of these African countries list "Spanish" as an official language? | Equatorial Guinea | Guinea | Cameroon | Angola
+5 | 1 | - | Llanfair­pwllgwyngyll­gogery­chwyrn­drobwll­llan­tysilio­gogo­goch is located on which Welsh island? | Anglesey | Barry | Bardsey | Caldey
+5 | 1 | - | What is the area of Vatican City? | 0.44km^2 | 0.10km^2 | 0.86km^2 | 12.00km^2
+3 | 1 | - | The capital of the US State Ohio is the city of Chillicothe. | False | True
+3 | 1 | - | You could walk from Norway to North Korea while only passing through Russia. | True | False
+3 | 1 | - | The towns of Brugelette, Arlon and Ath are located in which country? | Belgium | Andorra | France | Luxembourg
+3 | 1 | - | Japan has left-hand side traffic. | True | False
+1 | 1 | - | California is larger than Japan. | True | False
+1 | 1 | - | What is Canada's smallest province? | Prince Edward Island | New Brunswick | Nova Scotia | Yukon
+5 | 1 | - | What North American tourist attraction is served by the "Maid of the Mist" tour company? | Niagara Falls | Whistler, British Columbia | Disney World | Yosemite National Park
+3 | 1 | - | What is the capital of British Columbia, Canada? | Victoria | Vancouver | Hope | Kelowna
+5 | 1 | - | What is the tallest mountain in Canada? | Mount Logan | Mont Tremblant | Whistler Mountain | Blue Mountain
+1 | 1 | - | What is the Polish city known to Germans as Danzig? | Gdańsk | Warsaw | Zakopane | Poznań
+3 | 1 | - | What is the capital of Seychelles? | Victoria | Luanda | N'Djamena | Tripoli
+3 | 1 | - | What is the region conjoining Pakistan, India, and China with unknown leadership called? | Kashmir | Andorra | Gibraltar | Quin
+3 | 1 | - | Norway has a larger land area than Sweden. | False | True
+3 | 1 | - | What was the most populous city in the Americas in 2015? | São Paulo | New York | Mexico City | Los Angeles
+3 | 1 | - | What is the capital city of New Zealand? | Wellington | Auckland | Christchurch | Melbourne
+1 | 1 | - | New Haven is the capital city of the state of Connecticut in the United States. | False | True
+3 | 1 | - | What is the fifth largest country by area? | Brazil | United States | Australia | India
+5 | 1 | - | What is the capital of Mauritius? | Port Louis | Port Moresby | Port Vila | Port-au-Prince
+1 | 1 | - | What is the capital of South Korea? | Seoul | Pyongyang | Taegu | Kitakyushu
+1 | 1 | - | Nova Scotia is on the east coast of Canada. | True | False
+1 | 1 | - | Which country was NOT part of the Soviet Union? | Romania | Turkmenistan | Belarus | Tajikistan
+3 | 1 | - | Which of these country's capitals starts with the letter B? | Lebanon | Jordan | Kuwait | Qatar
+3 | 1 | - | What is the only country in the world with a flag that doesn't have four right angles? | Nepal | Panama | Angola | Egypt
+3 | 1 | - | Which country inside the United Kingdom does NOT appear on its flag, the Union Jack? | Wales | Scotland | Ireland | Isle of Wight
+1 | 1 | - | What is the capital of Indonesia? | Jakarta | Bandung | Medan | Palembang
+3 | 1 | - | The flag of South Africa features 7 colours. | False | True
+3 | 1 | - | Which of these countries is "doubly landlocked" (surrounded entirely by one or more landlocked countries)? | Uzbekistan | Switzerland | Bolivia | Ethiopia
+3 | 1 | - | How many counties in the Republic of Ireland. | 26 | 32 | 28 | 30
+1 | 1 | - | Greenland is covered with grass and Iceland covered with ice. | False | True
+3 | 1 | - | What is the capital of Chile? | Santiago | Valparaíso | Copiapó | Antofagasta
+3 | 1 | - | Which European city has the highest mileage of canals in the world? | Birmingham | Venice | Amsterdam | Berlin
+1 | 1 | - | Which of the following European languages is classified as a "language isolate?" | Basque | Galician | Maltese | Hungarian
+3 | 1 | - | The following Spanish provinces are located in the northern area of Spain except: | Murcia | Asturias | Navarre | León
+3 | 1 | - | The land of Gotland is located in which European country? | Sweden | Denmark | Norway | Germany
+3 | 1 | - | Which of the following countries does NOT recognize Armenia as an independent country? | Pakistan | Iran | Turkey | Azerbaijan
+1 | 1 | - | What is the 15th letter of the Greek alphabet? | Omicron (Ο) | Sigma (Σ) | Pi (Π) | Nu (Ν)
+3 | 1 | - | Which of these countries is NOT located in Africa? | Suriname | Burkina Faso | Mozambique | Algeria
+1 | 1 | - | How many time zones does China have? | 1 | 3 | 4 | 2
+1 | 1 | - | How many countries does the United States share a land border with? | 2 | 1 | 3 | 4
+3 | 1 | - | Gibraltar, located just south of the Iberian peninsula, is a territory of which West Europe country? | United Kingdom | Spain | Portugal | France
+3 | 1 | - | What is the capital of the State of Washington, United States? | Olympia | Washington D.C. | Seattle | Yukon
+1 | 1 | - | Which of the following Arab countries does NOT have a flag containing only Pan-Arab colours? | Qatar | Kuwait | United Arab Emirates | Jordan
+1 | 1 | - | What country has a horizontal bicolor red and white flag? | Monaco | Bahrain | Malta | Liechenstein
+1 | 1 | - | Which of these is the name of the largest city in the US state Tennessee? | Memphis | Thebes | Alexandria | Luxor
+3 | 1 | - | Which German city is located on the River Isar? | Munich | Berlin | Hamburg | Dortmund
+3 | 1 | - | What is the largest lake in the African continent? | Lake Victoria | Lake Tanganyika | Lake Malawi | Lake Turkana
+3 | 1 | - | Vietnam is the only country in the world that starts with V.  | False | True
+5 | 1 | - | How many countries border Kyrgyzstan? | 4 | 3 | 1 | 6
+3 | 1 | - | There exists an island named "Java". | True | False
+3 | 1 | - | What is the capital of Senegal? | Dakar | Nouakchott | Conakry | Monrovia
+3 | 1 | - | "Mongolia" was a part of the now non-existent U.S.S.R. | False | True
+1 | 1 | - | What is the nickname for the US state Delaware? | The First State | The Fiftieth State | The Second State | The Sixteenth State
+1 | 1 | - | St. Louis is the capital of the US State Missouri. | False | True
+3 | 1 | - | Antarctica is the largest desert in the world. | True | False
+3 | 1 | - | Which country has the abbreviation "CH"? | Switzerland | China | Canada | No Country
+5 | 1 | - | What is the official German name of the Swiss Federal Railways? | Schweizerische Bundesbahnen | Schweizerische Nationalbahnen | Bundesbahnen der Schweiz | Schweizerische Staatsbahnen
+5 | 1 | - | Switzerland has four national languages, English being one of them. | False | True
+1 | 1 | - | Harvard University is located in which city? | Cambridge | Providence | New York | Washington D.C.
+3 | 1 | - | What is the smallest country in South America by area? | Suriname | Brazil | Uruguay | Chile
+1 | 1 | - | Which country is the home of the largest Japanese population outside of Japan? | Brazil | China | Russia | The United States
+5 | 1 | - | When does Finland celebrate their independence day? | December 6th | January 2nd | November 12th | February 8th
+1 | 1 | - | How many countries does Mexico border? | 3 | 2 | 4 | 1
+3 | 1 | - | What city  has the busiest airport in the world? | Atlanta, Georgia USA | London, England | Chicago,Illinois ISA | Tokyo,Japan
+5 | 1 | - | What is the land connecting North America and South America? | Isthmus of Panama | Isthmus of Suez | Urals | Australasia
+5 | 1 | - | Which of these cities has a 4° East longitude.  | Amsterdam | Rio de Janero | Toronto | Hong Kong
+3 | 1 | - | Where is the "Sonoran Desert" located? | North America | South America | Asia | Africa
+1 | 1 | - | Hungary is the only country in the world beginning with H. | False | True
+5 | 1 | - | In which country is Tallinn located? | Estonia | Finland | Sweden | Poland
+3 | 1 | - | What is the capital of Lithuania? | Vilnius | Tallinn | Helsinki | Riga
+1 | 1 | - | Which small country is located between the borders of France and Spain? | Andorra | San Marino | Vatican City | Lichtenstein
+5 | 1 | - | The two largest ethnic groups of Belgium are Flemish and Walloon.  | True | False
+3 | 1 | - | Which of the following is NOT a capital city? | Sydney | Cairo | Moscow | Beijing
+5 | 1 | - | What country is not a part of Scandinavia? | Finland | Norway | Sweden | Denmark
+3 | 1 | - | What is the capital of Peru? | Lima | Santiago | Montevideo | Buenos Aires
+3 | 1 | - | The Principality of Sealand is an unrecognized micronation off the coast of what country? | The United Kingdom | Japan | Austrailia | Argentina
+3 | 1 | - | How many sovereign states are members of the United Nations? | 195 | 201 | 153 | 178
+3 | 1 | - | What is the name of the former country that was succeeded by countries such as Serbia, Croatia and Slovenia? | Yugoslavia | Czechoslovakia | Abkhazia | South Ossetia
+3 | 1 | - | Which city is the capital of Switzerland? | Bern | Zürich | Frankfurt | Wien
+3 | 1 | - | There are no roads in/out of Juneau, Alaska. | True | False
+1 | 1 | - | What is the capital of Jamaica? | Kingston | San Juan | Port-au-Prince | Bridgetown
+1 | 1 | - | What is the capital of Denmark? | Copenhagen | Aarhus | Odense | Aalborg
+5 | 1 | - | Which of these is NOT a province in China? | Yangtze | Fujian | Sichuan | Guangdong
+1 | 1 | - | If soccer is called football in England, what is American football called in England? | American football | Combball | Handball | Touchdown
+3 | 1 | - | Which of the following countries is within the Eurozone but outside of the Schengen Area? | Cyprus | Malta | Greece | Portugal
+5 | 1 | - | What is the name of one of the Neo-Aramaic languages spoken by the Jewish population from Northwestern Iraq? | Lishana Deni | Hulaulá | Lishan Didan | Chaldean Neo-Aramaic
+1 | 1 | - | What is the only state in the United States that does not have a flag in a shape with 4 edges? | Ohio | Florida | Idaho | New Mexico
+3 | 1 | - | The longest place named in the United States is Lake Chargoggagoggmanchauggagoggchaubunagungamaugg, located near Webster, MA. | True | False
+1 | 1 | - | Which of the following languages does NOT use the Latin alphabet? | Georgian | Turkish | Swahili | Vietnamese
+5 | 1 | - | In 2012 the German-speaking microstate "Liechtenstein" in Central Europe had a population of how many inhabitants? | 36,600 | 2,400 | 90,000 | 323,400
+5 | 1 | - | Where is the Luxor Hotel & Casino located? | Paradise, Nevada | Las Vegas, Nevada | Winchester, Nevada | Jackpot, Nevada
+3 | 1 | - | Which of these countries is located the FURTHEST away from the South China Sea? | Bangladesh | Malaysia | Vietnam | Philippines
+3 | 1 | - | The Japanese district Akihabara is also known by what nickname? | Electric Town | Moon Walk River | Otaku Central  | Big Eyes
+1 | 1 | - | Which US state has the highest population? | California | New York | Texas | Florida
+1 | 1 | - | What is the official language of Costa Rica? | Spanish | English | Portuguese | Creole
+5 | 1 | - | What year is on the flag of the US state Wisconsin? | 1848 | 1634 | 1783 | 1901
+3 | 1 | - | Gothenburg is the capital of Sweden. | False | True
+1 | 1 | - | Ottawa is the capital of Canada. | True | False
+1 | 1 | - | There are no deserts in Europe. | True | False
+3 | 1 | - | The Sonoran Desert is located in eastern Africa. | False | True
+5 | 1 | - | The Hunua Ranges is located in... | New Zealand | Nepal | China | Mexico
+5 | 1 | - | What is the most populous Muslim-majority nation in 2010? | Indonesia | Saudi Arabia | Iran | Sudan
+3 | 1 | - | What is the official language of Bhutan? | Dzongkha | Ladakhi | Karen | Groma
+3 | 1 | - | Which country has three capital cities? | South Africa | Somalia | China | United Kingdom
+1 | 1 | - | What is the capital of the US State of New York? | Albany | Buffalo | New York | Rochester
+1 | 1 | - | The Space Needle is located in which city? | Seattle | Los Angles | Toronto | Vancouver
+5 | 1 | - | What city is known as the Rose Capital of the World? | Tyler, Texas | San Diego, California | Miami, Florida | Anaheim, California
+3 | 1 | - | What is the capital of Slovakia? | Bratislava | Sofia | Ljubljana | Sarajevo
+3 | 1 | - | Which Canadian province has Charlottetown as its capital? | Prince Edward Island | Saskachewan | Northwest Terrirories | Ontario
+5 | 1 | - | What is the name of the Canadian national anthem? | O Canada | O Red Maple | Leaf-Spangled Banner | March of the Puck Drop
+3 | 1 | - | Which one of these countries borders with Poland? | Lithuania | France | Norway | Netherlands
+1 | 1 | - | How many stars are featured on New Zealand's flag? | 4 | 5 | 2 | 0
+3 | 1 | - | The land mass of modern day Turkey is called what? | Anatolia | Ismuth of Ottoma | Ottoma | Ismuth of Anatolia
+1 | 1 | - | What is the smallest country in the world? | Vatican City | Maldives | Monaco | Malta
+3 | 1 | - | Broome is a town in which state of Australia? | Western Australia | Northern Territory | South Australia | Tasmania
+3 | 1 | - | What is the capital of Estonia? | Tallinn | Helsinki | Tartu | Riga
+5 | 1 | - | What is the capital city of Bermuda? | Hamilton | Santo Dominigo | San Juan | Havana
+1 | 1 | - | Which of the following countries has a flag featuring a yellow lion wielding a sword on a dark red background? | Sri Lanka | Kiribati | Scotland | Bhutan
+5 | 1 | - | How many stations does the Central Line have on the London Underground? | 49 | 51 | 43 | 47
+1 | 1 | - | Which ocean borders the west coast of the United States? | Pacific | Atlantic | Indian | Arctic
+5 | 1 | - | What is the most common climbing route for the second highest mountain in the world, K2? | Abruzzi Spur | Magic Line | Cesen Route | Polish Line
+3 | 1 | - | Which of the following is the longest river in Europe? | Volga | Danube | Ural | Dnieper
+3 | 1 | - | Which is the world's longest river? | Nile | Missouri | Amazon | Yangtze
+3 | 1 | - | In which city, is the Big Nickel located in Canada? | Sudbury, Ontario | Calgary, Alberta | Halifax, Nova Scotia  | Victoria, British Columbia
+3 | 1 | - | Which state of the United States is the smallest? | Rhode Island  | Maine | Vermont | Massachusetts
+1 | 1 | - | The body of the Egyptian Sphinx was based on which animal? | Lion | Bull | Horse | Dog
+1 | 1 | - | What country is the second largest in the world by area? | Canada | Russia | China | United States of America
+1 | 1 | - | A group of islands is called an 'archipelago'. | True | False
+5 | 1 | - | Which of these is NOT a city in India? | Islamabad | Hyderabad | Ahmedabad | Ghaziabad
+3 | 1 | - | What is the name of the capital of Turkey? | Ankara | Istanbul | Izmir | Bursa
+3 | 1 | - | What are the four corner states of the US? | Utah, Colorado, Arizona, New Mexico | Oregon, Idaho, Nevada, Utah | Kansas, Oklahoma, Arkansas, Louisiana | South Dakota, Minnesota, Nebraska, Iowa
+1 | 1 | - | All of the following are classified as Finno-Ugric languages EXCEPT: | Samoyedic | Hungarian | Finnish | Estonian
+1 | 1 | - | The derisive acronym "PIIGS" refers to which of the following European countries and their economic statuses? | Portugal, Ireland, Italy, Greece, Spain | Poland, Iceland, Italy, Greece, Serbia | Poland, Iceland, Italy, Greenland, Spain | Portugal, Iceland, Ireland, Greece, Serbia
+3 | 1 | - | Which of the following language families is the most controversial amongst modern linguists? | Altaic | Sino-Tibetan | Dravidian | Indo-European
+1 | 1 | - | Which Russian oblast forms a border with Poland? | Kaliningrad | Samara | Nizhny Novgorod | Omsk
+3 | 1 | - | Which of the following countries banned the use of personal genetic ancestry tests? | Germany | Austria | Canada | Sweden
+3 | 1 | - | All of the following countries have official claims to territory in Antartica EXCEPT: | United States | Australia | Chile | Norway
+3 | 1 | - | On which continent is the country of Angola located? | Africa | South America | Europe | Asia
+5 | 1 | - | Which of the following Inuit languages was the FIRST to use a unique writing system not based on the Latin alphabet? | Inuktitut | Inuinnaqtun | Greenlandic | Inupiat
+1 | 1 | - | Which UK country features a dragon on their flag? | Wales | England | North Ireland | Scotland
+3 | 1 | - | How many countries does Spain have a land border with? | 5 | 2 | 3 | 4
+3 | 1 | - | What is the right way to spell the capital of Hungary? | Budapest | Boodapest | Bhudapest | Budapast
+1 | 1 | - | Toronto is the capital city of the North American country of Canada. | False | True
+1 | 1 | - | What is the name of the peninsula containing Spain and Portugal? | Iberian Peninsula | European Peninsula | Peloponnesian Peninsula | Scandinavian Peninsula
+5 | 1 | - | What is the second-largest city in Lithuania? | Kaunas | Panevėžys | Vilnius | Klaipėda
+1 | 1 | - | What is the name of New Zealand's indigenous people? | Maori | Vikings | Polynesians | Samoans
+3 | 1 | - | What is the capital city of Slovenia? | Ljubljana | Maribor | Velenje | Trbovlje
+1 | 1 | - | The Alps are a mountain range on which continent? | Europe | North America | Asia | Africa
+3 | 1 | - | The Southeast Asian island of Borneo is politically divided among 3 countries. | True | False
+3 | 1 | - | How tall is One World Trade Center in New York City? | 1,776 ft | 1,888 ft | 1,225 ft | 1,960 ft
+5 | 1 | - | What is Canada's largest island? | Baffin Island | Prince Edward Island | Vancouver Island | Newfoundland
+3 | 1 | - | In the 2016 Global Peace Index poll, out of 163 countries, what was the United States of America ranked? | 103 | 10 | 59 | 79
+3 | 1 | - | What's the first National Park designated in the United States? | Yellowstone | Sequoia  | Yosemite | Rocky Mountain
