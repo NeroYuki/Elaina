@@ -27,6 +27,11 @@ function categoryRandomSelect() {
 }
 
 module.exports.run = (client, message, args) => {
+    var forced_type = 0;
+    for (i in args) {
+        if (args[i] == '-c') forced_type = 1
+        if (args[i] == '-a') forced_type = 2
+    }
     var submitted_answer = [];
     var start = Date.now();
     //console.log(start);
@@ -72,9 +77,19 @@ module.exports.run = (client, message, args) => {
     }
 	fs.readFile(question_dir , 'utf8', (err, data) => {
         var all_question = data.split('\n');
-        if (parseInt(args[1])) var pick = all_question[parseInt(args[1]) - 1]
-        else var pick = all_question[parseInt(Math.floor(Math.random() * all_question.length))];
-        if (pick) var component = pick.split(" | ");
+        var avail_question = []
+        if (forced_type) {
+            for (i in all_question) if (all_question[i].split(" | ")[1] == forced_type) {avail_question.push(all_question[i])}
+            if (!avail_question[0]) {message.channel.send("No question of that type in this category, guess i need more question"); return;}
+            if (parseInt(args[1])) var pick = avail_question[parseInt(args[1]) - 1]
+            else var pick = avail_question[parseInt(Math.floor(Math.random() * avail_question.length))];
+        }
+        else {
+            if (parseInt(args[1])) var pick = all_question[parseInt(args[1]) - 1]
+            else var pick = all_question[parseInt(Math.floor(Math.random() * all_question.length))];
+        }
+        var component;
+        if (pick) component = pick.split(" | ");
         else return;
         var difficulty = parseInt(component[0]);
         var type = parseInt(component[1]);
