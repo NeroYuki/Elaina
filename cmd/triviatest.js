@@ -60,7 +60,7 @@ module.exports.run = (client, message, args) => {
         case 13: question_dir = 'trivia/geography.txt'; category_name = 'Geography'; break;  
         case 14: question_dir = 'trivia/history.txt'; category_name = 'History'; break;
         case 15: question_dir = 'trivia/leagueoflegends.txt'; category_name = 'Video Game: League of Legends'; break; 
-        case 16: question_dir = 'trivia/math.txt'; category_name = 'Science: Mathematics'; break;  
+        case 16: question_dir = 'trivia/math.txt'; category_name = 'Science: Mathematics'; break;
         case 17: question_dir = 'trivia/music.txt'; category_name = 'Entertainment: Music'; break; 
         case 18: question_dir = 'trivia/myth.txt'; category_name = 'Mythology'; break;  
         case 19: question_dir = 'trivia/pokemon.txt'; category_name = 'Video Game: Pokemon'; break; 
@@ -153,7 +153,7 @@ module.exports.run = (client, message, args) => {
             if (img_link && img_link != "-") embed["image"]["url"] = img_link;
             message.channel.send({embed});
             embed = {
-                "description": "**The correct answer is " + correct_answer[0] + "**\n*Accepted answers are: " + correct_answer.join(", ") + "*",
+                "description": "**The correct answer is " + correct_answer[0] + "**\nAccepted answers are: " + correct_answer.join(", "),
                 "color": 8102199
             }
             setTimeout(() => {
@@ -178,7 +178,7 @@ module.exports.run = (client, message, args) => {
             else {
                 for (var i = 0; i < submitted_answer.length; i++)
                     for (var j = 0; j < answer_array.length; j++) 
-                        if (submitted_answer[i][1].toLowerCase() == answer_array[j].toLowerCase()) { correct_user.push(submitted_answer[i]); break; }
+                        if (submitted_answer[i][1].toLowerCase() == answer_array[j].toLowerCase().trim()) { correct_user.push(submitted_answer[i]); break; }
             }
             
             correct_user.sort((a, b) => {
