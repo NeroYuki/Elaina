@@ -1,4 +1,4 @@
-3 | 2 | - | "'Final Fantasy VII: Avenged Children' is a movie. True/False?": | "False"
+3 | 2 | - | "'Final Fantasy VII: Avenged Children' is a movie. True/False?": | false
 3 | 2 | - | (BRAVE EXVIUS) The Veritas originally comprised of how many members? (Answer without numerics): | Eight
 3 | 2 | - | (BRAVE EXVIUS) What is Lid's occupation? | Airship engineer | Engineer
 3 | 2 | - | (BRAVE EXVIUS) What is the group name of the 6 antagonists clad in black? | Sworn Six of Paladia | Six Sworn Heroes of Paladia | The Veritas
@@ -68,11 +68,11 @@
 3 | 2 | - | (FFIII) Who is known as "The Maiden of Water"? | Aria Benett | Aria | Elia
 3 | 2 | - | (FFIII) Who mind-controlled King Gorn? | Gigameth | Gigames
 3 | 2 | - | (FFIII) Who was Xande's mentor? | Great Magus Noah | Noah
-3 | 2 | - | (FFIV) Cecil marries Rosa. True/False? | "True"
+3 | 2 | - | (FFIV) Cecil marries Rosa. True/False? | true
 3 | 2 | - | (FFIV) It was later revealed that Golbez was being mind-controlled by who? | Zemus
 3 | 2 | - | (FFIV) Name an airship present in the game.: | Enterprise or Falcon | Falcon | Enterprise
-3 | 2 | - | (FFIV) Rosa has feelings for Kain. True/False? | "False"
-3 | 2 | - | (FFIV) Rydia never learns the spell, Fire, due to trauma. True/False? | "False"
+3 | 2 | - | (FFIV) Rosa has feelings for Kain. True/False? | false
+3 | 2 | - | (FFIV) Rydia never learns the spell, Fire, due to trauma. True/False? | false
 3 | 2 | - | (FFIV) Tellah died after casting what magic spell? | Meteor
 3 | 2 | - | (FFIV) The elusive Pink Tail is an item drop from...? | Flan Princess
 3 | 2 | - | (FFIV) What crystal was exchanged for Rosa's safety? | Earth Crystal | Earth
@@ -107,27 +107,27 @@
 3 | 2 | - | (FFIV) Who is the Queen of Eidolons? | Asura
 3 | 2 | - | (FFIV) Who originally summoned the Mist Dragon? | Rydia's mother | Mother of Rydia
 3 | 2 | - | (FFIX) A large amount of various elements in the game draws inspiration from a famous playwright/poet, who is he? | William Shakespeare
-3 | 2 | - | (FFIX) Beatrix can enter Trance. True/False? | "False"
+3 | 2 | - | (FFIX) Beatrix can enter Trance. True/False? | false
 3 | 2 | - | (FFIX) Besides Zidane and Kuja, which other Genome possesses a soul? | Mikoto
-3 | 2 | - | (FFIX) Eiko gives Zidane a kiss on the cheek. True/False? | "False"
-3 | 2 | - | (FFIX) Garnet originally had a horn. True/False? | "True"
+3 | 2 | - | (FFIX) Eiko gives Zidane a kiss on the cheek. True/False? | false
+3 | 2 | - | (FFIX) Garnet originally had a horn. True/False? | true
 3 | 2 | - | (FFIX) How many "Black Waltzes" are there? (Answer without numerics): | Three
 3 | 2 | - | (FFIX) How many "Hilda Garde" airships are there? (Answer without numerics): | Three
 3 | 2 | - | (FFIX) How many members of the Nero family are revealed in the game? (Answer without numerics): | Ten
 3 | 2 | - | (FFIX) In the first battle of the game, you fight a man wearing a mask resembling a? | Blue dragon | Dragon | Wyvern | Blue wyvern
 3 | 2 | - | (FFIX) In the game, who wrote the play, I Want To Be Your Canary? | Lord Avon
-3 | 2 | - | (FFIX) It is not possible to marry Quina with Vivi. True/False? | "False"
-3 | 2 | - | (FFIX) Kuja does not have a tail. True/False? | "False"
-3 | 2 | - | (FFIX) Lani eventually settles in Madain Sari. True/False? | "True"
+3 | 2 | - | (FFIX) It is not possible to marry Quina with Vivi. True/False? | false
+3 | 2 | - | (FFIX) Kuja does not have a tail. True/False? | false
+3 | 2 | - | (FFIX) Lani eventually settles in Madain Sari. True/False? | true
 3 | 2 | - | (FFIX) Name a character who doesn't have a unique Trance command.: | Steiner/Freya | Steiner | Freya
 3 | 2 | - | (FFIX) Name a world present in FFIX.: | Gaia or Terra | Terra | Gaia
 3 | 2 | - | (FFIX) Name the female member of Tantalus.: | Ruby
 3 | 2 | - | (FFIX) Name the monster that traps Vivi/Garnet.: | Prison Cage
 3 | 2 | - | (FFIX) Steiner commands a small army called the...: | Knights of Pluto
-3 | 2 | - | (FFIX) Steiner confesses his love for Beatrix. True/False? | "True"
+3 | 2 | - | (FFIX) Steiner confesses his love for Beatrix. True/False? | true
 3 | 2 | - | (FFIX) The "eye in the sky" turns out to be? | The Invincible | Invincible
-3 | 2 | - | (FFIX) There is a sidequest to find every member of the Nero family. True/False? | "True"
-3 | 2 | - | (FFIX) Vivi "expires". True/False? | True, much to everyone's dismay. | "True"
+3 | 2 | - | (FFIX) There is a sidequest to find every member of the Nero family. True/False? | true
+3 | 2 | - | (FFIX) Vivi "expires". True/False? | True, much to everyone's dismay. | true
 3 | 2 | - | (FFIX) What cures Blank's petrification? | Supersoft
 3 | 2 | - | (FFIX) What does Blank throw to Zidane in the Evil/Petrified Forest? | The World Map | World Map
 3 | 2 | - | (FFIX) What does Kuja demand Zidane to obtain for him in exchange for the lives of his friends? | Gulug Stone
@@ -206,12 +206,12 @@
 3 | 2 | - | (FFTA) Exodus is the totema of which race? | Viera
 3 | 2 | - | (FFTA) Famfrit is the totema of which race? | Moogles | Moogle
 3 | 2 | - | (FFTA) In real world Ivalice, what caused Cid to fall into depression? | The death of his wife | Death of his wife | Passing of his wife | Death of Remedi | Passing of Remedi | His wife died
-3 | 2 | - | (FFTA) It is possible to recruit Judgemaster Cid to your clan. True/False? | "True"
-3 | 2 | - | (FFTA) It is possible to recruit Llednar to your clan. True/False? | "False"
+3 | 2 | - | (FFTA) It is possible to recruit Judgemaster Cid to your clan. True/False? | true
+3 | 2 | - | (FFTA) It is possible to recruit Llednar to your clan. True/False? | false
 3 | 2 | - | (FFTA) It was later revealed that the dream world of Ivalice is actually a fantasy of whose? | Mewt Randell | Mewt
 3 | 2 | - | (FFTA) Llednar is a "reverse" image of who? | Mewt Randell | Mewt
 3 | 2 | - | (FFTA) Mateus is the totema of which race? | Humans | Human
-3 | 2 | - | (FFTA) Ritz utilizes the viera job tree. True/False? | "True"
+3 | 2 | - | (FFTA) Ritz utilizes the viera job tree. True/False? | true
 3 | 2 | - | (FFTA) Ultima is the totema of which race? | Nu Mou
 3 | 2 | - | (FFTA) What are the lawless areas known as? | Jagds | Jagd
 3 | 2 | - | (FFTA) What did Marche initially thought Bangaas were? | Lizards | Lizard | Lizardmen
@@ -258,7 +258,7 @@
 3 | 2 | - | (FFVI) 'Summons' are known as? | Espers | Esper
 3 | 2 | - | (FFVI) Celes posed as who in an opera? | Maria
 3 | 2 | - | (FFVI) Deathgaze is only encountered while riding which mode of transport? | Airship
-3 | 2 | - | (FFVI) General Leo had a Magitek infusion. True/False? | "False"
+3 | 2 | - | (FFVI) General Leo had a Magitek infusion. True/False? | false
 3 | 2 | - | (FFVI) How many espers are there in the game? | 27
 3 | 2 | - | (FFVI) How many permanent playable characters are there? | 14
 3 | 2 | - | (FFVI) Name Setzer's airship.: | The Blackjack | Blackjack
@@ -288,7 +288,7 @@
 3 | 2 | - | (FFVI) Who was responsible for awakening Terra's esper form? | Valigarmanda | Tritoch
 3 | 2 | - | (FFVI) Who was the original owner of The Falcon? | Darill
 3 | 2 | - | (FFVII C.C.) How many fan clubs does Genesis have? (Answer without numerics): | Two
-3 | 2 | - | (FFVII C.C.) It's possible for Zack to have a fan club. True/False? | "True"
+3 | 2 | - | (FFVII C.C.) It's possible for Zack to have a fan club. True/False? | true
 3 | 2 | - | "(FFVII C.C.) The naming scheme for Angeal's special moves is inspired by? (Hint: Christianity)": | The Seven Deadly Sins | Seven Deadly Sins | 7 Deadly Sins
 3 | 2 | - | (FFVII C.C.) What's the name of Angeal's fan club? | Keepers of Honor
 3 | 2 | - | (FFVII C.C.) What's the name of Genesis's fan club? | Red Leather | Study Group
@@ -303,8 +303,8 @@
 3 | 2 | - | (FFVII C.C.) Who operates under the codename, "Black Suit"? | Cissnei
 3 | 2 | - | (FFVII C.C.) Who was the chief scientist in charge of Project G? | Dr. Hollander | Hollander
 3 | 2 | - | (FFVII) Besides the Gold Chocobo, which Chocobo has the ability to traverse mountains? | Black Chocobo
-3 | 2 | - | (FFVII) Sephiroth is right-handed. True/False? | "False"
-3 | 2 | - | (FFVII) There exists a female of Red XIII's species. True/False? | "True"
+3 | 2 | - | (FFVII) Sephiroth is right-handed. True/False? | false
+3 | 2 | - | (FFVII) There exists a female of Red XIII's species. True/False? | true
 3 | 2 | - | (FFVII) Well-known katana.: | Masamune
 3 | 2 | - | (FFVII) What is Cid's occupation/role? | Pilot
 3 | 2 | - | (FFVII) What is Red XIII's real name? | Nanaki
@@ -328,18 +328,18 @@
 3 | 2 | - | (FFVIII) 'Eyes on Me' was sung by? | Faye Wong
 3 | 2 | - | (FFVIII) From which tribe do the Mumbaas originate? | Shumi
 3 | 2 | - | (FFVIII) How many attacks are there in Squall's Lionheart limit break? | 17
-3 | 2 | - | (FFVIII) In the entirety of the game, Fujin only gives one-word comments. True/False? | "False"
+3 | 2 | - | (FFVIII) In the entirety of the game, Fujin only gives one-word comments. True/False? | false
 3 | 2 | - | (FFVIII) In two words; what happens to Laguna when he gets nervous? | Leg cramp
-3 | 2 | - | (FFVIII) It is possible to use Selphie's "The End" Limit Break on the final boss. True/False? | "True"
+3 | 2 | - | (FFVIII) It is possible to use Selphie's "The End" Limit Break on the final boss. True/False? | true
 3 | 2 | - | (FFVIII) Name the 2 main members of The Forest Owls besides Rinoa. (\_\_\_ and \_\_\_): | Zone and Watts | Watts and Zone
 3 | 2 | - | (FFVIII) Name the only spell which can only be drawn from an enemy.: | Apocalypse
 3 | 2 | - | (FFVIII) Name the phenomenon that causes monsters to fall from the moon.: | Lunar Cry
 3 | 2 | - | (FFVIII) Rinoa is referred to as the "Princess" of which organization? | The Forest Owls | Forest Owls
 3 | 2 | - | (FFVIII) Seifer, Fujin, and Raijin, make up what committee? | Disciplinary Committee | Disciplinary
 3 | 2 | - | (FFVIII) Squall's character design was heavily influenced by which real life actor? | River Phoenix
-3 | 2 | - | (FFVIII) There are absolutely no moogles in Final Fantasy VIII. True/False? | "False"
-3 | 2 | - | (FFVIII) There is a "hidden" Limit Break combat move for Zell. True/False? | True (Armageddon Fist) | "True"
-3 | 2 | - | (FFVIII) There is a map of the real world somewhere in Winhill. True/False? | "True"
+3 | 2 | - | (FFVIII) There are absolutely no moogles in Final Fantasy VIII. True/False? | false
+3 | 2 | - | (FFVIII) There is a "hidden" Limit Break combat move for Zell. True/False? | True (Armageddon Fist) | true
+3 | 2 | - | (FFVIII) There is a map of the real world somewhere in Winhill. True/False? | true
 3 | 2 | - | (FFVIII) What always gets sold out in Balamb Garden cafeteria? | Hotdogs | Hot dogs
 3 | 2 | - | (FFVIII) What does GF stand for? | Guardian Force
 3 | 2 | - | (FFVIII) What is Cid's occupation/role? | Headmaster of Balamb Garden | Headmaster
@@ -378,11 +378,11 @@
 3 | 2 | - | (FFVIII) Who is the owner of Balamb Garden? | NORG
 3 | 2 | - | (FFVIII) Who refers to Laguna as "Uncle Laguna"? | Ellone
 3 | 2 | - | (FFVIII) Within the game, who is widely regarded as the best card player? | Queen of Cards | Card Queen | Ishtar
-3 | 2 | - | (FFVIII) You are never able to enter Zell's room. True/False? | "False"
-3 | 2 | - | (FFVIII) You need a certain series of magazines in order to upgrade your weapons. True/False? | "False"
+3 | 2 | - | (FFVIII) You are never able to enter Zell's room. True/False? | false
+3 | 2 | - | (FFVIII) You need a certain series of magazines in order to upgrade your weapons. True/False? | false
 3 | 2 | - | (FFX) 'Summons' are known as? | Aeons | Aeon
 3 | 2 | - | (FFX) At the end of the game, what advice does Yuna give her people regarding lost friends or faded dreams? | Never forget them
-3 | 2 | - | (FFX) Lulu and Wakka gets married. True/False? | "True"
+3 | 2 | - | (FFX) Lulu and Wakka gets married. True/False? | true
 3 | 2 | - | (FFX) What color is Yuna's right eye? | Green
 3 | 2 | - | (FFX) What does Lulu wield as weapons? | Dolls | Doll
 3 | 2 | - | (FFX) What is one of Rikku's biggest fears? | Lightning | Thunder | Snake
@@ -397,7 +397,7 @@
 3 | 2 | - | (FFX) Who is the fayth of aeon Anima? | Seymour's mother
 3 | 2 | - | (FFX) Who is the head commander of The Crusaders? | Wen Kinoc
 3 | 2 | - | (FFX) Who refers to Yuna as "Yunie"? | Rikku
-3 | 2 | - | (FFX-2) After the events of FFX-2, Yuna & Tidus breaks up and Sin is revived. True/False? | "True"
+3 | 2 | - | (FFX-2) After the events of FFX-2, Yuna & Tidus breaks up and Sin is revived. True/False? | true
 3 | 2 | - | (FFX-2) Complete the commercial tagline - "Last time she saved the world. This time it's \_\_\_.": | personal
 3 | 2 | - | (FFX-2) What are the names of Leblanc's two lackeys? (\_\_\_ and \_\_\_): | Ormi and Logos | Logos and Ormi
 3 | 2 | - | (FFX-2) What is the name of Yuna's signature pistols? | Tiny Bee
@@ -483,10 +483,10 @@
 3 | 2 | - | (FFXV) Shiva is also known as? | Gentiana
 3 | 2 | - | (FFXV) The "creatures of the night" are known as? | Daemons | Daemon
 3 | 2 | - | (FFXV) The head of Ramuh's staff is modeled after which other summon from the FF series? | Ixion
-3 | 2 | - | (FFXV) There is a Royal Arm in the form of a gun. True/False? | "False"
+3 | 2 | - | (FFXV) There is a Royal Arm in the form of a gun. True/False? | false
 3 | 2 | - | (FFXV) There is a real-life car modeled after the Regalia produced by which automotive company? | Audi
-3 | 2 | - | (FFXV) There is a sniper rifle (with useable scope) in the game. True/False? | "True"
-3 | 2 | - | (FFXV) There is/was a glitch in the game which allowed the player to have Aranea join the party (not just assist during battle). True/False? | "True"
+3 | 2 | - | (FFXV) There is a sniper rifle (with useable scope) in the game. True/False? | true
+3 | 2 | - | (FFXV) There is/was a glitch in the game which allowed the player to have Aranea join the party (not just assist during battle). True/False? | true
 3 | 2 | - | (FFXV) Those with Lucis royal blood are able to use a skill to conjure specific weapons from thin air, what is this skill called? | Armiger Arsenal | Armiger
 3 | 2 | - | (FFXV) To upgrade your car to the Regalia Type-F, you need the Warped Wings, Unstable Stabilizer, and \_\_\_.: | Strange Engine
 3 | 2 | - | (FFXV) What is the brand of the cup noodles present in game? | Nissin
@@ -498,10 +498,10 @@
 3 | 2 | - | (FFXV) Which fish is generally regarded as the hardest to catch? | Pink Jade Gar
 3 | 2 | - | (FFXV) Who is Gladiolus's father? | Clarus Amicitia | Clarus
 3 | 2 | - | (FFXV) Who is known as "The Dragoon"? | Aranea Highwind | Aranea
-3 | 2 | - | (RECORD KEEPER) "Mythril" is the in-game currency that is bought with real money. True/False? | "False"
-3 | 2 | - | "(RECORD KEEPER) Final Fantasy: Record Keeper has its own unique OST album. True/False?": | "True"
-3 | 2 | - | (RECORD KEEPER) It is possible to draw a 5* (or higher) relic from the free daily draw. True/False? | "True"
-3 | 2 | - | (RECORD KEEPER) It is possible to have a 8* relic. True/False? | "True"
+3 | 2 | - | (RECORD KEEPER) "Mythril" is the in-game currency that is bought with real money. True/False? | false
+3 | 2 | - | "(RECORD KEEPER) Final Fantasy: Record Keeper has its own unique OST album. True/False?": | true
+3 | 2 | - | (RECORD KEEPER) It is possible to draw a 5* (or higher) relic from the free daily draw. True/False? | true
+3 | 2 | - | (RECORD KEEPER) It is possible to have a 8* relic. True/False? | true
 3 | 2 | - | (RECORD KEEPER) Name a character who can use books besides Tyro.: | Alphinaud/Onion Knight | Alphinaud | Onion Knight
 3 | 2 | - | (RECORD KEEPER) Name one of the 4 non-core characters available at the release of the game.: | Cloud/Kain/Wakka/Rydia | Cloud | Kain | Wakka | Rydia
 3 | 2 | - | (RECORD KEEPER) Name one of the characters given as a reward for pre-registers.: | Tidus | Warrior
@@ -509,9 +509,9 @@
 3 | 2 | - | (RECORD KEEPER) Name the material meant for augmenting.: | Rosetta Stone
 3 | 2 | - | (RECORD KEEPER) Name the material necessary for reforging.: | Dark Matter
 3 | 2 | - | (RECORD KEEPER) The first ever event dungeon released was from which realm? (Answer in "FF_"): | FFVII | FF7
-3 | 2 | - | (RECORD KEEPER) There is a Summon that hits more than 3x. True/False? | "True"
-3 | 2 | - | (RECORD KEEPER) There is a secret Dress Record for Cloud in cross-dressing form. True/False? | "False"
-3 | 2 | - | (RECORD KEEPER) There is/was an exclusive invitation-only MVP club which you could join if you spent 20,000USD or more on in-game purchases. True/False? | (The condition is) False | "False"
+3 | 2 | - | (RECORD KEEPER) There is a Summon that hits more than 3x. True/False? | true
+3 | 2 | - | (RECORD KEEPER) There is a secret Dress Record for Cloud in cross-dressing form. True/False? | false
+3 | 2 | - | (RECORD KEEPER) There is/was an exclusive invitation-only MVP club which you could join if you spent 20,000USD or more on in-game purchases. True/False? | (The condition is) False | false
 3 | 2 | - | (RECORD KEEPER) What does the term, BSB, stand for? | Burst Soul Break
 3 | 2 | - | (RECORD KEEPER) What does the term, CLSB, stand for? | Chain Limit Soul Break
 3 | 2 | - | (RECORD KEEPER) What does the term, OSB, stand for? | Overflow Soul Break | Overstrike Soul Break
@@ -642,8 +642,8 @@
 3 | 2 | - | THE iconic duo. (\_\_\_ and \_\_\_): | Biggs and Wedge | Wedge and Biggs
 3 | 2 | - | THE male white mage.: | Minwu | Ming-Wu | Minh | Mindu
 3 | 2 | - | The names of Biggs & Wedge were inspired by characters sharing the same name in which popular movie & franchise? | Star Wars
-3 | 2 | - | The original North-America release of FFIV was actually Japan's FFII with drastic content cut and lower difficulty. True/False? | "True"
-3 | 2 | - | "There is an official version of FFIV known as \"Final Fantasy IV: Easy Type\". True/False?": | "True"
+3 | 2 | - | The original North-America release of FFIV was actually Japan's FFII with drastic content cut and lower difficulty. True/False? | true
+3 | 2 | - | "There is an official version of FFIV known as \"Final Fantasy IV: Easy Type\". True/False?": | true
 3 | 2 | - | What armor does Gilgamesh wear? | Genji
 3 | 2 | - | What does the term, 'ATB', stand for? | Active Time Battle
 3 | 2 | - | What is Alexander's signature move? | Divine Judgment | Divine Judgement

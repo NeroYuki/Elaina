@@ -292,3 +292,13 @@
 3 | 2 | - | "[Programming Languages]Very popular general-purpose, imperative programming language in high-performance computing (e.g. scientific use and supercomputers). It was initiated by John Backus and IBM in 1957.": | Fortran
 3 | 2 | - | "[Programming Languages]Widely used general-purpose, high-level programming language created by Guido van Rossum in 1991. Its design philosophy emphasizes code readability and its syntax allows to express concepts in relatively few lines of code.": | Python
 3 | 2 | - | "[Programming Languages]Widely used programming language designed for managing data held in a relational database management system. It was initially developed Chamberlin and Boyce at IBM in the early 1970s.": | SQL
+1 | 1 | - | The acronym RAM stands for? | Random access memory | Random access monitoring | Random access microchips | Random access machine
+1 | 1 | - | The acronym HDD stands for? | Hard disk drive | Hard disk display | High definition display | High definition data
+1 | 1 | - | The term "hard copy" refers to? | A physical paper print out | An email carbon copy | A copy saved on the hard drive | A copy saved to hard memory
+1 | 1 | - | What is the main voltage that a standard power supply delivers? | 12 volts | 10 volts | 14 volts | 120 volts
+1 | 1 | - | The acronym USB stands for? | Universal serial bus | Universal segmented bus | Unilateral semi binary | Uniform standard build
+1 | 1 | - | What AC voltage does a computer require from an outlet in the US? | 120 | 60 | 240 | 12
+1 | 1 | - | A computer's operating system is considered to be which of the following? | Software | Hardware | Freeware | Keyboard
+1 | 1 | - | An example of computer hardware would be? | Video card | Web Browser | Operating system | Game
+1 | 1 | - | A floppy drive is considered a primitive form of? | Compact disk | Flash drive | Hard drive | Tape drive
+1 | 1 | - | An example of an I/O device is a? | Keyboard | Hard drive | Flash drive | Power supply

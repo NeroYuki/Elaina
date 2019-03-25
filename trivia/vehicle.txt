@@ -137,3 +137,39 @@
 3 | 2 | http://i.imgur.com/yzmQqoz.jpg | What car is this?  | Ferrari 250 GTO | 250 GTO | 250
 3 | 2 | http://i.imgur.com/ze0s5Kl.jpg | What car is this?  | Nissan 350Z | Nissan 350 Z | 350Z | 350 Z
 3 | 2 | https://i.imgur.com/STHmXOc.jpg | What car is this?  | Factory Five | 818C
+1 | 1 | - | The nuts that hold the rim onto the car are called? | Lug nuts | Wheel nuts | Nuts | Wheel Fasteners
+1 | 1 | - | Lock-in hubs are used to engage? | Four wheel drive | Limited slip differential | Posi-trac | Theft protection
+1 | 1 | - | Three on the tree refers to the shifting gear being located on what part of the vehicle? | Steering column | Center Console | Steering wheel | Floor
+1 | 1 | - | M+S combination tires are intended for? | Mud and snow use | Off roading | Messy and slippery situation use | General use
+1 | 1 | - | The headers are part of which vehicle system? | Exhaust | Drive train | Seating | Wheel assembly
+1 | 1 | - | The distributor cap controls what function? | Spark distribution | Lubrication distribution | Cooling distribution | Power distribution
+1 | 1 | - | Coupe vehicles have how many doors? | Two | Three | Four | One
+1 | 1 | - | Spoilers are used to perform what function? | Add down force | Increase fuel economy | Look cool | Add up force
+1 | 1 | - | Ram air forces air into what part of the vehicle? | Into the engine compartment | Into the Cab | Over the Car | Into the air conditioning unit
+1 | 1 | - | Halo headlights are controversial because of their? | Brightness | Color | Shape | Fragile nature
+1 | 1 | - | Before it got into the car business, Saab originally made planes. Where? | Sweden | Japan | Italy | France
+1 | 1 | - | The 1963 Sting Ray was actually a model of which car? | Chevrolet Corvette | Ford Thunderbird | Ford Mustang | Cadillac Coupe
+1 | 1 | - | Inspired by the Mustang, what Ford compact car was introduced in 1969 to compete with Volkswagen? | Maverick | Pinto | Focus | Bronco
+1 | 1 | - | What foreign car company rescued AMC from bankruptcy when it bought a controlling interest in the failing company in 1979? | Renault | Volkswagen | Peugeot | BMW
+1 | 1 | - | What compact car did Chevrolet soup up as the Z24? | Cavalier | Camaro | Impala | Malibu
+1 | 1 | - | The line between "foreign" and "domestic" cars blurred in 1982, when what Japanese company set up an assembly plant in Ohio? | Honda | Nissan | Toyota | Mitsubishi
+1 | 1 | - | With more than 10,000 built, what is the most successful transport plane of all time? | Douglas DC-3 | Boeing 747 | Concorde | Boeing 707
+1 | 1 | - | Had it not been for a design flaw that caused it to crash, what country's Comet might have dominated the commercial aviation business? | Great Britain | Canada | Australia | France
+1 | 1 | - | Which of these planes did Douglas design in the late 1950s to compete with Boeing's 707? | DC-8 | DC-707 | DC-10 | DC-707
+1 | 1 | - | One of the world's oldest airlines (and possibly the oldest) is Avianca. What country is it from? | Colombia | Portugal | Spain | Italy
+1 | 1 | - | What does the name of "Lufthansa", Germany's national air carrier, literally mean in English? | Air Association | Clear Skies | Carried Away | Safe Flight
+1 | 1 | - | In 1804, what "father of aerodynamics" is credited with building the first successful glider? | George Cayley | Orville Wright | Leonardo da Vinci | Thomas Edison
+1 | 1 | - | undefined wings="" the="" pushing="" air="" of="" opposite="" and="" equal="">How does a plane use Bernoulli's principle? | To get off the ground | To fly in darkness | To maximize revenue per seat | To land safely
+1 | 1 | - | A plane's ailerons trade lift on one wing for drag on the other. What happens then? | The plane banks | The plane reverses | The plane takes off | The plane descends
+1 | 1 | - | In 1938, Douglas "Wrong Way" Corrigan blamed dense clouds and compass failure when his flight from New York failed to land in California. Where did he land instead? | London, England | Tokyo, Japan | Toronto, Ontario | Havana, Cuba
+1 | 1 | - | What airport is abbreviated ORD because it was once known as Orchard Field? | O'Hare | LAX | Heathrow | JFK
+1 | 1 | - | In a Lockheed Vega named Winnie Mae, what was Wiley Post the first person to do in 1933? | Fly solo around the world | Bail out of an airplane | Fly a jet airplane successfully | Fly over the North Pole
+1 | 1 | - | During World War I, which country's pilots would you most likely have found in a SPAD? | France | Italy | Germany | Japan
+1 | 1 | - | Most aircraft are classified as fixed wing. But which of these would be rotary wing? | Helicopter | Jet | Airship | VTOL
+1 | 1 | - | What is the difference between a dirigible and a blimp? | Dirigibles are rigid | Dirigibles use helium | Dirigibles are much, much smaller | Dirigibles are British
+1 | 1 | - | Which of these is not one of the four primary forces acting on an airplane? | Yaw | Lift | Drag | Thrust
+1 | 1 | - | For what leader is a major Paris airport named? | Charles De Gaulle | Napoleon | Charlemagne | Robespierre
+1 | 1 | - | What did the "DC" stand for in the names of such planes as the DC-3? | Douglas Commercial | District of Columbia | Direct Continental | Don't Crash
+1 | 1 | - | Although Alberto Santos-Dumont was from a family of Brazilian coffee barons, he was the first person to fly in what continent, doing so in 1906? | Europe | Asia | North America | Australia
+1 | 1 | - | Thomas Selfridge holds what unfortunate aviation distinction? | First person to die in a plane crash | First person to be bumped from a flight | First person to get airsick | First pilot shot down in war
+1 | 1 | - | Most airports have three-letter abbreviations. In what country do almost all of these abbreviations begin with the letter Y? | Canada | Yugoslavia | Japan | Great Britain
