@@ -234,7 +234,7 @@ module.exports.run = (client, message, args, maindb) => {
 							}
 							if (!dup) {pplist.push(ppentry); playc++;}
 							pplist.sort(function(a, b) {return b[2] - a[2]})
-							while (pplist.length > 50) pplist.pop();
+							while (pplist.length > 75) pplist.pop();
 							submitted++;
 							if (objcount.x == playentry.length) {
 								var weight = 1;
