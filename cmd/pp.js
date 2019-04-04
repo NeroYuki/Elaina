@@ -125,7 +125,7 @@ function getMapPP(input, pcombo, pacc, pmissc, pmod = "", message, objcount, whi
 					
 					parser.reset()
 
-					if (entry[4].includes("r")) { mods += 16; }
+					if (pmod.includes("HardRock")) { mods += 16; }
 					
 					console.log(nstars.toString());
 					console.log(npp.toString());
