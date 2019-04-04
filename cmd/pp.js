@@ -95,7 +95,7 @@ function getMapPP(input, pcombo, pacc, pmissc, pmod = "", message, objcount, whi
 					// if (mods) {
 					// 	console.log("+" + osu.modbits.string(mods));
 					// }
-					if (pmod.includes("HR")) {
+					if (pmod.includes("HardRock")) {
 						mods -= 16; 
 						cur_ar = Math.min(cur_ar*1.4, 10);
 						cur_od = Math.min(cur_od*1.4, 5);
@@ -124,6 +124,8 @@ function getMapPP(input, pcombo, pacc, pmissc, pmod = "", message, objcount, whi
 					});
 					
 					parser.reset()
+
+					if (entry[4].includes("r")) { mods += 16; }
 					
 					console.log(nstars.toString());
 					console.log(npp.toString());
@@ -230,11 +232,11 @@ module.exports.run = (client, message, args, maindb) => {
 							var dup = false
 							//pplist.push(ppentry)
 							for (i in pplist) {
-								if (ppentry[0] == pplist[i][0] || ppentry[1].split('+')[0] == pplist[i][1].split('+')[0]) {pplist[i] = ppentry; dup = true; playc++; break;} 
+								if (ppentry[0] == pplist[i][0]) {pplist[i] = ppentry; dup = true; playc++; break;} 
 							}
 							if (!dup) {pplist.push(ppentry); playc++;}
 							pplist.sort(function(a, b) {return b[2] - a[2]})
-							while (pplist.length > 75) pplist.pop();
+							while (pplist.length > 50) pplist.pop();
 							submitted++;
 							if (objcount.x == playentry.length) {
 								var weight = 1;
