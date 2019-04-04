@@ -177,7 +177,7 @@ module.exports.run = (client, message, args) => {
 	var acc;
 	var missc;
 	var mod;
-	if (!args[0]) message.channel.send("Hey at least give me the map :/");
+	if (!args[0]) {message.channel.send("Hey at least give me the map :/"); return;}
 	var a = args[0].split("/");
 	beatmapid = a[a.length-1]
 	for (var i = 1; i < args.length; i++) {
