@@ -1,8 +1,8 @@
 var http = require('http');
 var mongodb = require('mongodb');
-var cmd = require("node-cmd");
 var droid = require("./ojsamadroid");
 var https = require("https");
+var request = require("request")
 require("dotenv").config();
 var apikey = process.env.OSU_API_KEY;
 
@@ -86,7 +86,7 @@ function getMapPP(input, pcombo, pacc, pmissc, pmod = "", message, objcount, whi
 				console.log(acc_percent);
 				//var url = "https://osu.ppy.sh/osu/1031991";
 				var url = 'https://osu.ppy.sh/osu/' + mapid;
-				cmd.get('curl ' + url , function(err, data, stderr){
+				request(url, function (err, response, data) {
 					parser.feed(data);
 					var nmap = parser.map;
 					var cur_od = nmap.od - 5;

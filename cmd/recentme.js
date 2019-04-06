@@ -1,8 +1,8 @@
 var http = require('http');
 var mongodb = require('mongodb');
-var cmd = require("node-cmd");
 var droid = require("./ojsamadroid");
 var osu = require("ojsama")
+var request = require("request")
 var https = require("https");
 require("dotenv").config();
 var apikey = process.env.OSU_API_KEY;
@@ -80,8 +80,7 @@ function getMapPP(input, pcombo, pacc, pmissc, pmod = "", message) {
 			console.log(acc_percent);
 			//var url = "https://osu.ppy.sh/osu/1031991";
 			var url = 'https://osu.ppy.sh/osu/' + mapid;
-			cmd.get('curl ' + url ,
-				function(err, data, stderr){
+			request(url, function (err, response, data) {
 					nparser.feed(data);
 					pcparser.feed(data);
 					var pcmods = mods - 4;
@@ -93,7 +92,7 @@ function getMapPP(input, pcombo, pacc, pmissc, pmod = "", message) {
 					// if (mods) {
 					// 	console.log("+" + osu.modbits.string(mods));
 					// }
-					if (pmod.includes("HR")) {
+					if (pmod.includes("HardRock")) {
 						mods -= 16; 
 						cur_ar = Math.min(cur_ar*1.4, 10);
 						cur_od = Math.min(cur_od*1.4, 5);
@@ -129,6 +128,7 @@ function getMapPP(input, pcombo, pacc, pmissc, pmod = "", message) {
 					});
 					
 					nparser.reset()
+					if (pmod.includes("HardRock")) { mods += 16 }
                     
 					console.log(nstars.toString());
                     console.log(npp.toString());

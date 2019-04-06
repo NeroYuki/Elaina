@@ -1,7 +1,7 @@
-var cmd = require("node-cmd");
 var droid = require("./ojsamadroid");
 var osu = require("ojsama");
 var https = require("https");
+var request = require("request")
 require("dotenv").config();
 var apikey = process.env.OSU_API_KEY;
 
@@ -77,8 +77,7 @@ function getMapPP(target, message) {
 			//console.log(acc_percent);
 			//var url = "https://osu.ppy.sh/osu/1031991";
 			var url = 'https://osu.ppy.sh/osu/' + target[0];
-			cmd.get('curl ' + url ,
-				function(err, data, stderr){
+			request(url, function (err, response, data) {
 					nparser.feed(data);
 					pcparser.feed(data);
 					var pcmods = mods - 4;
@@ -105,7 +104,7 @@ function getMapPP(target, message) {
 						console.log(target[0] + ' - Error: no object found'); 
 						return;
                     }
-                    
+					
 					var nstars = new droid.diff().calc({map: nmap, mods: mods});
 					var pcstars = new osu.diff().calc({map: pcmap, mods: pcmods});
 					//console.log(stars.toString());
@@ -124,6 +123,40 @@ function getMapPP(target, message) {
 						nmiss: nmiss,
 						acc_percent: acc_percent,
 					});
+					
+					var object_list = nstars.objects
+					var diff_elem_array = [];
+					var strain_array = []
+					object_list.forEach((x) => {
+						var diff_elem = {
+							strain: parseFloat(x.strains[0].toFixed(4)),
+							angle: (x.angle)? parseFloat(x.angle.toFixed(6)) : 0,
+							spacing: parseFloat(x.delta_time/x.d_distance.toFixed(4))? x.delta_time : 0,
+						}
+						diff_elem_array.push(diff_elem);
+						strain_array.push(parseFloat(x.strains[0].toFixed(4)))
+					})
+					
+					message.channel.send("Diff spike test")
+					var strain_max = Math.max(...strain_array)
+
+					var max_30p = 0;
+					var max_50p = 0;
+					var max_70p = 0;
+					var max_90p = 0;
+
+					strain_array.forEach((x) => {
+						if (x/strain_max >= 0.3) max_30p++;
+						if (x/strain_max >= 0.5) max_50p++;
+						if (x/strain_max >= 0.7) max_70p++;
+						if (x/strain_max >= 0.9) max_90p++;
+					})
+					
+					var nx = strain_array.length
+					var output_test = "```30% strain: " + max_30p/nx + "\n50% strain: " + max_50p/nx + "\n70% strain: " + max_70p/nx + "\n90% strain: " + max_90p/nx + "```"
+					message.channel.send(output_test) 
+
+					//console.log(object_list);
 					
 					nparser.reset()
                     
