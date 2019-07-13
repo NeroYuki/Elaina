@@ -172,7 +172,7 @@ module.exports.run = (client, message, args, maindb) => {
 												//TODO: input score
 												//		escape this nested hell (if false return)
 												var temp_score = scoreCalc(parseInt(scoreConvert(allScoreFetch[m][3])), parseInt(mapplay[2]), parseFloat(allScoreFetch[m][5]), parseInt(allScoreFetch[m][6]))
-												if (allScoreFetch[m][9] == "Hidden, DoubleTime") temp_score = temp_score/1.036;
+												if (allScoreFetch[m][9] == "Hidden, DoubleTime") temp_score = Math.round(temp_score/1.036);
 												pscore.push(temp_score)
 											}
 											else {
