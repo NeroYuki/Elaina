@@ -71,7 +71,7 @@ function getRecentPlay(i, uid, cb) {
 			b[x+1]=b[x+1].replace('}</span>','')
 			title=b[x-1].trim();
 			b[x]=b[x].trim();
-			miss=b[x+1].trim().split(',')[0];
+			miss=b[x+1].trim();
 			d = b[x].split("/"); ptime = convertTimeDiff(d[0]); score = d[1]; mod = d[2]; combo = d[3]; acc = d[4];
 			b[x-5]=b[x-5].trim();
 			rank=rankread(b[x-5]);
@@ -91,8 +91,7 @@ function getRecentPlay(i, uid, cb) {
 	req.end();
 }
 
-function scoreCalc(score, maxscore, accuracy, misscount, mod) {
-	if (mod == "Hidden, DoubleTime") score *= 0.94;
+function scoreCalc(score, maxscore, accuracy, misscount) {
 	let newscore = score/maxscore*600000 + (Math.pow((accuracy/100), 4)*400000);
 	newscore = newscore - (misscount*0.003*newscore);
 	return newscore;
@@ -172,7 +171,9 @@ module.exports.run = (client, message, args, maindb) => {
 											if (allScoreFetch[m][2] == mapplay[1] && modValid(allScoreFetch[m][9], mapplay[0])) {
 												//TODO: input score
 												//		escape this nested hell (if false return)
-												pscore.push(scoreCalc(parseInt(scoreConvert(allScoreFetch[m][3])), parseInt(mapplay[2]), parseFloat(allScoreFetch[m][5]), parseInt(allScoreFetch[m][6]), allScoreFetch[m][9]))
+												var temp_score = scoreCalc(parseInt(scoreConvert(allScoreFetch[m][3])), parseInt(mapplay[2]), parseFloat(allScoreFetch[m][5]), parseInt(allScoreFetch[m][6]))
+												if (allScoreFetch[m][9] == "Hidden, DoubleTime") temp_score = temp_score/1.036;
+												pscore.push(temp_score)
 											}
 											else {
 												pscore.push(0)
