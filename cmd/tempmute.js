@@ -14,7 +14,7 @@ function isEligible(member) {
 function isImmuned(member) {
     var immunedRoleList = config.mute_immune
     immunedRoleList.forEach((id) => {
-        if(member.roles.has(id[0])) return 1;
+        if(member.roles.has(id)) return 1;
     })
     return 0;
 }
@@ -79,7 +79,7 @@ module.exports.run = async (client, message, args) => {
     let muteembed = new Discord.RichEmbed()
     .setDescription(`Mute executed by ${message.author}`)
     .setColor("#0000000")
-    .addField("Muted User: " + tomute, "Muted in: " + message.channel)
+    .addField("Muted User: <@" + tomute.id + ">", "Muted in: " + message.channel)
     .addField("Length: " + mutetime + "s", "=========================")
     .addField("Reason: ", reason);
 
