@@ -4,7 +4,7 @@ var config = require("../config.json")
 function isEligible(member) {
     var res = 0
     var eligibleRoleList = config.mute_perm; //mute_permission
-    console.log(eligibleRoleList)
+    //console.log(eligibleRoleList)
     eligibleRoleList.forEach((id) => {
         if(member.roles.has(id[0])) res = id[1]
     })
@@ -12,11 +12,12 @@ function isEligible(member) {
 }
 
 function isImmuned(member) {
+    res = 0
     var immunedRoleList = config.mute_immune
     immunedRoleList.forEach((id) => {
-        if(member.roles.has(id)) return 1;
+        if(member.roles.has(id)) {console.log("immune role found"); res = 1}
     })
-    return 0;
+    return res;
 }
 
 module.exports.run = async (client, message, args) => {
@@ -27,22 +28,22 @@ module.exports.run = async (client, message, args) => {
         return;
     }
     let tomute = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
-    if(!tomute) return;
+    if (!tomute) return;
     if (isImmuned(tomute)) {
-        message.channel.send("Can't mute them!");
-        return 
+        message.channel.send("You can't mute this user");
+        return;
     }
     let reason = args.slice(2).join(" ");
     let mutetime = args[1];
     if(!mutetime) {
         message.channel.send("Mute time is not defined");
-        return 
+        return ;
     }
     if (timeLimit != -1 && timeLimit < mutetime) {
         message.channel.send("You don't have enough permission to mute an user for longer than " + timeLimit + "s")
         return;
     }
-    if(!reason) {
+    if (!reason) {
         message.channel.send("Please add a reason.");
         return;
     }
@@ -79,7 +80,7 @@ module.exports.run = async (client, message, args) => {
     let muteembed = new Discord.RichEmbed()
     .setDescription(`Mute executed by ${message.author}`)
     .setColor("#0000000")
-    .addField("Muted User: <@" + tomute.id + ">", "Muted in: " + message.channel)
+    .addField("Muted User: " + tomute.user.username, "Muted in: " + message.channel)
     .addField("Length: " + mutetime + "s", "=========================")
     .addField("Reason: ", reason);
 
