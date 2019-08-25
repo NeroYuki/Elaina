@@ -39,6 +39,10 @@ module.exports.run = async (client, message, args) => {
         message.channel.send("Mute time is not defined");
         return ;
     }
+    if (isNaN(mutetime)) {
+        message.channel.send("Invalid time limit, only send number of seconds")
+        return;
+    }
     if (timeLimit != -1 && timeLimit < mutetime) {
         message.channel.send("You don't have enough permission to mute an user for longer than " + timeLimit + "s")
         return;
