@@ -43,8 +43,8 @@ module.exports.run = async (client, message, args) => {
         message.channel.send("Invalid time limit, only send number of seconds")
         return;
     }
-    if (mutetime <= 0) {
-        message.channel.send("Invalid time limit")
+    if (mutetime < 1) {
+        message.channel.send("Invalid time limit, minimum mute time is 1 second")
         return;
     }
     if (timeLimit != -1 && timeLimit < mutetime) {
