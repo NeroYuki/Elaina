@@ -119,10 +119,14 @@ function foundPrint(message, outString, username = "", uid = -1) {
 
 module.exports.run = (client, message, args) => {
 	var username = args[0]
+	if (!args[0]) {
+		message.channel.send("Invalid usage. Please enter a username")
+	}
+	else {
 	deprecatedSearch(username, message, () => {
 		console.log("local mode not found")
 		apiSearch(username, message)
-	})
+	})}
 }
 
 module.exports.help = {
