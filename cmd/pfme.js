@@ -66,7 +66,7 @@ module.exports.run = (client, message, args, maindb) => {
 			});
 			req.end();
 		}
-		else { message.channel.send("The account is not binded, he/she/you need to use `&userbind <uid>` first") };
+		else { message.channel.send("The account is not binded, he/she/you need to use `&userbind <uid>` first. To get uid, use `&profilesearch <username>`") };
 	});
 }
 
