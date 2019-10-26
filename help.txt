@@ -1,24 +1,29 @@
-﻿Elaina's Guide
+Elaina's Guide
+<...> : required arguments
+[...] : optional arguments
 
 1. General
 
-&﻿help
+&help
 &ping
 &setgame (Bot Owner only)
 &setstatus (Bot Owner only)
-&say
 &sayd (Owner only)
 
 2. osu!droid
 
 &profilesearch <player's name - CaSe Sensitive>
+&pfid <uid>
 &profileid <uid>
 &recent <uid>
 &recent5 <uid>
+&recent10 <uid> (#bot-ground only) (10-minute cooldown)
 &userbind <uid> (use to bind user to specific uid)
+&pfme [discord user] (only binded user)
 &profileme [discord user] (only binded user)
 &recentme [discord user] (only binded user)
 &recent5me [discord user] (only binded user)
+&recent10me [discord user] (only binded user) (#bot-ground only) (10-minute cooldown)
 &manualcalc <map link / map id> [(+<mod>) (<combo>x) (<acc>%) (<miss>m)]
 
 &addtrack (Owner only)
