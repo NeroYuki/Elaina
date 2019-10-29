@@ -32,8 +32,13 @@ function rankEmote(input) {
 }
 
 module.exports.run = (client, message, args) => {
-	if (message.channel.name != "bot-ground") {message.channel.send("The command is only allowed in <#325827427446161413>").then (message => {
-		message.delete(5000)});
+	let channel = message.guild.channels.find("name", "bot-ground");
+	if (!channel) {message.delete();
+		message.channel.send(`${message.author}, ask server manager to create a #bot-ground channel first!`).then (message => {message.delete(5000)});
+		return;
+	}
+	if (message.channel.name != 'bot-ground') {message.delete();
+		message.channel.send(`${message.author}, that command is only allowed in ${channel}!`).then (message => {message.delete(5000)});
 		return;
 	}
 	let uid = parseInt(args[0]);
