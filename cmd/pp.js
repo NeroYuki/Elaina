@@ -139,10 +139,10 @@ function getMapPP(input, pcombo, pacc, pmissc, pmod = "", message, objcount, whi
 	})
 }
 
-module.exports.run = (client, message, args, maindb) => {message.delete();
+module.exports.run = (client, message, args, maindb) => {
 	let channel = message.guild.channels.find("name", "bot-ground");
 	let channel2 = message.guild.channels.find("name", "elaina-pp-project");
-	if (!channel && !channel2) {
+	if (!channel && !channel2) {message.delete();
 		message.channel.send(`${message.author}, ask server manager to create #elaina-pp-project or #bot-ground channel first!`).then (message => {message.delete(5000)});
 		return;
 	}
@@ -274,6 +274,7 @@ module.exports.run = (client, message, args, maindb) => {message.delete();
 		else { message.channel.send("The account is not binded, you need to use `&userbind <uid>` first. To get uid, use `&profilesearch <username>`") };
 	});
 	} else {
+		message.delete();
 		if (channel && channel2) {
 			message.channel.send(`${message.author}, that command is only allowed in ${channel} and ${channel2}!`).then(message => {
 				message.delete(5000)
