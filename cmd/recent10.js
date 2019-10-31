@@ -19,14 +19,14 @@ function modread(input) {
 function rankEmote(input) {
 	if (!input) return;
 	switch (input) {
-		case 'A': return '611559473236148265';
-		case 'B': return '611559473169039413';
-		case 'C': return '611559473328422942';
-		case 'D': return '611559473122639884';
-		case 'S': return '611559473294606336';
-		case 'X': return '611559473492000769';
-		case 'SH': return '611559473361846274';
-		case 'XH': return '611559473479155713';
+		case 'A': return '555772511628034061';
+		case 'B': return '555772511753601037';
+		case 'C': return '555772511577702460';
+		case 'D': return '555772512026361862';
+		case 'S': return '555772511812321320';
+		case 'X': return '555772513460944931';
+		case 'SH': return '555772511741018142';
+		case 'XH': return '555772511997132830';
 		default : return;
 	}
 }
