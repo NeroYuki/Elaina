@@ -32,21 +32,25 @@ function rankEmote(input) {
 }
 
 module.exports.run = (client, message, args, maindb) => {
-	let page = 1;
-	if (args[0]) page = parseInt(args[0]); //First argument will be page
-	if (isNaN(args[0]) || page <= 0 || page > 10) page = 1; //Detect out-of-range page input
 	let ufind = message.author.id;
-	
+	let page = 1;
 	/*Allows dynamic command format
-	If first argument is an integer with a value more than 10, it
-	treats the argument as user ID. Similarly, if it's a mention,
-	it will be treated as user ID as well.*/
+        If first argument is given and it is an integer with a value more than 10, it
+        treats the argument as user ID. Similarly, if it's a mention,
+        it will be treated as user ID as well.*/
 	if (args[0]) {
 		if (isNaN(args[0]) || parseInt(args[0]) > 10) ufind = args[0];
-		if (args[1]) ufind = args[1];
+		else if (parseInt(args[0]) <= 0) page = 1;
+		else page = parseInt(args[0]);
 		ufind = ufind.replace('<@!', '');
 		ufind = ufind.replace('<@', '');
 		ufind = ufind.replace('>', '');
+	}
+	/*The second argument will override previous assigned page if
+	it was given and the first statement was assigned as page*/
+	if (args[1]) {
+		if (isNaN(args[1]) || parseInt(args[1]) > 10 || parseInt(args[1]) <= 0) page = 1;
+		else page = parseInt(args[1]);
 	}
 
 	console.log(ufind);
