@@ -16,14 +16,12 @@ Elaina's Guide
 &pfid <uid>
 &profileid <uid>
 &recent <uid>
-&recent5 <uid>
-&recent10 <uid> (#bot-ground only) (10-minute cooldown)
+&recent5 <uid> [page]
 &userbind <uid> (use to bind user to specific uid)
 &pfme [discord user] (only binded user)
 &profileme [discord user] (only binded user)
 &recentme [discord user] (only binded user)
-&recent5me [discord user] (only binded user)
-&recent10me [discord user] (only binded user) (#bot-ground only) (10-minute cooldown)
+&recent5me [page] [discord user] (only binded user)
 &manualcalc <map link / map id> [(+<mod>) (<combo>x) (<acc>%) (<miss>m)]
 
 &addtrack (Owner only)
