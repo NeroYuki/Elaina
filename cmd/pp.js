@@ -157,7 +157,6 @@ module.exports.run = (client, message, args, maindb) => {
 			if (err) throw err;
 			if (userres[0]) {
 				console.log(offset);
-				console.log(userres[0]);
 				let uid = userres[0].uid;
 				let discordid = userres[0].discordid;
 				if (userres[0].pp) var pplist = userres[0].pp;
