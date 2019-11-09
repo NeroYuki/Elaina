@@ -261,11 +261,13 @@ module.exports.run = (client, message, args, maindb) => {
 			message.channel.send(`${message.author}, that command is only allowed in ${channel} and ${channel2}!`).then(message => {
 				message.delete(5000)
 			});
+			return;
 		}
 		if (channel) {
 			message.channel.send(`${message.author}, that command is only allowed in ${channel}!`).then(message => {
 				message.delete(5000)
 			});
+			return;
 		}
 		if (channel2) {
 			message.channel.send(`${message.author}, that command is only allowed in ${channel2}!`).then(message => {
