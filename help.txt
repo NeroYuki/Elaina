@@ -9,6 +9,7 @@ Elaina's Guide
 &setgame (Bot Owner only)
 &setstatus (Bot Owner only)
 &sayd (Owner only)
+&report <discord user> <reason>
 
 2. osu!droid
 
