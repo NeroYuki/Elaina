@@ -1,3 +1,4 @@
+var Discord = require('discord.js');
 var http = require('http');
 var droid = require("./ojsamadroid");
 var https = require("https");
