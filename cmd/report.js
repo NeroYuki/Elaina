@@ -5,7 +5,7 @@ var cd = new Set();
 module.exports.run = async (client, message, args) => {
     let user = message.author.id;
     if (!message.channel instanceof Discord.DMChannel && !cd.has(user)) {
-        if (message.member.roles.find("name", "Helper") || message.member.roles.find("name", "Moderator")) cd.remove(user);
+        if (message.member.roles.find("name", "Helper") || message.member.roles.find("name", "Moderator")) cd.delete(user);
         let toreport = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
         if (!toreport) return;
         let reason = args.slice(1).join(" ");
@@ -47,7 +47,7 @@ module.exports.run = async (client, message, args) => {
         if (!message.member.roles.find("name", "Helper") && !message.member.roles.find("name", "Moderator")) {
             cd.add(user);
             setTimeout(() => {
-                cd.remove(user)
+                cd.delete(user)
             }, cooldown * 1000)
         }
     } else {
