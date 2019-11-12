@@ -1,3 +1,4 @@
+var Discord = require('discord.js');
 var config = require("../config.json");
 
 function isEligible(member) {
