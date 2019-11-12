@@ -11,6 +11,7 @@ function isEligible(member) {
 }
 
 module.exports.run = async (client, message, args) => {
+    if (message.channel instanceof Discord.DMChannel) return;
     if (!isEligible(message.member)) {
         message.channel.send("You don't have permission to use this");
         return;
