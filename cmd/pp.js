@@ -123,6 +123,7 @@ function getMapPP(input, pcombo, pacc, pmissc, pmod = "", message, objcount, whi
 }
 
 module.exports.run = (client, message, args, maindb) => {
+	if (message.channel instanceof Discord.DMChannel) return;
 	let channel = message.guild.channels.find("name", "bot-ground");
 	let channel2 = message.guild.channels.find("name", "elaina-pp-project");
 	if (!channel && !channel2) {message.author.lastMessage.delete();
