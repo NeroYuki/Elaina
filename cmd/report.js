@@ -4,7 +4,7 @@ var cd = new Set();
 
 module.exports.run = async (client, message, args) => {
     let user = message.author.id;
-    if (!message.channel instanceof Discord.DMChannel && !cd.has(user)) {
+    if (!(message.channel instanceof Discord.DMChannel) && !cd.has(user)) {
         if (message.member.roles.find("name", "Helper") || message.member.roles.find("name", "Moderator")) cd.delete(user);
         let toreport = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
         if (!toreport) return;
@@ -22,6 +22,7 @@ module.exports.run = async (client, message, args) => {
         await message.author.lastMessage.delete();
 
         let reportembed = new Discord.RichEmbed()
+            .setAuthor(message.member.user.tag, message.author.avatarURL)
             .setDescription(`Report by ${message.author}`)
             .setColor("#527ea3")
             .setTimestamp(new Date())
