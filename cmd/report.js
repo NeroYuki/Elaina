@@ -56,6 +56,7 @@ module.exports.run = async (client, message, args) => {
             message.reply("you are still on cooldown!").then (message => {
                 message.delete(5000)
             });
+            return;
         }
         message.channel.send("This command is not allowed in DMs")
     }
