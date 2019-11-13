@@ -22,7 +22,7 @@ module.exports.run = async (client, message, args) => {
         message.author.lastMessage.delete();
 
         let reportembed = new Discord.RichEmbed()
-            .setAuthor(message.author.user.tag, message.author.avatarURL)
+            .setAuthor(message.author.tag, message.author.avatarURL)
             .setDescription(`Report by ${message.author}`)
             .setColor("#527ea3")
             .setTimestamp(new Date())
