@@ -19,7 +19,7 @@ module.exports.run = async (client, message, args) => {
             return;
         }
 
-        await message.author.lastMessage.delete();
+        message.author.lastMessage.delete();
 
         let reportembed = new Discord.RichEmbed()
             .setAuthor(message.member.user.tag, message.author.avatarURL)
