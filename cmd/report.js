@@ -7,7 +7,18 @@ module.exports.run = async (client, message, args) => {
         message.channel.send("This command is not allowed in DMs");
         return;
     }
-    if (message.member.roles.find("name", "report-ban")) return;
+    if (message.member.roles.find("name", "report-ban")) {
+        message.author.lastMessage.delete();
+        message.reply("you were banned from submitting reports!").then (message => {
+            message.delete(5000)
+        });
+        return;
+    }
+    let channel = message.guild.channels.find(c => c.name === config.report_channel);
+    if (!channel) {
+        message.reply("please create a report log channel first!");
+        return;
+    }
     let user = message.author.id;
     if (message.member.roles.find("name", "Helper") || message.member.roles.find("name", "Moderator")) cd.delete(user);
     if (cd.has(user)) {
@@ -22,11 +33,6 @@ module.exports.run = async (client, message, args) => {
     let reason = args.slice(1).join(" ");
     if (!reason) {message.author.lastMessage.delete();
         message.reply("please add a reason.");
-        return;
-    }
-    let channel = message.guild.channels.find(c => c.name === config.report_channel);
-    if (!channel) {
-        message.reply("please create a report log channel first!");
         return;
     }
 
@@ -47,7 +53,7 @@ module.exports.run = async (client, message, args) => {
         .setTitle("Report statistics")
         .setColor("#527ea3")
         .setTimestamp(new Date())
-        .setFooter("Elaina Semi-Evolved")
+        .setFooter("Elaina owo")
         .addField("Reported user: " + toreport.user.username, "Reported in: " + message.channel)
         .addField("Reason: " + reason, "Make sure you have evidence ready!\nAbuse of this command will result in a mute.");
 
