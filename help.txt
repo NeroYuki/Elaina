@@ -1,24 +1,28 @@
-﻿Elaina's Guide
+Elaina's Guide
+<...> : required arguments
+[...] : optional arguments
 
 1. General
 
-&﻿help
+&help
 &ping
 &setgame (Bot Owner only)
 &setstatus (Bot Owner only)
-&say
 &sayd (Owner only)
+&report <discord user> <reason>
 
 2. osu!droid
 
 &profilesearch <player's name - CaSe Sensitive>
+&pfid <uid>
 &profileid <uid>
 &recent <uid>
-&recent5 <uid>
+&recent5 <uid> [page]
 &userbind <uid> (use to bind user to specific uid)
+&pfme [discord user] (only binded user)
 &profileme [discord user] (only binded user)
 &recentme [discord user] (only binded user)
-&recent5me [discord user] (only binded user)
+&recent5me [page] [discord user] (only binded user)
 &manualcalc <map link / map id> [(+<mod>) (<combo>x) (<acc>%) (<miss>m)]
 
 &addtrack (Owner only)
@@ -26,7 +30,7 @@
 
 3. osu!droid Elaina PP porject (have no direct affiliation to osu!droid)
 
-&pp [<a>] [<b>]
+&pp [<a>] [<b>] (#bot-ground and #elaina-pp-project only)
 a: number of play you want to submit (limit at 5 - default at 1)
 b: the position in your recent play list that you want to start submitting (a + b - 1 < 50 limit)
 ex: &pp 4 23 submit your 23th 24th 25th 26th most recent play
