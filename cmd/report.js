@@ -7,6 +7,7 @@ module.exports.run = async (client, message, args) => {
         message.channel.send("This command is not allowed in DMs");
         return;
     }
+    if (!args[0]) return;
     message.author.lastMessage.delete();
     if (message.member.roles.find("name", "report-ban")) {
         message.reply("you were banned from submitting reports!").then (message => {
