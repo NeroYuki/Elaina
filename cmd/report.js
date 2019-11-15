@@ -8,8 +8,8 @@ module.exports.run = async (client, message, args) => {
         return;
     }
     if (!args[0]) return;
-    message.author.lastMessage.delete();
     if (message.member.roles.find("name", "report-ban")) {
+        message.author.lastMessage.delete();
         message.reply("you were banned from submitting reports!").then (message => {
             message.delete(5000)
         });
@@ -36,6 +36,8 @@ module.exports.run = async (client, message, args) => {
         return;
     }
 
+    message.author.lastMessage.delete();
+
     let reportembed = new Discord.RichEmbed()
         .setAuthor(message.author.tag, message.author.avatarURL)
         .setColor("#527ea3")
@@ -50,13 +52,17 @@ module.exports.run = async (client, message, args) => {
         .setTitle("Report statistics")
         .setColor("#527ea3")
         .setTimestamp(new Date())
-        .setFooter("Elaina owo")
+        .setFooter("Elaina Semi-Evolved")
         .addField("Reported user: " + toreport.user.username, "Reported in: " + message.channel)
         .addField("Reason: " + reason, "Make sure you have evidence ready!\nAbuse of this command will make you unable to submit reports.");
 
     try {
         await message.author.send(replyembed);
-    } catch (e) {}
+    } catch (e) {
+        message.reply("your DM is locked, so you didn't receive a copy of your report. Sorry!").then (message => {
+            message.delete(5000)
+        })
+    }
 
     let cooldown = config.member_cooldown;
     if (!message.member.roles.find("name", "Helper") && !message.member.roles.find("name", "Moderator")) {
