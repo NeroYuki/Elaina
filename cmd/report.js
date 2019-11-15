@@ -7,8 +7,8 @@ module.exports.run = async (client, message, args) => {
         message.channel.send("This command is not allowed in DMs");
         return;
     }
+    message.author.lastMessage.delete();
     if (message.member.roles.find("name", "report-ban")) {
-        message.author.lastMessage.delete();
         message.reply("you were banned from submitting reports!").then (message => {
             message.delete(5000)
         });
@@ -22,7 +22,6 @@ module.exports.run = async (client, message, args) => {
     let user = message.author.id;
     if (message.member.roles.find("name", "Helper") || message.member.roles.find("name", "Moderator")) cd.delete(user);
     if (cd.has(user)) {
-        message.author.lastMessage.delete();
         message.reply("you are still on cooldown!").then(message => {
             message.delete(5000)
         });
@@ -31,16 +30,13 @@ module.exports.run = async (client, message, args) => {
     let toreport = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
     if (!toreport) return;
     let reason = args.slice(1).join(" ");
-    if (!reason) {message.author.lastMessage.delete();
+    if (!reason) {
         message.reply("please add a reason.");
         return;
     }
 
-    message.author.lastMessage.delete();
-
     let reportembed = new Discord.RichEmbed()
         .setAuthor(message.author.tag, message.author.avatarURL)
-        .setDescription(`Report by ${message.author}`)
         .setColor("#527ea3")
         .setTimestamp(new Date())
         .setFooter("React to this message upon completing report based on decision given")
@@ -55,7 +51,7 @@ module.exports.run = async (client, message, args) => {
         .setTimestamp(new Date())
         .setFooter("Elaina owo")
         .addField("Reported user: " + toreport.user.username, "Reported in: " + message.channel)
-        .addField("Reason: " + reason, "Make sure you have evidence ready!\nAbuse of this command will result in a mute.");
+        .addField("Reason: " + reason, "Make sure you have evidence ready!\nAbuse of this command will make you unable to submit reports.");
 
     try {
         await message.author.send(replyembed);
