@@ -22,13 +22,13 @@ Elaina's Guide
 &pfme [discord user] (only binded user)
 &profileme [discord user] (only binded user)
 &recentme [discord user] (only binded user)
-&recent5me [page] [discord user] (only binded user)
+&recent5me [page/discord user] [page] (only binded user)
 &manualcalc <map link / map id> [(+<mod>) (<combo>x) (<acc>%) (<miss>m)]
 
 &addtrack (Owner only)
 &deletetrack (Owner only)
 
-3. osu!droid Elaina PP porject (have no direct affiliation to osu!droid)
+3. osu!droid Elaina PP project (have no direct affiliation to osu!droid)
 
 &pp [<a>] [<b>] (#bot-ground and #elaina-pp-project only)
 a: number of play you want to submit (limit at 5 - default at 1)
