@@ -5,22 +5,6 @@ var request = require("request")
 require("dotenv").config();
 var apikey = process.env.OSU_API_KEY;
 
-function rankread(imgsrc) {
-	let rank="";
-	switch(imgsrc) {
-		case '<img src="assets/images/ranking-S-small.png"/>':rank="http://ops.dgsrz.com/assets/images/ranking-S-small.png";break;
-		case '<img src="assets/images/ranking-A-small.png"/>':rank="http://ops.dgsrz.com/assets/images/ranking-A-small.png";break;
-		case '<img src="assets/images/ranking-B-small.png"/>':rank="http://ops.dgsrz.com/assets/images/ranking-B-small.png";break;
-		case '<img src="assets/images/ranking-C-small.png"/>':rank="http://ops.dgsrz.com/assets/images/ranking-C-small.png";break;
-		case '<img src="assets/images/ranking-D-small.png"/>':rank="http://ops.dgsrz.com/assets/images/ranking-D-small.png";break;
-		case '<img src="assets/images/ranking-SH-small.png"/>':rank="http://ops.dgsrz.com/assets/images/ranking-SH-small.png";break;
-		case '<img src="assets/images/ranking-X-small.png"/>':rank="http://ops.dgsrz.com/assets/images/ranking-X-small.png";break;
-		case '<img src="assets/images/ranking-XH-small.png"/>':rank="http://ops.dgsrz.com/assets/images/ranking-XH-small.png";break;
-		default: rank="unknown";
-	}
-	return rank;
-}
-
 function modenum(mod) {
 	var res = 4;
 	if (mod.includes("HR")) res += 16;
@@ -62,14 +46,18 @@ function getMapPP(target, message) {
 			var obj = JSON.parse(content);
 			if (!obj[0]) {console.log("Map not found"); return;}
 			var mapinfo = obj[0];
-			if (mapinfo.mode !=0) return;
+			if (mapinfo.mode !=0) {
+				message.channel.send("The beatmap is not an osu!standard beatmap");
+				return;
+			}
 			//console.log(obj.beatmaps[0])
 			if (target[4]) var mods = modenum(target[4])
 			else {var mods = 4; target[4] = "";}
 			if (target[2]) var acc_percent = parseFloat(target[2])
 			else var acc_percent = 100;
 			if (target[1]) var combo = parseInt(target[1])
-			else var combo;
+			else var combo = mapinfo.max_combo;
+			if (combo > mapinfo.max_combo) combo = mapinfo.max_combo;
 			if (target[3]) var nmiss = parseInt(target[3])
 			else var nmiss = 0;
 			var nparser = new droid.parser();
@@ -190,7 +178,7 @@ function getMapPP(target, message) {
 							},
 							{
 								"name": "Last Update: " + mapinfo.last_update,
-								"value": "Result: " + combo + "x / " + acc_percent + "% / " + nmiss + " miss(es)"  
+								"value": "Result: " + combo + "/" + mapinfo.max_combo + "x / " + acc_percent + "% / " + nmiss + " miss(es)"  
 							},
 							{
 								"name": "Droid pp (Experimental): __" + ppline[0] + "__ - " + starsline[0] ,
