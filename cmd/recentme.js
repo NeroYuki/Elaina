@@ -1,23 +1,23 @@
 var http = require('http');
-var mongodb = require('mongodb');
 var droid = require("./ojsamadroid");
-var osu = require("ojsama")
-var request = require("request")
+var osu = require("ojsama");
+var request = require("request");
 var https = require("https");
 require("dotenv").config();
 var apikey = process.env.OSU_API_KEY;
+var droidapikey = process.env.DROID_API_KEY;
 
 function rankread(imgsrc) {
 	let rank="";
 	switch(imgsrc) {
-		case '<img src="assets/images/ranking-S-small.png"/>':rank="http://ops.dgsrz.com/assets/images/ranking-S-small.png";break;
-		case '<img src="assets/images/ranking-A-small.png"/>':rank="http://ops.dgsrz.com/assets/images/ranking-A-small.png";break;
-		case '<img src="assets/images/ranking-B-small.png"/>':rank="http://ops.dgsrz.com/assets/images/ranking-B-small.png";break;
-		case '<img src="assets/images/ranking-C-small.png"/>':rank="http://ops.dgsrz.com/assets/images/ranking-C-small.png";break;
-		case '<img src="assets/images/ranking-D-small.png"/>':rank="http://ops.dgsrz.com/assets/images/ranking-D-small.png";break;
-		case '<img src="assets/images/ranking-SH-small.png"/>':rank="http://ops.dgsrz.com/assets/images/ranking-SH-small.png";break;
-		case '<img src="assets/images/ranking-X-small.png"/>':rank="http://ops.dgsrz.com/assets/images/ranking-X-small.png";break;
-		case '<img src="assets/images/ranking-XH-small.png"/>':rank="http://ops.dgsrz.com/assets/images/ranking-XH-small.png";break;
+		case 'S':rank="http://ops.dgsrz.com/assets/images/ranking-S-small.png";break;
+		case 'A':rank="http://ops.dgsrz.com/assets/images/ranking-A-small.png";break;
+		case 'B':rank="http://ops.dgsrz.com/assets/images/ranking-B-small.png";break;
+		case 'C':rank="http://ops.dgsrz.com/assets/images/ranking-C-small.png";break;
+		case 'D':rank="http://ops.dgsrz.com/assets/images/ranking-D-small.png";break;
+		case 'SH':rank="http://ops.dgsrz.com/assets/images/ranking-SH-small.png";break;
+		case 'X':rank="http://ops.dgsrz.com/assets/images/ranking-X-small.png";break;
+		case 'XH':rank="http://ops.dgsrz.com/assets/images/ranking-XH-small.png";break;
 		default: rank="unknown";
 	}
 	return rank;
@@ -38,14 +38,29 @@ function mapstatusread(status) {
 
 function modenum(mod) {
 	var res = 4;
-	if (mod.includes("HardRock")) res += 16;
-	if (mod.includes("Hidden")) res += 8;
-	if (mod.includes("DoubleTime")) res += 64;
-	if (mod.includes("NightCore")) res += 576;
-	if (mod.includes("NoFail")) res += 1;
-	if (mod.includes("Easy")) res += 2;
-	if (mod.includes("HalfTime")) res += 256;
+	if (mod.includes("r")) res += 16;
+	if (mod.includes("h")) res += 8;
+	if (mod.includes("d")) res += 64;
+	if (mod.includes("c")) res += 576;
+	if (mod.includes("n")) res += 1;
+	if (mod.includes("e")) res += 2;
+	if (mod.includes("t")) res += 256;
 	return res;
+}
+
+function modname(mod) {
+	var res = '';
+	var count = 0;
+	if (mod.includes("-")) {res += 'None '; count++}
+	if (mod.includes("r")) {res += 'HardRock '; count++}
+	if (mod.includes("h")) {res += 'Hidden '; count++}
+	if (mod.includes("d")) {res += 'DoubleTime '; count++}
+	if (mod.includes("c")) {res += 'NightCore '; count++}
+	if (mod.includes("n")) {res += 'NoFail '; count++}
+	if (mod.includes("e")) {res += 'Easy '; count++}
+	if (mod.includes("t")) {res += 'HalfTime '; count++}
+	if (count > 1) return res.replace(" ", ", ").trimRight().trimRight();
+	else return res.trimRight()
 }
 
 function getMapPP(input, pcombo, pacc, pmissc, pmod = "", message) {
@@ -67,32 +82,28 @@ function getMapPP(input, pcombo, pacc, pmissc, pmod = "", message) {
 			var mapid = mapinfo.beatmap_id;
 			if (mapinfo.mode !=0) return;
 			//console.log(obj.beatmaps[0])
-			if (pmod) var mods = modenum(pmod)
+			if (pmod) var mods = modenum(pmod);
 			else var mods = 4;
-			if (pacc) var acc_percent = parseFloat(pacc)
+			if (pacc) var acc_percent = parseFloat(pacc);
 			else var acc_percent = 100;
-			if (pcombo) var combo = parseInt(pcombo)
+			if (pcombo) var combo = parseInt(pcombo);
 			else var combo;
-			if (pmissc) var nmiss = parseInt(pmissc)
+			if (pmissc) var nmiss = parseInt(pmissc);
 			else var nmiss = 0;
 			var nparser = new droid.parser();
 			var pcparser = new osu.parser();
 			console.log(acc_percent);
-			//var url = "https://osu.ppy.sh/osu/1031991";
 			var url = 'https://osu.ppy.sh/osu/' + mapid;
 			request(url, function (err, response, data) {
 					nparser.feed(data);
 					pcparser.feed(data);
 					var pcmods = mods - 4;
 					var nmap = nparser.map;
-					var pcmap = pcparser.map
+					var pcmap = pcparser.map;
 					var cur_od = nmap.od - 5;
 					var cur_ar = nmap.ar;
 					var cur_cs = nmap.cs - 4;
-					// if (mods) {
-					// 	console.log("+" + osu.modbits.string(mods));
-					// }
-					if (pmod.includes("HardRock")) {
+					if (pmod.includes("r")) {
 						mods -= 16; 
 						cur_ar = Math.min(cur_ar*1.4, 10);
 						cur_od = Math.min(cur_od*1.4, 5);
@@ -103,17 +114,15 @@ function getMapPP(input, pcombo, pacc, pmissc, pmod = "", message) {
 
 					nmap.od = cur_od; nmap.ar = cur_ar; nmap.cs = cur_cs;
                     
-                    if (nmap.ncircles == 0 && nmap.nsliders == 0) {
+                    			if (nmap.ncircles == 0 && nmap.nsliders == 0) {
 						console.log(target[0] + ' - Error: no object found'); 
 						return;
-                    }
+                    			}
                     
 					var nstars = new droid.diff().calc({map: nmap, mods: mods});
 					var pcstars = new osu.diff().calc({map: pcmap, mods: pcmods});
-					//console.log(stars.toString());
 
-                    
-                    var npp = droid.ppv2({
+                   			var npp = droid.ppv2({
 						stars: nstars,
 						combo: combo,
 						nmiss: nmiss,
@@ -127,11 +136,11 @@ function getMapPP(input, pcombo, pacc, pmissc, pmod = "", message) {
 						acc_percent: acc_percent,
 					});
 					
-					nparser.reset()
-					if (pmod.includes("HardRock")) { mods += 16 }
+					nparser.reset();
+					if (pmod.includes("r")) { mods += 16 }
                     
 					console.log(nstars.toString());
-                    console.log(npp.toString());
+                    			console.log(npp.toString());
 					var starsline = nstars.toString().split("(");
 					var ppline = npp.toString().split("(");
 					var pcstarsline = pcstars.toString().split("(");
@@ -155,7 +164,7 @@ function getMapPP(input, pcombo, pacc, pmissc, pmod = "", message) {
 						"fields": [
 							{
 								"name": "CS: " + mapinfo.diff_size + " - AR: " + mapinfo.diff_approach + " - OD: " + mapinfo.diff_overall + " - HP: " + mapinfo.diff_drain ,
-								"value": "BPM: " + mapinfo.bpm + " - Length: " + mapinfo.hit_length + "/" + mapinfo.total_length + " s"
+								"value": "BPM: " + mapinfo.bpm + " - Length: " + mapinfo.hit_length + "/" + mapinfo.total_length + " s - Max Combo: " + mapinfo.max_combo + "x"
 							},
 							{
 								"name": "Last Update: " + mapinfo.last_update,
@@ -192,7 +201,7 @@ module.exports.run = (client, message, args, maindb) => {
 			var options = {
 				host: "ops.dgsrz.com",
 				port: 80,
-				path: "/profile.php?uid="+uid+".html"
+				path: "/api/getuserinfo.php?apiKey=" + droidapikey + "&uid=" + uid
 			};
 
 			var content = "";   
@@ -204,55 +213,47 @@ module.exports.run = (client, message, args, maindb) => {
 			});
 
 			res.on("end", function () {
-				const a = content;
-				let b = a.split('\n'), d = []; 
-				let name=""; let title =""; let score=""; let ptime =""; let acc=""; let miss=""; let rank ="";let combo=""; let mod=""; let hash = "";
-				for (x = 0; x < b.length; x++) {
-				if (b[x].includes('<small>') && b[x - 1].includes('class="block"')) {
-					b[x-1]=b[x-1].replace("<strong class=\"block\">","");
-					b[x-1]=b[x-1].replace("<\/strong>","");
-					b[x]=b[x].replace("<\/small>","");
-					b[x]=b[x].replace("<small>","");
-					b[x+1]=b[x+1].replace('<span id="statics" class="hidden">{"miss":','');
-					b[x+1]=b[x+1].replace('}</span>','')
-					title=b[x-1].trim();
-					var mshs = b[x+1].trim().split(',');
-					miss = mshs[0];
-					hash = mshs[1].split(':')[1];
-					d = b[x].split("/"); ptime = d[0]; score = d[1]; mod = d[2]; combo = d[3]; acc = d[4];
-					b[x-5]=b[x-5].trim();
-					rank=rankread(b[x-5]);
-					break;
-					}
-				if (b[x].includes('h3 m-t-xs m-b-xs')) {
-					b[x]=b[x].replace('<div class="h3 m-t-xs m-b-xs">',"");
-					b[x]=b[x].replace('<\/div>',"");
-					b[x]=b[x].trim();
-					name = b[x]
-					}
+				var resarr = content.split('<br>');
+				var headerres = resarr[0].split(" ");
+				if (headerres[0] == 'FAILED') {
+					message.channel.send("User doesn't exist");
+					return;
 				}
-				
+				let name = resarr[0].split(" ")[2];
+				var obj = JSON.parse(resarr[1]);
+				var play = obj.recent[0];
+				let title = play.filename;
+				let score = play.score.toLocaleString();
+				let combo = play.combo;
+				let rank = rankread(play.mark);
+				let ptime = new Date(play.date * 1000).toISOString().replace("T", " ").slice(0, -5);
+				let acc = play.accuracy.toPrecision(4) / 1000;
+				let miss = play.miss;
+				let mod = play.mode;
+				let hash = play.hash;
+
 				if (title) {getMapPP(hash, combo, acc, miss, mod, message);}
-				
+
 				const embed = {
-					  "title": title,
-					  "description": "**Score**: `" + score + "` - Combo: `" + combo + "` - Accuracy: `" + acc + "` (`" + miss + "` x )\nMod: `" + mod + "` Time: `" + ptime + "`",
-					  "color": 8311585,
-					  "author": {
-							"name": "Recent Play for "+ name,
-							"icon_url": rank
+					"title": title,
+					"description": "**Score**: `" + score + " ` - Combo: `" + combo + "x ` - Accuracy: `" + acc + "%` \n(`" + miss + "` x )\nMod: `" + modname(mod) + "` Time: `" + ptime + "`",
+					"color": 8311585,
+					"author": {
+						"name": "Recent Play for "+ name,
+						"icon_url": rank
 					}
 				};
-				message.channel.send({ embed });
+				message.channel.send({embed});
 				});
 			});
 			req.end();
 		}
-		else { message.channel.send("The account is not binded, he/she/you need to use `&userbind <uid>` first. To get uid, use `&profilesearch <username>`") };
+		else {message.channel.send("The account is not binded, he/she/you need to use `&userbind <uid>` first. To get uid, use `&profilesearch <username>`")}
 	});
-}
+};
 
 
 module.exports.help = {
 	name: "recentme"
-}
+};
+
