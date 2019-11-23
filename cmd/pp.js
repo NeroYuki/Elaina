@@ -200,7 +200,7 @@ module.exports.run = (client, message, args, maindb) => {
 						if (x.title) getMapPP(x.hash, x.combo, x.acc, x.miss, x.mod, message, objcount, whitelist, (pp, playinfo, hash, acc, combo, miss) => {
 							console.log(objcount);
 							var ppentry = [hash, playinfo, parseFloat(pp), acc, combo, miss];
-							if (isNaN(ppentry[2])) {
+							if (!isNaN(ppentry[2])) {
 								var dup = false;
 								for (i in pplist) {
 									if (ppentry[0] == pplist[i][0]) {
