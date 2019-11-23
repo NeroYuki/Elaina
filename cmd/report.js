@@ -52,7 +52,7 @@ module.exports.run = async (client, message, args) => {
         .setTitle("Report statistics")
         .setColor("#527ea3")
         .setTimestamp(new Date())
-        .setFooter("Elaina Semi-Evolved")
+        .setFooter("Elaina owo")
         .addField("Reported user: " + toreport.user.username, "Reported in: " + message.channel)
         .addField("Reason: " + reason, "Make sure you have evidence ready!\nAbuse of this command will make you unable to submit reports.");
 
