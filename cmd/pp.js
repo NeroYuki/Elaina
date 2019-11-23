@@ -1,4 +1,3 @@
-var Discord = require('discord.js');
 var http = require('http');
 var droid = require("./ojsamadroid");
 var https = require("https");
@@ -124,93 +123,85 @@ function getMapPP(input, pcombo, pacc, pmissc, pmod = "", message, objcount, whi
 }
 
 module.exports.run = (client, message, args, maindb) => {
-	if (message.channel instanceof Discord.DMChannel) return;
-	let channel = message.guild.channels.find("name", "bot-ground");
-	let channel2 = message.guild.channels.find("name", "elaina-pp-project");
-	if (!channel && !channel2) {message.author.lastMessage.delete();
-		message.channel.send(`${message.author}, ask server manager to create #elaina-pp-project or #bot-ground channel first!`).then (message => {message.delete(5000)});
+	let objcount = {x: 0};
+	var offset = 1;
+	var start = 1;
+	if (args[0]) offset = parseInt(args[0]);
+	if (args[1]) start = parseInt(args[1]);
+	if (isNaN(offset)) offset = 1;
+	if (isNaN(start)) start = 1;
+	if (offset > 5 || offset < 1) offset = 1;
+	if (start + offset - 1 > 50) {
+		console.log('Out of limit');
 		return;
 	}
-	if (message.channel.name == 'bot-ground' || message.channel.name == 'elaina-pp-project') {
-		let objcount = {x: 0};
-		var offset = 1;
-		var start = 1;
-		if (args[0]) offset = parseInt(args[0]);
-		if (args[1]) start = parseInt(args[1]);
-		if (isNaN(offset)) offset = 1;
-		if (isNaN(start)) start = 1;
-		let ufind = message.author.id;
-		if (offset > 5 || offset < 1) offset = 1;
-		if (start + offset - 1 > 50) {
-			console.log('Out of limit');
-			return;
-		}
-		// if (args[0]) {
-		// ufind = args[0];
-		// ufind = ufind.replace('<@!','');
-		// ufind = ufind.replace('<@','');
-		// ufind = ufind.replace('>','');
-		// }
-		console.log(ufind);
-		let binddb = maindb.collection("userbind");
-		let whitelist = maindb.collection("mapwhitelist");
-		let query = {discordid: ufind};
-		binddb.find(query).toArray(function (err, userres) {
-			if (err) throw err;
-			if (userres[0]) {
-				console.log(offset);
-				let uid = userres[0].uid;
-				let discordid = userres[0].discordid;
-				if (userres[0].pp) var pplist = userres[0].pp;
-				else var pplist = [];
-				if (userres[0].pptotal) var pre_pptotal = userres[0].pptotal;
-				else var pre_pptotal = 0;
-				if (userres[0].playc) var playc = userres[0].playc;
-				else var playc = 0;
-				var pptotal = 0;
-				var submitted = 0;
-				var options = {
-					host: "ops.dgsrz.com",
-					port: 80,
-					path: "/api/getuserinfo.php?apiKey=" + droidapikey + "&uid=" + uid
-				};
+	let ufind = message.author.id;
+	/*if (args[0]) {
+		ufind = args[0];
+		ufind = ufind.replace('<@!','');
+		ufind = ufind.replace('<@','');
+		ufind = ufind.replace('>','');
+	}*/
+	console.log(ufind);
+	let binddb = maindb.collection("userbind");
+	let whitelist = maindb.collection("mapwhitelist");
+	let query = {discordid: ufind};
+	binddb.find(query).toArray(function (err, userres) {
+		if (err) throw err;
+		if (userres[0]) {
+			console.log(offset);
+			let uid = userres[0].uid;
+			let discordid = userres[0].discordid;
+			if (userres[0].pp) var pplist = userres[0].pp;
+			else var pplist = [];
+			if (userres[0].pptotal) var pre_pptotal = userres[0].pptotal;
+			else var pre_pptotal = 0;
+			if (userres[0].playc) var playc = userres[0].playc;
+			else var playc = 0;
+			var pptotal = 0;
+			var submitted = 0;
+			var options = {
+				host: "ops.dgsrz.com",
+				port: 80,
+				path: "/api/getuserinfo.php?apiKey=" + droidapikey + "&uid=" + uid
+			};
 
-				var content = "";
+			var content = "";
 
-				var req = http.request(options, function (res) {
-					res.setEncoding("utf8");
-					res.on("data", function (chunk) {
-						content += chunk;
-					});
+			var req = http.request(options, function (res) {
+				res.setEncoding("utf8");
+				res.on("data", function (chunk) {
+					content += chunk;
+				});
 
-					res.on("end", function () {
-						curpos = 0;
-						var playentry = [];
-						var resarr = content.split('<br>');
-						var obj = JSON.parse(resarr[1]);
-						var rplay = obj.recent;
-						for (var i = start - 1; i < start + offset - 1; i++) {
-							if (!rplay[i]) break;
-							var play = {
-								title: "", acc: "", miss: "", combo: "", mod: "", hash: ""
-							};
-							play.title = rplay[i].filename;
-							play.acc = rplay[i].accuracy.toPrecision(4) / 1000;
-							play.miss = rplay[i].miss;
-							play.combo = rplay[i].combo;
-							play.mod = rplay[i].mode;
-							play.hash = rplay[i].hash;
-							playentry[curpos] = play;
-							curpos++;
-						}
+				res.on("end", function () {
+					curpos = 0;
+					var playentry = [];
+					var resarr = content.split('<br>');
+					var obj = JSON.parse(resarr[1]);
+					var rplay = obj.recent;
+					for (var i = start - 1; i < start + offset - 1; i++) {
+						if (!rplay[i]) break;
+						var play = {
+							title: "", acc: "", miss: "", combo: "", mod: "", hash: ""
+						};
+						play.title = rplay[i].filename;
+						play.acc = rplay[i].accuracy.toPrecision(4) / 1000;
+						play.miss = rplay[i].miss;
+						play.combo = rplay[i].combo;
+						play.mod = rplay[i].mode;
+						play.hash = rplay[i].hash;
+						playentry[curpos] = play;
+						curpos++;
+					}
 
-						console.log(playentry);
-						playentry.forEach(function (x) {
-							if (x.title) getMapPP(x.hash, x.combo, x.acc, x.miss, x.mod, message, objcount, whitelist, (pp, playinfo, hash, acc, combo, miss) => {
-								console.log(objcount);
-								var ppentry = [hash, playinfo, parseFloat(pp), acc, combo, miss];
+					console.log(playentry);
+					playentry.forEach(function (x) {
+						if (x.title) getMapPP(x.hash, x.combo, x.acc, x.miss, x.mod, message, objcount, whitelist, (pp, playinfo, hash, acc, combo, miss) => {
+							console.log(objcount);
+							var ppentry = [hash, playinfo, parseFloat(pp), acc, combo, miss];
+							if (isNaN(ppentry[2])) {
 								var dup = false;
-								//pplist.push(ppentry)
 								for (i in pplist) {
 									if (ppentry[0] == pplist[i][0]) {
 										pplist[i] = ppentry;
@@ -235,7 +226,7 @@ module.exports.run = (client, message, args, maindb) => {
 										weight *= 0.95;
 									}
 									var diff = pptotal - pre_pptotal;
-									message.channel.send('<@' + discordid + '> Submitted ' + submitted + ' plays: + ' + diff.toFixed(2) + ' pp');
+									message.channel.send('<@' + discordid + '> Submitted ' + submitted + ' play(s): + ' + diff.toFixed(2) + ' pp');
 									var updateVal = {
 										$set: {
 											pptotal: pptotal,
@@ -243,40 +234,22 @@ module.exports.run = (client, message, args, maindb) => {
 											playc: playc
 										}
 									};
-									binddb.updateOne(query, updateVal, function (err, res) {
+									binddb.updateOne(query, updateVal, function (err) {
 										if (err) throw err;
 										console.log('pp updated');
 										addcount = 0;
 									})
 								}
-							})
+							} else message.channel.send("Error: Unable to retrieve map pp data")
 						})
-					});
+					})
 				});
-				req.end();
-			} else {
-				message.channel.send("The account is not binded, you need to use `&userbind <uid>` first. To get uid, use `&profilesearch <username>`")
-			};
-		});
-	} else {message.author.lastMessage.delete();
-		if (channel && channel2) {
-			message.channel.send(`${message.author}, that command is only allowed in ${channel} and ${channel2}!`).then(message => {
-				message.delete(5000)
 			});
-			return;
+			req.end();
+		} else {
+			message.channel.send("The account is not binded, you need to use `&userbind <uid>` first. To get uid, use `&profilesearch <username>`")
 		}
-		if (channel) {
-			message.channel.send(`${message.author}, that command is only allowed in ${channel}!`).then(message => {
-				message.delete(5000)
-			});
-			return;
-		}
-		if (channel2) {
-			message.channel.send(`${message.author}, that command is only allowed in ${channel2}!`).then(message => {
-				message.delete(5000)
-			});
-		}
-	}
+	});
 };
 
 module.exports.help = {
