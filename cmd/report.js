@@ -9,15 +9,12 @@ module.exports.run = async (client, message, args) => {
     }
     if (!args[0]) return;
     if (message.member.roles.find("name", "report-ban")) {
-        message.author.lastMessage.delete();
-        message.reply("you were banned from submitting reports!").then (message => {
-            message.delete(5000)
-        });
+        message.reply("you were banned from submitting reports!");
         return;
     }
     let channel = message.guild.channels.find(c => c.name === config.report_channel);
     if (!channel) {
-        message.reply("please create a report log channel first!");
+        message.reply(`please create #${config.report_channel} first!`);
         return;
     }
     let user = message.author.id;
