@@ -3,7 +3,7 @@ const http = require('http');
 
 module.exports.run = (client, message, args, maindb) => {
 	let uid = Number(args[0]);
-	if (isNaN(uid) || !Number.isInteger(uid)) {message.channel.send("Invalid uid")}
+	if (!Number.isInteger(uid)) {message.channel.send("Invalid uid")}
 	else {
 		let name="";
 		var options = {
