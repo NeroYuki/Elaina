@@ -2,9 +2,10 @@ const mongodb = require('mongodb');
 const http = require('http');
 
 module.exports.run = (client, message, args, maindb) => {
-	let uid = args[0];
-	if (isNaN(parseInt(uid))) {message.channel.send("Your uid please!")}
+	if (!args[0]) {message.channel.send("Your uid please!"); return;}
+	if (!Number.isInteger(args[0])) {message.channel.send("Invalid uid")}
 	else {
+		let uid = parseInt(args[0]);
 		let name="";
 		var options = {
 			host: "ops.dgsrz.com",
