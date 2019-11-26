@@ -49,7 +49,7 @@ module.exports.run = (client, message, args, maindb) => {
 					else if (acc.indexOf("%") != -1) acc = parseFloat(acc.trimRight()).toFixed(2) + "%";
 					else acc = acc + "%";
 
-					let miss = ppentry[x][5].toString() + " miss(es)";
+					let miss = ppentry[x][5].toString() + " ❌";
 					embed.addField((x+1) + '. ' + ppentry[x][1], combo + ' | ' + acc + " | " + miss + " | __" + ppentry[x][2] + ' pp__')
 				}
 				else embed.addField((x+1) + '. -', '-')
