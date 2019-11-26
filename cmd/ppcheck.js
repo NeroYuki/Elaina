@@ -4,11 +4,18 @@ require('mongodb');
 
 module.exports.run = (client, message, args, maindb) => {
 	let ufind = message.author.id;
+	let page = 1;
 	if (args[0]) {
-		ufind = args[0];
-		ufind = ufind.replace('<@!','');
-		ufind = ufind.replace('<@','');
-		ufind = ufind.replace('>','');
+		if (isNaN(args[0]) || parseInt(args[0]) > 15) ufind = args[0];
+		else if (parseInt(args[0]) <= 0) page = 1;
+		else page = parseInt(args[0]);
+		ufind = ufind.replace('<@!', '');
+		ufind = ufind.replace('<@', '');
+		ufind = ufind.replace('>', '');
+	}
+	if (args[1]) {
+		if (isNaN(args[1]) || parseInt(args[1]) > 15 || parseInt(args[1]) <= 0) page = 1;
+		else page = parseInt(args[1]);
 	}
 	console.log(ufind);
 	let binddb = maindb.collection("userbind");
