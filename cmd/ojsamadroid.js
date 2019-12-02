@@ -880,8 +880,11 @@ std_beatmap_stats.prototype.with_mods = function(mods) {
   if (!(mods & modbits.map_changing)) {
     return stats;
   }
-  if (mods & (modbits.dt|modbits.nc)) {
+  if (mods & modbits.dt) {
     stats.speed_mul = 1.5;
+  }
+  if (mods & modbits.nc) {
+    stats.speed_mul = 1.39
   }
   if (mods & modbits.ht) {
     stats.speed_mul *= 0.75;
@@ -1794,6 +1797,7 @@ function ppv2(params) {
 
 // exports
 // ----------------------------------------------------------------
+
 
 osu.timing = timing;
 osu.objtypes = objtypes;
