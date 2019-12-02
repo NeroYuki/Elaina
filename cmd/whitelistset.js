@@ -90,9 +90,11 @@ function whitelistInfo(link_in, message, callback) {
             if (firstmapinfo.mode !=0) callback(0);
 
             for (i in mapinfo) {
-                mapid.push(mapinfo[i].beatmap_id);
-                hashid.push(mapinfo[i].file_md5);
-                diffstring.push(mapinfo[i].version);
+                if (mapinfo[i].mode == 0) {
+                    mapid.push(mapinfo[i].beatmap_id);
+                    hashid.push(mapinfo[i].file_md5);
+                    diffstring.push(mapinfo[i].version);
+                }
             }
             
             var listoutput = ""
