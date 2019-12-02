@@ -17,7 +17,6 @@ module.exports.run = (client, message, args, maindb) => {
 		if (isNaN(args[1]) || parseInt(args[1]) > 15 || parseInt(args[1]) <= 0) page = 1;
 		else page = parseInt(args[1]);
 	}
-	console.log(ufind);
 	let binddb = maindb.collection("userbind");
 	let query = { discordid: ufind };
 	binddb.find(query).toArray(function(err, res) {
@@ -35,11 +34,11 @@ module.exports.run = (client, message, args, maindb) => {
 			let mirror = "[Mirror](https://droidppboard.herokuapp.com/profile?uid=" + uid + ")";
 
 			const embed = new Discord.RichEmbed()
-				.setDescription('**PP Profile for <@' + discordid + '> (' + username + ')**\nTotal PP: **' + pp + " pp**\n" + site + " - " + mirror)
+				.setDescription('**PP Profile for <@' + discordid + '> (' + username + ') [Page ' + page + ']**\nTotal PP: **' + pp + " pp**\n" + site + " - " + mirror)
 				.setColor(message.member.highestRole.hexColor)
 				.setFooter("Elaina owo", "https://image.frl/p/yaa1nf94dho5f962.jpg");
-
-			for (var x = 0; x < 5; x++) {
+			
+			for (var x = 5 * (page - 1); x < 5 + 5 * (page - 1); x++) {
 				if (ppentry[x]) {
 					let combo = ppentry[x][3].toString();
 					if (combo.indexOf("x") == -1) combo = combo + "x";
@@ -51,7 +50,7 @@ module.exports.run = (client, message, args, maindb) => {
 					else acc = acc + "%";
 
 					let miss = ppentry[x][5].toString() + " ❌";
-					embed.addField((x+1) + '. ' + ppentry[x][1], combo + ' | ' + acc + " | " + miss + " | __" + ppentry[x][2] + ' pp__')
+					embed.addField((x+1) + '. ' + ppentry[x][1], combo + ' | ' + acc + " | " + miss + " | __" + ppentry[x][2] + ' pp__ (Net pp: ' + (ppentry[x][2] * Math.pow(0.95, x)).toFixed(2) + ' pp)')
 				}
 				else embed.addField((x+1) + '. -', '-')
 			}
