@@ -132,10 +132,7 @@ module.exports.run = (client, message, args, maindb) => {
 	if (isNaN(offset)) offset = 1;
 	if (isNaN(start)) start = 1;
 	if (offset > 5 || offset < 1) offset = 1;
-	if (start + offset - 1 > 50) {
-		console.log('Out of limit');
-		return;
-	}
+	if (start + offset - 1 > 50) return message.channel.send('Out of limit');
 	let ufind = message.author.id;
 	/*if (args[0]) {
 		ufind = args[0];
