@@ -5,7 +5,7 @@ var cd = new Set();
 module.exports.run = async (client, message, args) => {
     if (message.channel instanceof Discord.DMChannel) return message.channel.send("This command is not allowed in DMs");
     if (!args[0]) return;
-    if (message.member.roles.find("name", "report-ban")) {
+    if (message.member.roles.find(r => r.name === 'report-ban')) {
         message.author.lastMessage.delete();
         return message.reply("you were banned from submitting reports!").then (message => {
             message.delete(5000)
@@ -14,7 +14,7 @@ module.exports.run = async (client, message, args) => {
     let channel = message.guild.channels.find(c => c.name === config.report_channel);
     if (!channel) return message.reply(`please create #${config.report_channel} first!`);
     let user = message.author.id;
-    if (message.member.roles.find("name", "Helper") || message.member.roles.find("name", "Moderator")) cd.delete(user);
+    if (message.member.roles.find(r => r.name === 'Helper') || message.member.roles.find(r => r.name === 'Moderator')) cd.delete(user);
     if (cd.has(user)) return message.reply("you are still on cooldown!").then(message => {
             message.delete(5000)
         });
@@ -42,7 +42,7 @@ module.exports.run = async (client, message, args) => {
         .setTitle("Report statistics")
         .setColor("#527ea3")
         .setTimestamp(new Date())
-        .setFooter("Elaina owo", "https://images-ext-2.discordapp.net/external/d0iu_mPMvyoLQWnBSEnW4RL0-07KYm7zG9mjWdfWl7M/https/image.frl/p/yaa1nf94dho5f962.jpg")
+        .setFooter("Alice Synthesis Thirty", "https://i.imgur.com/S5yspQs.jpg")
         .addField("Reported user: " + toreport.user.username, "Reported in: " + message.channel)
         .addField("Reason: " + reason, "Make sure you have evidence ready!\nAbuse of this command will make you unable to submit reports.");
 
@@ -55,7 +55,7 @@ module.exports.run = async (client, message, args) => {
     }
 
     let cooldown = config.member_cooldown;
-    if (!message.member.roles.find("name", "Helper") && !message.member.roles.find("name", "Moderator")) {
+    if (!message.member.roles.find(r => r.name === 'Helper') && !message.member.roles.find(r => r.name === 'Moderator')) {
         cd.add(user);
         setTimeout(() => {
             cd.delete(user)
