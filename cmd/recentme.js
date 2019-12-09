@@ -63,6 +63,19 @@ function modname(mod) {
 	else return res.trimRight()
 }
 
+function mapstatus(status) {
+	switch (status) {
+		case -2: return "Graveyard";
+		case -1: return "WIP";
+		case 0: return "Pending";
+		case 1: return "Ranked";
+		case 2: return "Approved";
+		case 3: return "Qualified";
+		case 4: return "Loved";
+		default: return "Unspecified"
+	}
+}
+
 function getMapPP(input, pcombo, pacc, pmissc, pmod = "", message) {
 
 	var options = new URL("https://osu.ppy.sh/api/get_beatmaps?k=" + apikey + "&h=" + input);
@@ -167,7 +180,7 @@ function getMapPP(input, pcombo, pacc, pmissc, pmod = "", message) {
 								"value": "BPM: " + mapinfo.bpm + " - Length: " + mapinfo.hit_length + "/" + mapinfo.total_length + " s - Max Combo: " + mapinfo.max_combo + "x"
 							},
 							{
-								"name": "Last Update: " + mapinfo.last_update,
+								"name": "Last Update: " + mapinfo.last_update + " | " + mapstatus(parseInt(mapinfo.approved)),
 								"value": "❤️ " + mapinfo.favourite_count + " - ▶️ " + mapinfo.playcount
 							},
 							{
