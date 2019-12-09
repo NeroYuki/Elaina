@@ -46,10 +46,7 @@ function getMapPP(target, message) {
 			var obj = JSON.parse(content);
 			if (!obj[0]) {console.log("Map not found"); return;}
 			var mapinfo = obj[0];
-			if (mapinfo.mode !=0) {
-				message.channel.send("The beatmap is not an osu!standard beatmap");
-				return;
-			}
+			if (mapinfo.mode != 0) return message.channel.send("The beatmap is not an osu!standard beatmap");
 			//console.log(obj.beatmaps[0])
 			if (target[4]) var mods = modenum(target[4])
 			else {var mods = 4; target[4] = "";}
@@ -84,21 +81,22 @@ function getMapPP(target, message) {
 						cur_cs += 1;
 					}
 
-					if (target[4].includes("PR")) { cur_od += 4; }
+					if (target[4].includes("PR")) cur_od += 4;
+					if (target[4].includes("TD")) pcmods += 4;
 
 					nmap.od = cur_od; nmap.ar = cur_ar; nmap.cs = cur_cs;
                     
-                    if (nmap.ncircles == 0 && nmap.nsliders == 0) {
+                    			if (nmap.ncircles == 0 && nmap.nsliders == 0) {
 						console.log(target[0] + ' - Error: no object found'); 
 						return;
-                    }
+                    			}
 					
 					var nstars = new droid.diff().calc({map: nmap, mods: mods});
 					var pcstars = new osu.diff().calc({map: pcmap, mods: pcmods});
 					//console.log(stars.toString());
 
                     
-                    var npp = droid.ppv2({
+                    			var npp = droid.ppv2({
 						stars: nstars,
 						combo: combo,
 						nmiss: nmiss,
@@ -150,7 +148,7 @@ function getMapPP(target, message) {
 					nparser.reset()
                     
 					console.log(nstars.toString());
-                    console.log(npp.toString());
+                    			console.log(npp.toString());
 					var starsline = nstars.toString().split("(");
 					var ppline = npp.toString().split("(");
 					var pcstarsline = pcstars.toString().split("(");
