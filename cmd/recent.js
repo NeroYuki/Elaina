@@ -52,13 +52,13 @@ function modname(mod) {
 	var res = '';
 	var count = 0;
 	if (mod.includes("-")) {res += 'None '; count++}
+	if (mod.includes("n")) {res += 'NoFail '; count++}
+	if (mod.includes("e")) {res += 'Easy '; count++}
+	if (mod.includes("t")) {res += 'HalfTime '; count++}
 	if (mod.includes("r")) {res += 'HardRock '; count++}
 	if (mod.includes("h")) {res += 'Hidden '; count++}
 	if (mod.includes("d")) {res += 'DoubleTime '; count++}
 	if (mod.includes("c")) {res += 'NightCore '; count++}
-	if (mod.includes("n")) {res += 'NoFail '; count++}
-	if (mod.includes("e")) {res += 'Easy '; count++}
-	if (mod.includes("t")) {res += 'HalfTime '; count++}
 	if (count > 1) return res.trimRight().split(" ").join(", ");
 	else return res.trimRight()
 }
@@ -221,7 +221,7 @@ module.exports.run = (client, message, args) => {
 	let combo = play.combo;
 	let rank = rankread(play.mark);
 	let ptime = new Date(play.date * 1000).toISOString().replace("T", " ").slice(0, -5);
-	let acc = play.accuracy.toPrecision(4) / 1000;
+	let acc = (play.accuracy / 1000).toFixed(2);
 	let miss = play.miss;
 	let mod = play.mode;
 	let hash = play.hash;
