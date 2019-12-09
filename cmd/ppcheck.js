@@ -1,6 +1,5 @@
 var Discord = require('discord.js');
 var cd = new Set();
-let config = require('../config.json');
 
 function editpp(message, page, pp, ppentry, discordid, username, site, mirror) {
 	let embed = new Discord.RichEmbed()
