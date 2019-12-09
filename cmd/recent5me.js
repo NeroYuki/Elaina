@@ -98,7 +98,7 @@ module.exports.run = (client, message, args, maindb) => {
 
 					message.channel.send({embed}).then (msg => {
 						msg.react("⬅️").then(() => {
-							msg.react("➡️");
+							msg.react("➡️").catch(e => console.log(e));
 						});
 						let back = msg.createReactionCollector((reaction, user) => reaction.emoji.name === '⬅️' && user.id === message.author.id, {time: 60000});
 						let next = msg.createReactionCollector((reaction, user) => reaction.emoji.name === '➡️' && user.id === message.author.id, {time: 60000});
@@ -119,8 +119,8 @@ module.exports.run = (client, message, args, maindb) => {
 								var score = rplay[i].score.toLocaleString() + ' / ' + rplay[i].combo + 'x / ' + parseFloat(rplay[i].accuracy)/1000 + '% / ' + rplay[i].miss + ' miss(es) \n `' + date.toUTCString() + '`';
 								embed.addField(play, score)
 							}
-							msg.edit(embed);
-							msg.reactions.forEach(reaction => reaction.remove(message.author.id))
+							msg.edit(embed).catch(e => console.log(e));
+							msg.reactions.forEach(reaction => reaction.remove(message.author.id).catch(e => console.log(e)))
 						});
 
 						next.on('collect', () => {
@@ -139,8 +139,8 @@ module.exports.run = (client, message, args, maindb) => {
 								var score = rplay[i].score.toLocaleString() + ' / ' + rplay[i].combo + 'x / ' + parseFloat(rplay[i].accuracy)/1000 + '% / ' + rplay[i].miss + ' miss(es) \n `' + date.toUTCString() + '`';
 								embed.addField(play, score)
 							}
-							msg.edit(embed);
-							msg.reactions.forEach(reaction => reaction.remove(message.author.id))
+							msg.edit(embed).catch(e => console.log(e));
+							msg.reactions.forEach(reaction => reaction.remove(message.author.id).catch(e => console.log(e)))
 						})
 					});
 				})
