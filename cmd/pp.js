@@ -1,3 +1,4 @@
+var Discord = require('discord.js');
 var http = require('http');
 var droid = require("./ojsamadroid");
 var https = require("https");
@@ -123,7 +124,15 @@ function getMapPP(input, pcombo, pacc, pmissc, pmod = "", message, objcount, whi
 }
 
 module.exports.run = (client, message, args, maindb) => {
-	if (message.channel.name != 'bot-ground' && message.channel.name != 'elaina-pp-project') return message.channel.send("This command is only allowed in #bot-ground and #elaina-pp-project!");
+	if (message.channel instanceof Discord.DMChannel) return message.channel.send("This command is not available in DMs");
+	if (message.channel.name != 'bot-ground' && message.channel.name != 'elaina-pp-project') {
+		let channel = message.guild.channels.find(c => c.name === 'bot-ground');
+		let channel2 = message.guild.channels.find(c => c.name === 'elaina-pp-project');
+		if (channel && channel2) return message.channel.send(`This command is only allowed in ${channel} and ${channel2}!`);
+		if (channel) return message.channel.send(`This command is only allowed in ${channel}!`);
+		if (channel2) return message.channel.send(`This command is only allowed in ${channel2}!`);
+		else return message.channel.send("Please create #bot-ground or #elaina-pp-project first!")
+	}
 	let objcount = {x: 0};
 	var offset = 1;
 	var start = 1;
