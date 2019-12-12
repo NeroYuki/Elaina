@@ -6,7 +6,6 @@ module.exports.run = (client, message, args, maindb) => {
 	if (!uid) {message.channel.send("Your uid please!"); return;}
 	if (isNaN(uid)) {message.channel.send("Invalid uid")}
 	else {
-		let name = "";
 		let binddb = maindb.collection("userbind");
 		let query = {discordid: message.author.id};
 		var options = {
@@ -29,7 +28,7 @@ module.exports.run = (client, message, args, maindb) => {
 			res.on("end", function () {
 				var headerres = content.split('<br>')[0].split(" ");
 				if (headerres[0] == 'FAILED') return message.channel.send("User not found!");
-				name = headerres[2];
+				let name = headerres[2];
 				var bind = {
 					discordid: message.author.id,
 					uid: uid,
