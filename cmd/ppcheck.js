@@ -33,6 +33,7 @@ function editpp(message, page, pp, ppentry, discordid, username, site, mirror) {
 }
 
 module.exports.run = (client, message, args, maindb) => {
+	if (message.channel instanceof Discord.DMChannel) return message.channel.send("This command is not available in DMs");
 	let ufind = message.author.id;
 	if (cd.has(ufind)) return message.channel.send("Please wait for a bit before using this command again!");
 	let page = 1;
