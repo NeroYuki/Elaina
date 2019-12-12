@@ -58,6 +58,7 @@ client.on("message", (message) => {
 	if (!message.content.startsWith(config.prefix)|| message.author.bot) return;
 	let cmd = client.commands.get(command.slice(config.prefix.length));
 	if (cmd) {
+		if (message.channel instanceof Discord.DMChannel) return message.channel.send("You cannot use commands in DMs");
 		cmd.run(client, message, args, maindb);
 	}
 });
