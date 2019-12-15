@@ -239,7 +239,8 @@ module.exports.run = (client, message, args, maindb) => {
 				let score = play.score.toLocaleString();
 				let combo = play.combo;
 				let rank = rankread(play.mark);
-				let ptime = new Date(play.date * 1000).toISOString().replace("T", " ").slice(0, -5);
+				let ptime = new Date(play.date * 1000);
+				ptime.setUTCHours(ptime.getUTCHours() + 8);
 				let acc = play.accuracy.toPrecision(4) / 1000;
 				let miss = play.miss;
 				let mod = play.mode;
@@ -249,7 +250,7 @@ module.exports.run = (client, message, args, maindb) => {
 
 				const embed = {
 					"title": title,
-					"description": "**Score**: `" + score + " ` - Combo: `" + combo + "x ` - Accuracy: `" + acc + "%` \n(`" + miss + "` x )\nMod: `" + modname(mod) + "` Time: `" + ptime + "`",
+					"description": "**Score**: `" + score + " ` - Combo: `" + combo + "x ` - Accuracy: `" + acc + "%` \n(`" + miss + "` x )\nMod: `" + modname(mod) + "`\nTime: `" + ptime.toUTCString() + "`",
 					"color": 8311585,
 					"author": {
 						"name": "Recent Play for "+ name,
