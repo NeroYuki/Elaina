@@ -75,9 +75,8 @@ module.exports.run = (client, message, args) => {
 			var obj = JSON.parse(content);
 			var name = headerres[2];
 			var rplay = obj.recent;
-			let embed = editpp(client, message, rplay, name, page);
-
 			if (!rplay[0]) {message.channel.send("This player haven't submitted any play"); return;}
+			let embed = editpp(client, message, rplay, name, page);
 			
 			message.channel.send({embed}).then (msg => {
 				msg.react("⏮️").then(() => {
