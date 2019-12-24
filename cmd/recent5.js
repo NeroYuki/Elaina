@@ -32,10 +32,10 @@ function rankEmote(input) {
 	}
 }
 
-function editpp(client, message, rplay, name, page) {
+function editpp(client, message, rplay, name, page, rolecheck) {
 	let embed = new Discord.RichEmbed()
 		.setDescription("Recent play for **" + name + " (Page " + page + "/10)**")
-		.setColor(message.member.highestRole.hexColor)
+		.setColor(rolecheck)
 		.setFooter("Elaina owo", "https://images-ext-2.discordapp.net/external/d0iu_mPMvyoLQWnBSEnW4RL0-07KYm7zG9mjWdfWl7M/https/image.frl/p/yaa1nf94dho5f962.jpg");
 
 	for (var i = 5 * (page - 1); i < 5 + 5 * (page - 1); i++) {
@@ -76,7 +76,13 @@ module.exports.run = (client, message, args) => {
 			var name = headerres[2];
 			var rplay = obj.recent;
 			if (!rplay[0]) {message.channel.send("This player haven't submitted any play"); return;}
-			let embed = editpp(client, message, rplay, name, page);
+			var rolecheck;
+			try {
+				rolecheck = message.member.highestRole.hexColor
+			} catch (e) {
+				rolecheck = "#000000"
+			}
+			let embed = editpp(client, message, rplay, name, page, rolecheck);
 			
 			message.channel.send({embed}).then (msg => {
 				msg.react("⏮️").then(() => {
@@ -94,7 +100,7 @@ module.exports.run = (client, message, args) => {
 
 				backward.on('collect', () => {
 					page = 1;
-					embed = editpp(client, message, rplay, name, page);
+					embed = editpp(client, message, rplay, name, page, rolecheck);
 					msg.edit(embed).catch(e => console.log(e));
 					msg.reactions.forEach(reaction => reaction.remove(message.author.id).catch(e => console.log(e)))
 				});
@@ -102,7 +108,7 @@ module.exports.run = (client, message, args) => {
 				back.on('collect', () => {
 					if (page === 1) page = 10;
 					else page--;
-					embed = editpp(client, message, rplay, name, page);
+					embed = editpp(client, message, rplay, name, page, rolecheck);
 					msg.edit(embed).catch(e => console.log(e));
 					msg.reactions.forEach(reaction => reaction.remove(message.author.id).catch(e => console.log(e)))
 				});
@@ -110,14 +116,14 @@ module.exports.run = (client, message, args) => {
 				next.on('collect', () => {
 					if (page === 10) page = 1;
 					else page++;
-					embed = editpp(client, message, rplay, name, page);
+					embed = editpp(client, message, rplay, name, page, rolecheck);
 					msg.edit(embed).catch(e => console.log(e));
 					msg.reactions.forEach(reaction => reaction.remove(message.author.id).catch(e => console.log(e)))
 				});
 
 				forward.on('collect', () => {
 					page = 10;
-					embed = editpp(client, message, rplay, name, page);
+					embed = editpp(client, message, rplay, name, page, rolecheck);
 					msg.edit(embed).catch(e => console.log(e));
 					msg.reactions.forEach(reaction => reaction.remove(message.author.id).catch(e => console.log(e)))
 				})
