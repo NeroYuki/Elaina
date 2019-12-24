@@ -1,10 +1,10 @@
 var Discord = require('discord.js');
 var cd = new Set();
 
-function editpp(message, page, pp, ppentry, discordid, username, site, mirror) {
+function editpp(page, pp, ppentry, discordid, username, site, mirror, rolecheck) {
 	let embed = new Discord.RichEmbed()
 		.setDescription('**PP Profile for <@' + discordid + '> (' + username + ') [Page ' + page + '/15]**\nTotal PP: **' + pp + " pp**\n" + site + " - " + mirror)
-		.setColor(message.member.highestRole.hexColor)
+		.setColor(rolecheck)
 		.setFooter("Elaina owo", "https://images-ext-2.discordapp.net/external/d0iu_mPMvyoLQWnBSEnW4RL0-07KYm7zG9mjWdfWl7M/https/image.frl/p/yaa1nf94dho5f962.jpg");
 
 	for (var x = 5 * (page - 1); x < 5 + 5 * (page - 1); x++) {
@@ -63,10 +63,15 @@ module.exports.run = (client, message, args, maindb) => {
 			var ppentry = [];
 			if (res[0].pptotal) pp = res[0].pptotal.toFixed(2);
 			if (res[0].pp) ppentry = res[0].pp;
-
+			var rolecheck;
+			try {
+				rolecheck = message.member.highestRole.hexColor
+			} catch (e) {
+				rolecheck = "#000000"
+			}
 			let site = "[PP Profile](https://ppboard.herokuapp.com/profile?uid=" + uid + ")";
 			let mirror = "[Mirror](https://droidppboard.herokuapp.com/profile?uid=" + uid + ")";
-			let embed = editpp(message, page, pp, ppentry, discordid, username, site, mirror);
+			let embed = editpp(page, pp, ppentry, discordid, username, site, mirror, rolecheck);
 
 			message.channel.send(embed).then(msg => {
 				msg.react("⏮️").then(() => {
@@ -84,7 +89,7 @@ module.exports.run = (client, message, args, maindb) => {
 
 				backward.on('collect', () => {
 					page = 1;
-					embed = editpp(message, page, pp, ppentry, discordid, username, site, mirror);
+					embed = editpp(page, pp, ppentry, discordid, username, site, mirror, rolecheck);
 					msg.edit(embed).catch(e => console.log(e));
 					msg.reactions.forEach(reaction => reaction.remove(message.author.id).catch(e => console.log(e)))
 				});
@@ -92,7 +97,7 @@ module.exports.run = (client, message, args, maindb) => {
 				back.on('collect', () => {
 					if (page === 1) page = 15;
 					else page--;
-					embed = editpp(message, page, pp, ppentry, discordid, username, site, mirror);
+					embed = editpp(page, pp, ppentry, discordid, username, site, mirror, rolecheck);
 					msg.edit(embed).catch(e => console.log(e));
 					msg.reactions.forEach(reaction => reaction.remove(message.author.id).catch(e => console.log(e)))
 				});
@@ -100,14 +105,14 @@ module.exports.run = (client, message, args, maindb) => {
 				next.on('collect', () => {
 					if (page === 15) page = 1;
 					else page++;
-					embed = editpp(message, page, pp, ppentry, discordid, username, site, mirror);
+					embed = editpp(page, pp, ppentry, discordid, username, site, mirror, rolecheck);
 					msg.edit(embed).catch(e => console.log(e));
 					msg.reactions.forEach(reaction => reaction.remove(message.author.id).catch(e => console.log(e)))
 				});
 
 				forward.on('collect', () => {
 					page = 15;
-					embed = editpp(message, page, pp, ppentry, discordid, username, site, mirror);
+					embed = editpp(page, pp, ppentry, discordid, username, site, mirror, rolecheck);
 					msg.edit(embed).catch(e => console.log(e));
 					msg.reactions.forEach(reaction => reaction.remove(message.author.id).catch(e => console.log(e)))
 				})
