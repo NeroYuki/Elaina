@@ -32,7 +32,7 @@ function rankEmote(input) {
 	}
 }
 
-function editpp(client, message, rplay, name, page, rolecheck) {
+function editpp(client, rplay, name, page, rolecheck) {
 	let embed = new Discord.RichEmbed()
 		.setDescription("Recent play for **" + name + " (Page " + page + "/10)**")
 		.setColor(rolecheck)
@@ -82,7 +82,7 @@ module.exports.run = (client, message, args) => {
 			} catch (e) {
 				rolecheck = "#000000"
 			}
-			let embed = editpp(client, message, rplay, name, page, rolecheck);
+			let embed = editpp(client, rplay, name, page, rolecheck);
 			
 			message.channel.send({embed}).then (msg => {
 				msg.react("⏮️").then(() => {
@@ -100,7 +100,7 @@ module.exports.run = (client, message, args) => {
 
 				backward.on('collect', () => {
 					page = 1;
-					embed = editpp(client, message, rplay, name, page, rolecheck);
+					embed = editpp(client, rplay, name, page, rolecheck);
 					msg.edit(embed).catch(e => console.log(e));
 					msg.reactions.forEach(reaction => reaction.remove(message.author.id).catch(e => console.log(e)))
 				});
@@ -108,7 +108,7 @@ module.exports.run = (client, message, args) => {
 				back.on('collect', () => {
 					if (page === 1) page = 10;
 					else page--;
-					embed = editpp(client, message, rplay, name, page, rolecheck);
+					embed = editpp(client, rplay, name, page, rolecheck);
 					msg.edit(embed).catch(e => console.log(e));
 					msg.reactions.forEach(reaction => reaction.remove(message.author.id).catch(e => console.log(e)))
 				});
@@ -116,14 +116,14 @@ module.exports.run = (client, message, args) => {
 				next.on('collect', () => {
 					if (page === 10) page = 1;
 					else page++;
-					embed = editpp(client, message, rplay, name, page, rolecheck);
+					embed = editpp(client, rplay, name, page, rolecheck);
 					msg.edit(embed).catch(e => console.log(e));
 					msg.reactions.forEach(reaction => reaction.remove(message.author.id).catch(e => console.log(e)))
 				});
 
 				forward.on('collect', () => {
 					page = 10;
-					embed = editpp(client, message, rplay, name, page, rolecheck);
+					embed = editpp(client, rplay, name, page, rolecheck);
 					msg.edit(embed).catch(e => console.log(e));
 					msg.reactions.forEach(reaction => reaction.remove(message.author.id).catch(e => console.log(e)))
 				})
