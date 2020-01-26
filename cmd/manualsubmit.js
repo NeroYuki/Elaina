@@ -1,27 +1,17 @@
-var mongodb = require('mongodb');
+var Discord = require('discord.js');
 
-function modValid(input, required) {
-	input = input.trim();
-	if (required == "nm") return input == "None";
-	if (required == "hr") return input == "HardRock";
-	if (required == "hd") return input == "Hidden";
-	if (required == "ez") return input == "Easy";
-	if (required == "dt") return (input == "DoubleTime" || input == "Hidden, DoubleTime");
-	if (required == "fm") return ((input.includes("HardRock") || input.includes("Hidden") || input.includes("Easy"))&&(!(input.includes("DoubleTime") || input.includes("HalfTime"))))
-	else return true;
-}
-
-function scoreCalc(score, maxscore, accuracy, misscount) {
-	let newscore = score/maxscore*600000 + (Math.pow((accuracy/100), 4)*400000);
-	newscore = newscore - (misscount*0.003*newscore);
-	return newscore;
+function scoreCalc(mode, score, maxscore, accuracy, misscount) {
+	let hddt;
+	if (mode == 'dt' && score.includes("h")) hddt = true;
+	let newscore = parseInt(score)/maxscore*600000 + (Math.pow((accuracy/100), 4)*400000);
+	newscore -= misscount * 0.003 * newscore;
+	if (!hddt) return newscore;
+	else return Math.round(newscore/1.036)
 }
 
 module.exports.run = (client, message, args, maindb) => {
-	if (!message.member.roles.find("name", "Referee")) {
-		message.channel.send("You don't have enough permission to use this :3");
-		return;
-	}
+	if (message.channel instanceof Discord.DMChannel) return message.channel.send("This command is not available in DMs");
+	if (!message.member.roles.find(r => r.name === 'Referee')) return message.channel.send("You don't have enough permission to use this :3");
 	let id = args[0];
 	if (id) {
 		let matchdb = maindb.collection("matchinfo");
@@ -31,7 +21,7 @@ module.exports.run = (client, message, args, maindb) => {
 		let t1score = 0; let t2score = 0;
 		let displayRes1 = ""; let displayRes2 = ""; let displayRes3 = ""; let color = 0;
 		let poolid = id.split(".")[0];
-		let poolquery = { poolid: poolid }
+		let poolquery = { poolid: poolid };
 		matchdb.find(query).toArray(function(err, res) {
 			if (err) throw err;
 			if (!res[0]) {
@@ -58,17 +48,17 @@ module.exports.run = (client, message, args, maindb) => {
 					return;
 				}
 				for (var i = 0; i < res[0].player.length; i++) {
-					pscore.push(scoreCalc(parseInt(args[2+i*3]),parseInt(poolres[0].map[mapid-1][2]),parseFloat(args[2+i*3+1]),parseInt(args[2+i*3+2])))
+					pscore.push(scoreCalc(poolres[0].map[mapid-1][0], args[2+i*3], parseInt(poolres[0].map[mapid-1][2]), parseFloat(args[2+i*3+1]), parseInt(args[2+i*3+2])))
 				}
 				for (k in pscore) {
 					if (k % 2 == 0) {
-						t1score += pscore[k]
-						if (pscore[k] == 0) displayRes1 += res[0].player[k][0] + " (N/A):\t0 - Failed\n"
+						t1score += pscore[k];
+						if (pscore[k] == 0) displayRes1 += res[0].player[k][0] + " (N/A):\t0 - Failed\n";
 						else displayRes1 += res[0].player[k][0] + " (N/A):\t" + Math.round(pscore[k]) + " - " + args[2+k*3+1] + " - " + args[2+k*3+2] + " miss\n"
 					}
 					else {
-						t2score += pscore[k]
-						if (pscore[k] == 0) displayRes2 += res[0].player[k][0] + " (N/A):\t0 - Failed\n"
+						t2score += pscore[k];
+						if (pscore[k] == 0) displayRes2 += res[0].player[k][0] + " (N/A):\t0 - Failed\n";
 						else displayRes2 += res[0].player[k][0] + " (N/A):\t" + Math.round(pscore[k]) + " - " + args[2+k*3+1] + " - " + args[2+k*3+2] + " miss\n"
 					}
 				}
@@ -127,24 +117,24 @@ module.exports.run = (client, message, args, maindb) => {
 					]
 				};
 				message.channel.send({ embed });
-				for (p in pscore) result[p].push(pscore[p])
+				for (p in pscore) result[p].push(pscore[p]);
 				let update = {
 					$set: {
 						status: "on-going",
 						team: res[0].team,
 						result: result
 					}
-				}
+				};
 				matchdb.updateOne(query, update, function(err, res) {
 					if (err) throw err;
 					console.log("match info updated");
-				});
-			});
-		});
+				})
+			})
+		})
 	}
 	else message.channel.send("Please specify match id");
-}
+};
 
 module.exports.help = {
 	name: "manualsubmit"
-}
+};
