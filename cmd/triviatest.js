@@ -73,6 +73,8 @@ module.exports.run = (client, message, args) => {
         case 26: question_dir = 'trivia/theater.txt'; category_name = 'Entertainment: Musicals & Theatres'; break;  
         case 27: question_dir = 'trivia/vehicle.txt'; category_name = 'Vehicles'; break;  
         case 28: question_dir = 'trivia/videogame.txt'; category_name = 'Entertainment: Video Games'; break; 
+        case 29: question_dir = 'trivia/english.txt'; category_name = 'The English Language'; break;
+        case 30: question_dir = 'trivia/logic.txt'; category_name = 'Logical Reasoning'; break;
         default: message.channel.send("Unknown type"); return;
     }
 	fs.readFile(question_dir , 'utf8', (err, data) => {
@@ -95,12 +97,17 @@ module.exports.run = (client, message, args) => {
         var type = parseInt(component[1]);
         var img_link = component[2];
         var question = component[3];
-        if (type === 1) {
+        if (type === 1 || type === 3) {
             var correct_answer = component[4];
             var correct_index
             var answer = [];
-            for (var i = 4; i < component.length; i++) answer.push(component[i]);
-            shuffle(answer);
+            if (type == 1) {
+                for (var i = 4; i < component.length; i++) answer.push(component[i]);
+                shuffle(answer);
+            }
+            if (type == 3) {
+                for (var i = 5; i < component.length; i++) answer.push(component[i]);
+            }
             for (var i = 0; i < answer.length; i++) if (answer[i] == correct_answer) { correct_index = i; break; }
             var answer_string = ""
             for (var i = 0; i < answer.length; i++) answer_string += String.fromCharCode(65+i) + ". " + answer[i] + "\n";
