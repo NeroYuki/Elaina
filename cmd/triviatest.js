@@ -113,7 +113,10 @@ module.exports.run = (client, message, args) => {
             for (var i = 0; i < answer.length; i++) answer_string += String.fromCharCode(65+i) + ". " + answer[i] + "\n";
             var embed = {
                 "description": difficulty + "★ - " + category_name + " Question\n" + question ,
-				"color": 8102199,
+                "color": 8102199,
+                "image" : {
+                    "url" : ""
+                },
 				"author": {
 					"name": "Trivia Question",
 					"icon_url": "https://image.frl/p/beyefgeq5m7tobjg.jpg"
