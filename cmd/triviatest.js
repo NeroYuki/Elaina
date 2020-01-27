@@ -112,7 +112,7 @@ module.exports.run = (client, message, args) => {
             var answer_string = ""
             for (var i = 0; i < answer.length; i++) answer_string += String.fromCharCode(65+i) + ". " + answer[i] + "\n";
             var embed = {
-                "description": difficulty + "★ - " + category_name + " Question" ,
+                "description": difficulty + "★ - " + category_name + " Question\n" + question ,
 				"color": 8102199,
 				"author": {
 					"name": "Trivia Question",
@@ -120,7 +120,7 @@ module.exports.run = (client, message, args) => {
 				},
 				"fields": [
 					{
-						"name": question,
+						"name": "Answers",
 						"value": answer_string
 					}
 				]
