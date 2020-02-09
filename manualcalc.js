@@ -1,6 +1,5 @@
-var http = require('http');
 var droid = require("./ojsamadroid");
-var osu = require("ojsama")
+var osu = require("ojsama");
 var https = require("https");
 var request = require("request")
 require("dotenv").config();
@@ -22,6 +21,18 @@ function rankread(imgsrc) {
 	return rank;
 }
 
+function modenum(mod) {
+	var res = 4;
+	if (mod.includes("HR")) res += 16;
+	if (mod.includes("HD")) res += 8;
+	if (mod.includes("DT")) res += 64;
+	if (mod.includes("NC")) res += 576;
+	if (mod.includes("NF")) res += 1;
+	if (mod.includes("EZ")) res += 2;
+	if (mod.includes("HT")) res += 256;
+	return res;
+}
+
 function mapstatusread(status) {
 	switch (status) {
 		case -2: return 16711711;
@@ -35,21 +46,9 @@ function mapstatusread(status) {
 	}
 }
 
-function modenum(mod) {
-	var res = 4;
-	if (mod.includes("HardRock")) res += 16;
-	if (mod.includes("Hidden")) res += 8;
-	if (mod.includes("DoubleTime")) res += 64;
-	if (mod.includes("NightCore")) res += 576;
-	if (mod.includes("NoFail")) res += 1;
-	if (mod.includes("Easy")) res += 2;
-	if (mod.includes("HalfTime")) res += 256;
-	return res;
-}
+function getMapPP(target, message) {
 
-function getMapPP(input, pcombo, pacc, pmissc, pmod = "", message) {
-
-	var options = new URL("https://osu.ppy.sh/api/get_beatmaps?k=" + apikey + "&h=" + input);
+	var options = new URL("https://osu.ppy.sh/api/get_beatmaps?k=" + apikey + "&b=" + target[0]);
 
 	var content = "";   
 
@@ -63,22 +62,21 @@ function getMapPP(input, pcombo, pacc, pmissc, pmod = "", message) {
 			var obj = JSON.parse(content);
 			if (!obj[0]) {console.log("Map not found"); return;}
 			var mapinfo = obj[0];
-			var mapid = mapinfo.beatmap_id;
 			if (mapinfo.mode !=0) return;
 			//console.log(obj.beatmaps[0])
-			if (pmod) var mods = modenum(pmod)
-			else var mods = 4;
-			if (pacc) var acc_percent = parseFloat(pacc)
+			if (target[4]) var mods = modenum(target[4])
+			else {var mods = 4; target[4] = "";}
+			if (target[2]) var acc_percent = parseFloat(target[2])
 			else var acc_percent = 100;
-			if (pcombo) var combo = parseInt(pcombo)
+			if (target[1]) var combo = parseInt(target[1])
 			else var combo;
-			if (pmissc) var nmiss = parseInt(pmissc)
+			if (target[3]) var nmiss = parseInt(target[3])
 			else var nmiss = 0;
 			var nparser = new droid.parser();
 			var pcparser = new osu.parser();
-			console.log(acc_percent);
+			//console.log(acc_percent);
 			//var url = "https://osu.ppy.sh/osu/1031991";
-			var url = 'https://osu.ppy.sh/osu/' + mapid;
+			var url = 'https://osu.ppy.sh/osu/' + target[0];
 			request(url, function (err, response, data) {
 					nparser.feed(data);
 					pcparser.feed(data);
@@ -91,20 +89,20 @@ function getMapPP(input, pcombo, pacc, pmissc, pmod = "", message) {
 					// if (mods) {
 					// 	console.log("+" + osu.modbits.string(mods));
 					// }
-					if (pmod.includes("HardRock")) {
+					if (target[4].includes("HR")) {
 						mods -= 16; 
 						cur_ar = Math.min(cur_ar*1.4, 10);
 						cur_od = Math.min(cur_od*1.4, 10);
 						cur_cs += 1;
 					}
-					if (pmod.includes("Easy")) {
+					if (target[4].includes("EZ")) {
 						mods -= 2;
 						cur_ar = cur_ar / 2;
 						cur_od = cur_od / 2;
 						cur_cs -= 1
 					}
 					var droidODtoMS = 100
-					if (pmod.includes("Precise")) { 
+					if (target[4].includes("PR")) { 
 						droidODtoMS = 55 + 6 * (5 - cur_od)
 					}
 					else {
@@ -113,12 +111,12 @@ function getMapPP(input, pcombo, pacc, pmissc, pmod = "", message) {
 					cur_od = 5 - (droidODtoMS - 50) / 6
 					cur_cs -= 4
 					nmap.od = cur_od; nmap.ar = cur_ar; nmap.cs = cur_cs;
-                    
+					
                     if (nmap.ncircles == 0 && nmap.nsliders == 0) {
 						console.log(target[0] + ' - Error: no object found'); 
 						return;
                     }
-                    
+					
 					var nstars = new droid.diff().calc({map: nmap, mods: mods});
 					var pcstars = new osu.diff().calc({map: pcmap, mods: pcmods});
 					//console.log(stars.toString());
@@ -138,9 +136,42 @@ function getMapPP(input, pcombo, pacc, pmissc, pmod = "", message) {
 						acc_percent: acc_percent,
 					});
 					
-					nparser.reset()
+					// var object_list = nstars.objects
+					// var diff_elem_array = [];
+					// var strain_array = []
+					// object_list.forEach((x) => {
+					// 	var diff_elem = {
+					// 		strain: parseFloat(x.strains[0].toFixed(4)),
+					// 		angle: (x.angle)? parseFloat((x.angle/(2*Math.PI)*360).toFixed(3)) : 0,
+					// 		spacing: x.delta_time/x.d_distance? parseFloat((x.d_distance/x.delta_time).toFixed(4)) : 0
+					// 	}
+					// 	diff_elem_array.push(diff_elem);
+					// 	strain_array.push(parseFloat(x.strains[0].toFixed(4)))
+					// })
+					
+					// console.table(diff_elem_array)
+					// message.channel.send("Diff spike test")
+					// var strain_max = Math.max(...strain_array)
 
-					if (pmod.includes("HardRock")) { mods += 16 }
+					// var max_30p = 0;
+					// var max_50p = 0;
+					// var max_70p = 0;
+					// var max_90p = 0;
+
+					// strain_array.forEach((x) => {
+					// 	if (x/strain_max >= 0.3) max_30p++;
+					// 	if (x/strain_max >= 0.5) max_50p++;
+					// 	if (x/strain_max >= 0.7) max_70p++;
+					// 	if (x/strain_max >= 0.9) max_90p++;
+					// })
+					
+					// var nx = strain_array.length
+					// var output_test = "```30% strain: " + max_30p/nx + "\n50% strain: " + max_50p/nx + "\n70% strain: " + max_70p/nx + "\n90% strain: " + max_90p/nx + "```"
+					// message.channel.send(output_test) 
+
+					//console.log(object_list);
+					
+					nparser.reset()
                     
 					console.log(nstars.toString());
                     console.log(npp.toString());
@@ -149,8 +180,8 @@ function getMapPP(input, pcombo, pacc, pmissc, pmod = "", message) {
 					var pcstarsline = pcstars.toString().split("(");
 					var pcppline = pcpp.toString().split("(");
 					const embed = {
-						"title": mapinfo.artist + " - " + mapinfo.title + " (" + mapinfo.creator + ") [" + mapinfo.version + "] " + ((mods == 4 && (!pmod.includes("PR")))? " " : "+ ") + osu.modbits.string(mods - 4) + ((pmod.includes("PR")? "PR": "")),
-						"description": "Download: [osu!](https://osu.ppy.sh/beatmapsets/" + mapinfo.beatmapset_id + "/download) ([no video](https://osu.ppy.sh/beatmapsets/" + mapinfo.beatmapset_id + "/download?noVideo=1)) - [Bloodcat](https://bloodcat.com/osu/_data/beatmaps/" + mapinfo.beatmapset_id + ".osz) - [sayobot](https://osu.sayobot.cn/osu.php?s=" + mapinfo.beatmapset_id + ")",
+						"title": mapinfo.artist + " - " + mapinfo.title + " (" + mapinfo.creator + ") [" + mapinfo.version + "] " + target[4] + ((target[4].includes("PR")? "PR": "")),
+						"description": "Download: [osu!](https://osu.ppy.sh/beatmapsets/" + mapinfo.beatmapset_id + "/download) ([no video](https://osu.ppy.sh/beatmapsets/" + mapinfo.beatmapset_id + "/download?noVideo=1)) - [Bloodcat](https://bloodcat.com/osu/_data/beatmaps/" + mapinfo.beatmapset_id + ".osz) - [sayobot](https://osu.sayobot.cn/osu.php?s=" + mapinfo.beatmapset_id + ")" ,
 						"url": "https://osu.ppy.sh/b/" + mapinfo.beatmap_id ,
 						"color": mapstatusread(parseInt(mapinfo.approved)),
 						"footer": {
@@ -171,7 +202,7 @@ function getMapPP(input, pcombo, pacc, pmissc, pmod = "", message) {
 							},
 							{
 								"name": "Last Update: " + mapinfo.last_update,
-								"value": "❤️ " + mapinfo.favourite_count + " - ▶️ " + mapinfo.playcount
+								"value": "Result: " + combo + "x / " + acc_percent + "% / " + nmiss + " miss(es)"  
 							},
 							{
 								"name": "Droid pp (Experimental): __" + ppline[0] + "__ - " + starsline[0] ,
@@ -187,68 +218,25 @@ function getMapPP(input, pcombo, pacc, pmissc, pmod = "", message) {
 }
 
 module.exports.run = (client, message, args) => {
-	let uid = args[0];
-	var options = {
-    	host: "ops.dgsrz.com",
-    	port: 80,
-    	path: "/profile.php?uid="+uid+".html"
-	};
-
-	var content = "";   
-
-	var req = http.request(options, function(res) {
-    	res.setEncoding("utf8");
-    	res.on("data", function (chunk) {
-        	content += chunk;
-    	});
-
-    	res.on("end", function () {
-		const a = content;
-		let b = a.split('\n'), d = []; 
-		let name=""; let title =""; let score=""; let ptime =""; let acc=""; let miss=""; let rank ="";let combo=""; let mod=""; let hash = "";
-		for (x = 0; x < b.length; x++) {
-    	if (b[x].includes('<small>') && b[x - 1].includes('class="block"')) {
-			b[x-1]=b[x-1].replace("<strong class=\"block\">","");
-			b[x-1]=b[x-1].replace("<\/strong>","");
-			b[x]=b[x].replace("<\/small>","");
-			b[x]=b[x].replace("<small>","");
-			b[x+1]=b[x+1].replace('<span id="statics" class="hidden">{"miss":','');
-			b[x+1]=b[x+1].replace('}</span>','')
-			title=b[x-1].trim();
-			b[x]=b[x].trim();
-			var mshs = b[x+1].trim().split(',');
-			miss = mshs[0];
-			hash = mshs[1].split(':')[1];
-			d = b[x].split("/"); ptime = d[0]; score = d[1]; mod = d[2]; combo = d[3]; acc = d[4];
-			b[x-5]=b[x-5].trim();
-			rank=rankread(b[x-5]);
-			break;
-    		}
-		if (b[x].includes('h3 m-t-xs m-b-xs')) {
-			b[x]=b[x].replace('<div class="h3 m-t-xs m-b-xs">',"");
-			b[x]=b[x].replace('<\/div>',"");
-			b[x]=b[x].trim();
-			name = b[x]
-			}
-		}
-		
-		if (title) {getMapPP(hash, combo, acc, miss, mod, message);}
-		
-		const embed = {
-			  "title": title,
-			  "description": "**Score**: `" + score + "` - Combo: `" + combo + "` - Accuracy: `" + acc + "` (`" + miss + "` x )\nMod: `" + mod + "` Time: `" + ptime + "`",
-			  "color": 8311585,
-			  "author": {
-					"name": "Recent Play for "+ name,
-					"icon_url": rank
-			}
-		};
-		message.channel.send({ embed });
-    	});
-	});
-	req.end();
+	var beatmapid;
+	var combo;
+	var acc;
+	var missc;
+	var mod;
+	if (!args[0]) {message.channel.send("Hey at least give me the map :/"); return;}
+	var a = args[0].split("/");
+	beatmapid = a[a.length-1]
+	for (var i = 1; i < args.length; i++) {
+		if (args[i].endsWith("%")) acc = args[i];
+		if (args[i].endsWith("m")) missc = args[i];
+		if (args[i].endsWith("x")) combo = args[i];
+		if (args[i].startsWith("+")) mod = args[i];
+	}
+	console.log(acc);
+	var target = [beatmapid, combo, acc, missc, mod]
+	getMapPP(target, message);
 }
 
 module.exports.help = {
-	name: "recent"
+	name: "manualcalc"
 }
