@@ -85,9 +85,9 @@ function getMapPP(input, pcombo, pacc, pmissc, pmod = "", message) {
 					var pcmods = mods - 4;
 					var nmap = nparser.map;
 					var pcmap = pcparser.map
-					var cur_od = nmap.od - 5;
+					var cur_od = nmap.od;
 					var cur_ar = nmap.ar;
-					var cur_cs = nmap.cs - 4;
+					var cur_cs = nmap.cs;
 					// if (mods) {
 					// 	console.log("+" + osu.modbits.string(mods));
 					// }
@@ -99,7 +99,8 @@ function getMapPP(input, pcombo, pacc, pmissc, pmod = "", message) {
 					}
 
 					if (pmod.includes("PR")) { cur_od += 4; }
-
+					
+					cur_od -= 5; cur_cs -=4
 					nmap.od = cur_od; nmap.ar = cur_ar; nmap.cs = cur_cs;
                     
                     if (nmap.ncircles == 0 && nmap.nsliders == 0) {
