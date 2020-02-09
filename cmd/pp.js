@@ -102,11 +102,21 @@ function getMapPP(input, pcombo, pacc, pmissc, pmod = "", message, objcount, whi
 						cur_od = Math.min(cur_od*1.4, 10);
 						cur_cs += 1;
 					}
-
-					if (pmod.includes("PR")) { cur_od += 4; }
-					
-					//droid stuff
-					cur_od -= 5; cur_cs -= 4
+					if (pmod.includes("Easy")) {
+						mods -= 2;
+						cur_ar = cur_ar / 2;
+						cur_od = cur_od / 2;
+						cur_cs -= 1
+					}
+					var droidODtoMS = 100
+					if (pmod.includes("Precise")) { 
+						droidODtoMS = 55 + 6 * (5 - cur_od)
+					}
+					else {
+						droidODtoMS = 75 + 5 * (5 - cur_od)
+					}
+					cur_od = 5 - (droidODtoMS - 50) / 6
+					cur_cs -= 4
 					nmap.od = cur_od; nmap.ar = cur_ar; nmap.cs = cur_cs;
 					
 					if (nmap.ncircles == 0 && nmap.nsliders == 0) {

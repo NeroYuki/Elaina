@@ -92,16 +92,33 @@ function getMapPP(input, pcombo, pacc, pmissc, pmod = "", message) {
 					// if (mods) {
 					// 	console.log("+" + osu.modbits.string(mods));
 					// }
+					var cur_od = nmap.od;
+					var cur_ar = nmap.ar;
+					var cur_cs = nmap.cs;
+					// if (mods) {
+					// 	console.log("+" + osu.modbits.string(mods));
+					// }
 					if (pmod.includes("HardRock")) {
 						mods -= 16; 
 						cur_ar = Math.min(cur_ar*1.4, 10);
-						cur_od = Math.min(cur_od*1.4, 5);
+						cur_od = Math.min(cur_od*1.4, 10);
 						cur_cs += 1;
 					}
-
-					if (pmod.includes("PR")) { cur_od += 4; }
-					
-					cur_od -= 5; cur_cs -= 4
+					if (pmod.includes("Easy")) {
+						mods -= 2;
+						cur_ar = cur_ar / 2;
+						cur_od = cur_od / 2;
+						cur_cs -= 1
+					}
+					var droidODtoMS = 100
+					if (pmod.includes("Precise")) { 
+						droidODtoMS = 55 + 6 * (5 - cur_od)
+					}
+					else {
+						droidODtoMS = 75 + 5 * (5 - cur_od)
+					}
+					cur_od = 5 - (droidODtoMS - 50) / 6
+					cur_cs -= 4
 					nmap.od = cur_od; nmap.ar = cur_ar; nmap.cs = cur_cs;
                     
                     if (nmap.ncircles == 0 && nmap.nsliders == 0) {
