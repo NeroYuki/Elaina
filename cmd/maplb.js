@@ -47,20 +47,28 @@ async function editlb(hash, cache, page) {
         req_page = Math.floor(parseInt(page) / 10)
         //console.log(page + "-" + req_page)
         //if no longer in page range, load new req_page
-        if (req_page != cache.req_page) {
-            cache.content = await lbcall(hash, req_page)
-            cache.req_page = req_page
+        var cache_index = -1
+        for (var i = 0; i < cache.length; i++) {
+            if (req_page == cache[i].req_page) {cache_index = i; break}
+        }
+        if (cache_index == -1) {
+            var content = await lbcall(hash, req_page)
+            cache.push({
+                req_page: req_page,
+                content: content
+            })
+            cache_index = cache.length - 1
         }
         //process the cache
         //console.log(cache.content)
         var lower_bound = page * 10 - ((req_page) * 100)
         var upper_bound = page * 10 + 10 - ((req_page) * 100)
         for (var i = lower_bound ; i < upper_bound ; i++) {
-            if (cache.content[i]) {
-                var modstringres = modstring(cache.content[i][6])
+            if (cache[cache_index].content[i]) {
+                var modstringres = modstring(cache[cache_index].content[i][6])
                 if (modstringres == " +") modstringres = ""
-                output += spaceFill((req_page * 100 + i + 1).toString(), 3) + " - " + spaceFill(cache.content[i][2], 15) + " - " + spaceFill(cache.content[i][5], 2) + " - " + spaceFill(cache.content[i][3], 10) + "(" + cache.content[i][4] +"x "+ (parseInt(cache.content[i][7])/1000).toFixed(3) +"% "+ cache.content[i][8] +"m" + modstringres + ")\n" 
-                output += (new Date(parseInt(cache.content[i][9]) * 1000)).toUTCString() + "\n"
+                output += spaceFill((req_page * 100 + i + 1).toString(), 3) + " - " + spaceFill(cache[cache_index].content[i][2], 15) + " - " + spaceFill(cache[cache_index].content[i][5], 2) + " - " + spaceFill(cache[cache_index].content[i][3], 10) + "(" + cache[cache_index].content[i][4] +"x "+ (parseInt(cache[cache_index].content[i][7])/1000).toFixed(3) +"% "+ cache[cache_index].content[i][8] +"m" + modstringres + ")\n" 
+                output += (new Date(parseInt(cache[cache_index].content[i][9]) * 1000)).toUTCString() + "\n"
             }
             else break;
         }
@@ -87,10 +95,7 @@ module.exports.run = async (client, message, args) => {
     mapcall(beatmapid, async (hash) => {
         console.log(hash)
         var page = 0;
-        var cache = {
-            req_page: -1,
-            content: []
-        }
+        var cache = []
         let output = await editlb(hash, cache, page);
         message.channel.send('```' + output + '```').then (msg => {
             msg.react("⏮️").then(() => {
@@ -107,7 +112,7 @@ module.exports.run = async (client, message, args) => {
             let forward = msg.createReactionCollector((reaction, user) => reaction.emoji.name === '⏭️' && user.id === message.author.id, {time: 120000});
 
             backward.on('collect', async () => {
-                page = Math.max(1, page - 10);
+                page = Math.max(0, page - 10);
                 output = await editlb(hash, cache, page);
                 msg.edit('```' + output + '```').catch(e => console.log(e));
                 msg.reactions.forEach(reaction => reaction.remove(message.author.id).catch(e => console.log(e)))
