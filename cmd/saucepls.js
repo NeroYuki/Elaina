@@ -3,7 +3,7 @@ var request = require('request')
 
 function saucenaoprocess(data, message) {
     var obj = JSON.parse(data)
-    console.log(JSON.stringify(obj, " "))
+    //console.log(JSON.stringify(obj, " "))
     var status = obj.header.status
     if (status != 0) {
         message.channel.send("Failed to ask SauceNao :(")
