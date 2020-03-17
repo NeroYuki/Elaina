@@ -3,6 +3,7 @@ var request = require('request')
 
 function saucenaoprocess(data, message) {
     var obj = JSON.parse(data)
+    console.log(JSON.stringify(obj, " "))
     var status = obj.header.status
     if (status != 0) {
         message.channel.send("Failed to ask SauceNao :(")
@@ -21,19 +22,22 @@ function saucenaoprocess(data, message) {
 
     var pixiv_info; var pixivFlag = false;
     var danbooru_info; var danbooruFlag = false;
+    var gelbooru_info; var gelbooruFlag = false;
     var thumbnail
     var title
     var artist
     var pixivLink
     var danbooruLink
+    var gelbooruLink
     var material
     var characters
 
     for (var i in result) {
         if (pixivFlag && danbooruFlag) break;
-        thumbnail = result[i].header.thumbnail
-        if (result[i].header.index_id == 5) { pixiv_info = result[i].data; pixivFlag = true; }
-        else if (result[i].header.index_id == 9) { danbooru_info = result[i].data; danbooruFlag = true; }
+        if (!thumbnail && result[i].header.similarity > 80) thumbnail = result[i].header.thumbnail
+        if (result[i].header.index_id == 5 && result[i].header.similarity > 80) { pixiv_info = result[i].data; pixivFlag = true; }
+        else if (result[i].header.index_id == 9 && result[i].header.similarity > 80) { danbooru_info = result[i].data; danbooruFlag = true; }
+        else if (result[i].header.index_id == 25 && result[i].header.similarity > 80) { gelbooru_info = result[i].data; gelbooruFlag = true; }
     }
     // console.log(thumbnail)
     // console.log(pixiv_info)
@@ -51,14 +55,20 @@ function saucenaoprocess(data, message) {
         danbooruLink = danbooru_info.ext_urls[0]
     }
 
+    if (gelbooruFlag) {
+        gelbooruLink = gelbooru_info.ext_urls[0]
+    }
+
     if (!thumbnail) {
         message.channel.send("Can't find the sauce")
         return
     }
 
+    var mirrorLink = ((danbooruLink)? "[danbooru](" + danbooruLink + ")\n" : "") + ((gelbooruLink)? "[gelbooru](" + gelbooruLink + ")" : "")
+
     const embed = {
         "title": (title)? title : "Unknown" ,
-        "description": (danbooruLink)? "Mirror: [danbooru](" + danbooruLink + ")" : "No Mirror",
+        "description": "Mirror:\n" + (mirrorLink ? mirrorLink : "Unknown"),
         "url": (pixivLink)? pixivLink : "",
         "color": 3270124,
         "thumbnail": {
@@ -89,7 +99,7 @@ module.exports.run = (client, message, args) => {
             x.attachments.forEach((ax) => {
                 if (ax.url.endsWith(".jpg") || ax.url.endsWith(".png")) {
                     //console.log("Found image attachment")
-                    var url = "https://saucenao.com/search.php?db=999&output_type=2&dbmask=544&testmode=1&api_key=" + saucekey + "&url=" + ax.url
+                    var url = "https://saucenao.com/search.php?db=999&output_type=2&minimum_similarity=80&dbmask=16777760&testmode=1&api_key=" + saucekey + "&url=" + ax.url
                     request(url, function (err, response, data) {
                         if (err) throw err;
                         //console.log(response)
