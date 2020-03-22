@@ -1619,7 +1619,7 @@ std_ppv2.prototype.calc = function(params) {
   // }
 
   var miss_penality = Math.pow(0.97, nmiss);
-  var combo_break = Math.pow(combo, 0.8) / Math.pow(max_combo, 0.8);
+  var combo_break = Math.min(Math.pow(combo, 0.8) / Math.pow(max_combo, 0.8), 1.0);
   var mapstats = (
     new std_beatmap_stats({ar: base_ar, od: base_od}).with_mods(mods)
   );
