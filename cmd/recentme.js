@@ -122,7 +122,7 @@ function getMapPP(input, pcombo, pacc, pmissc, pmod = "", message) {
 					nmap.od = cur_od; nmap.ar = cur_ar; nmap.cs = cur_cs;
                     
                     if (nmap.ncircles == 0 && nmap.nsliders == 0) {
-						console.log(target[0] + ' - Error: no object found'); 
+						console.log('Error: no object found'); 
 						return;
                     }
                     
