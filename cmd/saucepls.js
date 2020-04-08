@@ -97,7 +97,7 @@ module.exports.run = (client, message, args) => {
             if (foundFlag) return;
             if (x.attachments.length == 0) return;
             x.attachments.forEach((ax) => {
-                if (ax.url.endsWith(".jpg") || ax.url.endsWith(".png")) {
+                if (ax.url.endsWith(".jpg") || ax.url.endsWith(".png") || ax.url.endsWith(".jpeg")) {
                     //console.log("Found image attachment")
                     var url = "https://saucenao.com/search.php?db=999&output_type=2&minimum_similarity=80&dbmask=16777760&testmode=1&api_key=" + saucekey + "&url=" + ax.url
                     request(url, function (err, response, data) {
