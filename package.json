@@ -12,6 +12,9 @@
   ],
   "author": "NeroYuki",
   "license": "MIT",
+  "engines": {
+    "node": "10.7.x"
+  }
   "dependencies": {
     "discord.js": "^11.3.2",
     "dotenv": "^6.0.0",
