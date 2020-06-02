@@ -76,6 +76,7 @@ module.exports.run = (client, message, args, maindb) => {
                             previous_bind.push(uid);
                             let updateVal = {
                                 $set: {
+                                    username: name,
                                     uid: uid,
                                     previous_bind: previous_bind
                                 }
@@ -113,6 +114,7 @@ module.exports.run = (client, message, args, maindb) => {
                 if (res.discordid !== message.author.id) return message.channel.send("That uid has been previously binded by someone else");
                 let updateVal = {
                     $set: {
+                        username: name,
                         uid: uid
                     }
                 };
