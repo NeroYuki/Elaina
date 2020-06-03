@@ -73,6 +73,7 @@ module.exports.run = (client, message, args, maindb) => {
                         if (err) throw err;
                         if (bindres) {
                             let previous_bind = bindres.previous_bind;
+                            if (previous_bind.length >= 2) return message.channel.send("You have reached the limit of 2 binded accounts");
                             previous_bind.push(uid);
                             let updateVal = {
                                 $set: {
